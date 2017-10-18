@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="beauty_ssm" />
+        <module name="bosom-friend" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="beauty_ssm" target="1.7" />
+      <module name="bosom-friend" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

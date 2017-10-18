@@ -11,7 +11,8 @@
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/jquery.nav.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/jquery.easing.1.3.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/jquery.isotope.js"></script>
-    <script src="${baseurl}/resource/public/indexStyle/js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="${baseurl}/resource/public/indexStyle/js/fancybox/jquery.fancybox.pack.js"
+            type="text/javascript"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/wow.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/custom.js"></script>
     <link rel="icon" href="favicon.png" type="image/png">
@@ -27,6 +28,11 @@
     <script src="/resource/public/indexStyle/js/html5shiv.js"></script>
     <script src="/resource/public/indexStyle/js/html5element.js"></script>
     <![endif]-->
+
+    <%--引入相关jsp文件--%>
+    <%@include file="post/post.jsp" %>
+    <%@include file="improveTheInformation/improveTheInformation.jsp" %>
+    <%@include file="leaveMessage/leaveMessage.jsp" %>
 
 </head>
 <body>
@@ -93,7 +99,9 @@
                     <div class="service_block">
 
                         <h3 class="animated fadeInUp wow">
-                            <button type="button" class="btn btn-lg btn-default" data-toggle="popover" title="展示与众不同的你">发布帖子</button>
+                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal"
+                                    data-target="#post_a_post" data-whatever="@mdo" title="展示与众不同的你">发布帖子
+                            </button>
                         </h3>
                         <p class="animated fadeInDown wow">展示你的个性，秀出你的生活。让更多的异性关注你。 </p>
                     </div>
@@ -102,7 +110,11 @@
                     <div class="service_icon icon2  delay-03s animated wow zoomIn"><span><i
                             class="fa fa-bank"></i></span></div>
                     <div class="service_block">
-                        <h3 class="animated fadeInUp wow">完善信息</h3>
+                        <h3 class="animated fadeInUp wow">
+                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal"
+                                    data-target="#improveTheInformation" data-whatever="@mdo" title="完善信息，开启精彩之旅！">完善信息
+                            </button>
+                        </h3>
                         <p class="animated fadeInDown wow">添加你的性格特点，上传你的个性图片。寻找更适合你的异性。 </p>
                     </div>
                 </div>
@@ -110,8 +122,11 @@
                     <div class="service_icon icon3  delay-03s animated wow zoomIn"><span><i
                             class="fa fa-apple"></i></span></div>
                     <div class="service_block">
-
-                        <h3 class="animated fadeInUp wow">给我们留言</h3>
+                        <h3 class="animated fadeInUp wow">
+                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal"
+                                    data-target="#leaveMessage" data-whatever="@mdo" title="尽最大的努力，来解决你的问题！">给我们留言
+                            </button>
+                        </h3>
                         <p class="animated fadeInDown wow">如果你遇到了生活上的问题，可以给我们留言，我们会尽最大的努力帮助你。 </p>
                     </div>
                 </div>
@@ -485,12 +500,6 @@
         </div>
     </div>
 </footer>
-
-<script type="text/javascript">
-    $(function () {
-        $('[data-toggle="popover"]').popover('show');
-    })
-</script>
 
 </body>
 </html>
