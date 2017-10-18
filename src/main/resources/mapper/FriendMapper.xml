@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fb.dao.FriendDao">
+    <!-- Friend的resultMap,column是给数据库列起的别名,它对应property类的属性-->
+    <resultMap id="result_Friend_Map" type="com.fb.entity.Friend">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="friend_id" property="friendId" />
+    </resultMap>
+
+	   <!-- Assist用于辅助工具类setRequires设置的条件,${req.require}表示列名,#{req.value}表示值它是防SQL注入的 -->
+    <sql id="Assist">
+        <where>
+            <foreach collection="require" item="req" separator=" ">
+                ${req.require} #{req.value} <if test="req.suffix != null"> ${req.suffix}</if>
+            </foreach>
+        </where>
+    </sql>
+
+	   <!-- updateAssist用于更新数据的使用它拓展自Assist,用于辅助工具类setRequires设置的条件,${req.require}表示列名,#{req.value}表示值它是防SQL注入的 -->
+    <sql id="updateAssist">
+        <where>
+            <foreach collection="assist.require" item="req" separator=" ">
+                ${req.require} #{req.value} <if test="req.suffix != null"> ${req.suffix}</if>
+            </foreach>
+        </where>
+    </sql>
+
+    <!-- 数据库中表名为:bf_friend的列名,as前是数据库的列明,as后是列的别名用于映射成实体类中的属性,需要注意的是别名必须与resultMap中的column别名一致 -->
+    <sql id="bf_friend_Column">
+        bf_friend.id as id
+        ,bf_friend.user_id as user_id
+        ,bf_friend.friend_id as friend_id
+    </sql>
+
+    <!--获得类名为:Friend对应的数据库表的数据总行数 -->
+    <select id="getFriendRowCount" parameterType="com.fb.common.Assist" resultType="java.lang.Long">
+        select count(id) from bf_friend
+        <if test="require!=null"><include refid="Assist" /></if>
+    </select>
+    <!-- 获得类名为:Friend对应数据库中表的数据集合 -->
+    <select id="selectFriend" parameterType="com.fb.common.Assist" resultMap="result_Friend_Map">
+        select  <if test="distinct !=null">${distinct}</if>
+        <choose>
+            <when test="resultColumn!=null">${resultColumn}</when>
+            <otherwise>
+        <include refid="bf_friend_Column" /> 
+            </otherwise>
+        </choose>
+        from bf_friend
+        <choose>
+            <when test="rowSize ==null">
+                <if test="require!=null">
+                    <include refid="Assist" />
+                </if>
+                <if test="order !=null">${order}</if>
+            </when>
+            <otherwise>
+                inner join
+                (
+                SELECT id as primary_key FROM bf_friend
+                <if test="require!=null">
+                    <include refid="Assist" />
+                </if>
+                <if test="order !=null">${order}</if>
+                <choose>
+                    <when test="startRow !=null and rowSize !=null">LIMIT #{startRow},#{rowSize} </when>
+                    <when test="rowSize !=null">LIMIT #{rowSize}</when>
+                 </choose>
+                 ) as tmp
+                 on tmp.primary_key=bf_friend.id
+            </otherwise>
+        </choose>
+    </select> 
+
+    <!-- 获得一个Friend对象,以参数Friend对象中不为空的属性作为条件进行查询-->
+    <select id="selectFriendByObj" parameterType="com.fb.entity.Friend" resultMap="result_Friend_Map">
+        select 
+            <include refid="bf_friend_Column" /> 
+        from bf_friend
+        <where>
+            <if test="friendId != null "> and bf_friend.friend_id = #{friendId}</if>
+            <if test="userId != null "> and bf_friend.user_id = #{userId}</if>
+            <if test="id != null "> and bf_friend.id = #{id}</if>
+        </where>
+    </select> 
+
+    <!-- 通过Friend的id获得对应数据库中表的数据对象-->
+    <select id="selectFriendById" parameterType="java.lang.Integer" resultMap="result_Friend_Map">
+        select 
+            <include refid="bf_friend_Column" /> 
+        from bf_friend
+        where bf_friend.id = #{id}
+    </select> 
+
+    <!-- 将Friend插入到对应数据库的表中,包括属性值为null的数据-->
+
+    <insert id="insertFriend" parameterType="com.fb.entity.Friend">
+        insert into bf_friend(id,user_id,friend_id) 
+        values(#{id},#{userId},#{friendId})
+    </insert>
+
+    <!-- 将Friend中属性值不为null的数据,插入到对应数据库的表中-->
+    <insert id="insertNonEmptyFriend" parameterType="com.fb.entity.Friend">
+        insert into bf_friend
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="friendId != null">friend_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null"> #{id},</if>
+            <if test="userId != null"> #{userId},</if>
+            <if test="friendId != null"> #{friendId},</if>
+        </trim>
+    </insert>
+
+    <!-- 通过Friend的id将数据库表中对应的数据删除-->
+    <delete id="deleteFriendById" parameterType="java.lang.Integer">
+        delete from bf_friend
+        where id = #{id}
+    </delete>
+
+    <!-- 通过辅助工具Assist中的条件将Friend对应的数据库表的数据删除-->
+    <delete id="deleteFriend" parameterType="com.fb.common.Assist">
+        delete from bf_friend
+        <if test="require!=null"><include refid="Assist" /></if>
+    </delete>
+
+    <!-- 通过Friend的id将Friend的数据更新到数据库中对应的表,包括值null的数据-->
+    <update id="updateFriendById" parameterType="com.fb.entity.Friend">
+        update bf_friend set
+            user_id=#{userId}
+            ,friend_id=#{friendId}
+        where id=#{id}
+    </update>
+
+    <!-- 通过Friend的id将Friend中属性值不为null的数据更新到数据库对应的表中-->
+    <update id="updateNonEmptyFriendById" parameterType="com.fb.entity.Friend">
+        update bf_friend
+        <set>
+            <if test="userId != null">
+                user_id=#{userId},
+            </if>
+            <if test="friendId != null">
+                friend_id=#{friendId},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <!-- 通过辅助工具Assist中的条件将Friend中的数据更新到数据库对应的表中,包括值为null的数据-->
+    <update id="updateFriend" parameterType="map">
+        update bf_friend
+        <set>
+                id=#{enti.id},
+                user_id=#{enti.userId},
+                friend_id=#{enti.friendId},
+        </set>
+        <if test="assist.require!=null"><include refid="updateAssist" /></if>
+    </update>
+
+    <!-- 通过辅助工具Assist中的条件将Friend中属性值不为null的数据更新到数据库对应的表中-->
+    <update id="updateNonEmptyFriend" parameterType="map">
+        update bf_friend
+        <set>
+            <if test="enti.id != null">
+                id=#{enti.id},
+            </if>
+            <if test="enti.userId != null">
+                user_id=#{enti.userId},
+            </if>
+            <if test="enti.friendId != null">
+                friend_id=#{enti.friendId},
+            </if>
+        </set>
+        <if test="assist.require!=null"><include refid="updateAssist" /></if>
+    </update>
+
+</mapper>

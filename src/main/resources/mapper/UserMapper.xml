@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fb.dao.UserDao">
+    <!-- User的resultMap,column是给数据库列起的别名,它对应property类的属性-->
+    <resultMap id="result_User_Map" type="com.fb.entity.User">
+        <id column="id" property="id" />
+        <result column="user_count" property="userCount" />
+        <result column="user_name" property="userName" />
+        <result column="user_pass" property="userPass" />
+        <result column="phone" property="phone" />
+        <result column="sex" property="sex" />
+        <result column="birthday" property="birthday" />
+        <result column="job" property="job" />
+    </resultMap>
+
+	   <!-- Assist用于辅助工具类setRequires设置的条件,${req.require}表示列名,#{req.value}表示值它是防SQL注入的 -->
+    <sql id="Assist">
+        <where>
+            <foreach collection="require" item="req" separator=" ">
+                ${req.require} #{req.value} <if test="req.suffix != null"> ${req.suffix}</if>
+            </foreach>
+        </where>
+    </sql>
+
+	   <!-- updateAssist用于更新数据的使用它拓展自Assist,用于辅助工具类setRequires设置的条件,${req.require}表示列名,#{req.value}表示值它是防SQL注入的 -->
+    <sql id="updateAssist">
+        <where>
+            <foreach collection="assist.require" item="req" separator=" ">
+                ${req.require} #{req.value} <if test="req.suffix != null"> ${req.suffix}</if>
+            </foreach>
+        </where>
+    </sql>
+
+    <!-- 数据库中表名为:bf_user的列名,as前是数据库的列明,as后是列的别名用于映射成实体类中的属性,需要注意的是别名必须与resultMap中的column别名一致 -->
+    <sql id="bf_user_Column">
+        bf_user.id as id
+        ,bf_user.user_count as user_count
+        ,bf_user.user_name as user_name
+        ,bf_user.user_pass as user_pass
+        ,bf_user.phone as phone
+        ,bf_user.sex as sex
+        ,bf_user.birthday as birthday
+        ,bf_user.job as job
+    </sql>
+
+    <!--获得类名为:User对应的数据库表的数据总行数 -->
+    <select id="getUserRowCount" parameterType="com.fb.common.Assist" resultType="java.lang.Long">
+        select count(id) from bf_user
+        <if test="require!=null"><include refid="Assist" /></if>
+    </select>
+    <!-- 获得类名为:User对应数据库中表的数据集合 -->
+    <select id="selectUser1" parameterType="com.fb.common.Assist" resultMap="result_User_Map">
+        select  <if test="distinct !=null">${distinct}</if>
+        <choose>
+            <when test="resultColumn!=null">${resultColumn}</when>
+            <otherwise>
+        <include refid="bf_user_Column" /> 
+            </otherwise>
+        </choose>
+        from bf_user
+        <choose>
+            <when test="rowSize ==null">
+                <if test="require!=null">
+                    <include refid="Assist" />
+                </if>
+                <if test="order !=null">${order}</if>
+            </when>
+            <otherwise>
+                inner join
+                (
+                SELECT id as primary_key FROM bf_user
+                <if test="require!=null">
+                    <include refid="Assist" />
+                </if>
+                <if test="order !=null">${order}</if>
+                <choose>
+                    <when test="startRow !=null and rowSize !=null">LIMIT #{startRow},#{rowSize} </when>
+                    <when test="rowSize !=null">LIMIT #{rowSize}</when>
+                 </choose>
+                 ) as tmp
+                 on tmp.primary_key=bf_user.id
+            </otherwise>
+        </choose>
+    </select> 
+
+    <!--根据用户名及密码查询该用户-->
+    <select id="selectUser" parameterType="com.fb.entity.User" resultType="com.fb.entity.User">
+        select * from bf_user WHERE user_name = #{userName} AND user_pass = #{userPass};
+    </select>
+
+    <!-- 获得一个User对象,以参数User对象中不为空的属性作为条件进行查询-->
+    <select id="selectUserByObj" parameterType="com.fb.entity.User" resultMap="result_User_Map">
+        select 
+            <include refid="bf_user_Column" /> 
+        from bf_user
+        <where>
+            <if test="job != null "> and bf_user.job = #{job}</if>
+            <if test="birthday != null "> and bf_user.birthday = #{birthday}</if>
+            <if test="sex != null "> and bf_user.sex = #{sex}</if>
+            <if test="phone != null "> and bf_user.phone = #{phone}</if>
+            <if test="userPass != null "> and bf_user.user_pass = #{userPass}</if>
+            <if test="userName != null "> and bf_user.user_name = #{userName}</if>
+            <if test="userCount != null "> and bf_user.user_count = #{userCount}</if>
+            <if test="id != null "> and bf_user.id = #{id}</if>
+        </where>
+    </select> 
+
+    <!-- 通过User的id获得对应数据库中表的数据对象-->
+    <select id="selectUserById" parameterType="java.lang.Integer" resultMap="result_User_Map">
+        select 
+            <include refid="bf_user_Column" /> 
+        from bf_user
+        where bf_user.id = #{id}
+    </select> 
+
+    <!-- 将User插入到对应数据库的表中,包括属性值为null的数据-->
+
+    <insert id="insertUser" parameterType="com.fb.entity.User">
+        insert into bf_user(id,user_count,user_name,user_pass,phone,sex,birthday,job) 
+        values(#{id},#{userCount},#{userName},#{userPass},#{phone},#{sex},#{birthday},#{job})
+    </insert>
+
+    <!-- 将User中属性值不为null的数据,插入到对应数据库的表中-->
+    <insert id="insertNonEmptyUser" parameterType="com.fb.entity.User">
+        insert into bf_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="userCount != null">user_count,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="userPass != null">user_pass,</if>
+            <if test="phone != null">phone,</if>
+            <if test="sex != null">sex,</if>
+            <if test="birthday != null">birthday,</if>
+            <if test="job != null">job,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null"> #{id},</if>
+            <if test="userCount != null"> #{userCount},</if>
+            <if test="userName != null"> #{userName},</if>
+            <if test="userPass != null"> #{userPass},</if>
+            <if test="phone != null"> #{phone},</if>
+            <if test="sex != null"> #{sex},</if>
+            <if test="birthday != null"> #{birthday},</if>
+            <if test="job != null"> #{job},</if>
+        </trim>
+    </insert>
+
+    <!-- 通过User的id将数据库表中对应的数据删除-->
+    <delete id="deleteUserById" parameterType="java.lang.Integer">
+        delete from bf_user
+        where id = #{id}
+    </delete>
+
+    <!-- 通过辅助工具Assist中的条件将User对应的数据库表的数据删除-->
+    <delete id="deleteUser" parameterType="com.fb.common.Assist">
+        delete from bf_user
+        <if test="require!=null"><include refid="Assist" /></if>
+    </delete>
+
+    <!-- 通过User的id将User的数据更新到数据库中对应的表,包括值null的数据-->
+    <update id="updateUserById" parameterType="com.fb.entity.User">
+        update bf_user set
+            user_count=#{userCount}
+            ,user_name=#{userName}
+            ,user_pass=#{userPass}
+            ,phone=#{phone}
+            ,sex=#{sex}
+            ,birthday=#{birthday}
+            ,job=#{job}
+        where id=#{id}
+    </update>
+
+    <!-- 通过User的id将User中属性值不为null的数据更新到数据库对应的表中-->
+    <update id="updateNonEmptyUserById" parameterType="com.fb.entity.User">
+        update bf_user
+        <set>
+            <if test="userCount != null">
+                user_count=#{userCount},
+            </if>
+            <if test="userName != null">
+                user_name=#{userName},
+            </if>
+            <if test="userPass != null">
+                user_pass=#{userPass},
+            </if>
+            <if test="phone != null">
+                phone=#{phone},
+            </if>
+            <if test="sex != null">
+                sex=#{sex},
+            </if>
+            <if test="birthday != null">
+                birthday=#{birthday},
+            </if>
+            <if test="job != null">
+                job=#{job},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <!-- 通过辅助工具Assist中的条件将User中的数据更新到数据库对应的表中,包括值为null的数据-->
+    <update id="updateUser" parameterType="map">
+        update bf_user
+        <set>
+                id=#{enti.id},
+                user_count=#{enti.userCount},
+                user_name=#{enti.userName},
+                user_pass=#{enti.userPass},
+                phone=#{enti.phone},
+                sex=#{enti.sex},
+                birthday=#{enti.birthday},
+                job=#{enti.job},
+        </set>
+        <if test="assist.require!=null"><include refid="updateAssist" /></if>
+    </update>
+
+    <!-- 通过辅助工具Assist中的条件将User中属性值不为null的数据更新到数据库对应的表中-->
+    <update id="updateNonEmptyUser" parameterType="map">
+        update bf_user
+        <set>
+            <if test="enti.id != null">
+                id=#{enti.id},
+            </if>
+            <if test="enti.userCount != null">
+                user_count=#{enti.userCount},
+            </if>
+            <if test="enti.userName != null">
+                user_name=#{enti.userName},
+            </if>
+            <if test="enti.userPass != null">
+                user_pass=#{enti.userPass},
+            </if>
+            <if test="enti.phone != null">
+                phone=#{enti.phone},
+            </if>
+            <if test="enti.sex != null">
+                sex=#{enti.sex},
+            </if>
+            <if test="enti.birthday != null">
+                birthday=#{enti.birthday},
+            </if>
+            <if test="enti.job != null">
+                job=#{enti.job},
+            </if>
+        </set>
+        <if test="assist.require!=null"><include refid="updateAssist" /></if>
+    </update>
+
+</mapper>
