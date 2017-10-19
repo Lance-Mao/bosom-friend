@@ -32,11 +32,9 @@
     <%--bootstrap文件上传--%>
     <%--fileinput 样式,核心文件之一--%>
     <link type="text/css" href="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/css/fileinput.css">
-    <link type="text/css" href="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/fileinput.min.css">
     <%--<link type="text/css" href="${baseurl}/resource/public/bootstrap-3.3.7-dist/css/bootstrap.min.css">--%>
     <%--fileinput.js 核心文件之一--%>
     <script type="text/javascript" src="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/js/fileinput.js"></script>
-    <script type="text/javascript" src="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/fileinput.min.js"></script>
     <%--<script type="text/javascript" src="${baseurl}/resource/public/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>--%>
      <%--语言包，可选，但是中文情况下请引入--%>
     <script src="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/js/locales/zh.js" type="text/javascript"></script>
@@ -45,6 +43,10 @@
     <%@include file="post/post.jsp" %>
     <%@include file="improveTheInformation/improveTheInformation.jsp" %>
     <%@include file="leaveMessage/leaveMessage.jsp" %>
+
+    <%--引入layui--%>
+    <%--<link rel="stylesheet" href="${baseurl}/resource/public/layui/css/layui.css" type="text/css">--%>
+    <%--<script src="${baseurl}/resource/public/layui/layui.js" type="text/javascript"></script>--%>
 
     <%--bootstrap复选框美化插件--%>
     <link href="${baseurl}/resource/public/bootstrap-3.3.7-dist/css/awesome-bootstrap-checkbox.css" rel="stylesheet" type="text/css">
