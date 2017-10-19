@@ -1,10 +1,3 @@
-/*
-Author URI: http://webthemez.com/
-Note: 
-Licence under Creative Commons Attribution 3.0 
-Do not remove the back-link in this web template 
--------------------------------------------------------*/
-
 $(window).load(function() {
     jQuery('#all').click();
     return false;
@@ -95,7 +88,7 @@ $(document).ready(function() {
 
         return columnNumb;
     }
-	
+
     function setColumns() {
         var winWidth = $(window).width(),
             columnNumb = splitColumns(),
@@ -122,8 +115,7 @@ $(document).ready(function() {
         setProjects();
     });
 
-   $(".fancybox").fancybox();
-
+    $(".fancybox").fancybox();
 });
 
 wow = new WOW({
@@ -139,4 +131,3 @@ document.getElementById('').onclick = function() {
     section.className = 'wow lightSpeedIn';
     this.parentNode.insertBefore(section, this);
 };
-

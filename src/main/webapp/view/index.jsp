@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, maximum-scale=1">
     <title>Home</title>
-    <script type="text/javascript" src="${baseurl}/resource/public/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="${baseurl}/resource/public/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/jquery-scrolltofixed.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/jquery.nav.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/jquery.easing.1.3.js"></script>
@@ -29,10 +29,25 @@
     <script src="/resource/public/indexStyle/js/html5element.js"></script>
     <![endif]-->
 
+    <%--bootstrap文件上传--%>
+    <%--fileinput 样式,核心文件之一--%>
+    <link type="text/css" href="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/css/fileinput.css">
+    <link type="text/css" href="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/fileinput.min.css">
+    <%--<link type="text/css" href="${baseurl}/resource/public/bootstrap-3.3.7-dist/css/bootstrap.min.css">--%>
+    <%--fileinput.js 核心文件之一--%>
+    <script type="text/javascript" src="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/js/fileinput.js"></script>
+    <script type="text/javascript" src="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/fileinput.min.js"></script>
+    <%--<script type="text/javascript" src="${baseurl}/resource/public/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>--%>
+     <%--语言包，可选，但是中文情况下请引入--%>
+    <script src="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/js/locales/zh.js" type="text/javascript"></script>
+
     <%--引入相关jsp文件--%>
     <%@include file="post/post.jsp" %>
     <%@include file="improveTheInformation/improveTheInformation.jsp" %>
     <%@include file="leaveMessage/leaveMessage.jsp" %>
+
+    <%--bootstrap复选框美化插件--%>
+    <link href="${baseurl}/resource/public/bootstrap-3.3.7-dist/css/awesome-bootstrap-checkbox.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
@@ -99,7 +114,7 @@
                     <div class="service_block">
 
                         <h3 class="animated fadeInUp wow">
-                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal"
+                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal" id="buttonOfPost"
                                     data-target="#post_a_post" data-whatever="@mdo" title="展示与众不同的你">发布帖子
                             </button>
                         </h3>
@@ -135,7 +150,11 @@
                             class="fa fa-heart"></i></span></div>
                     <div class="service_block">
 
-                        <h3 class="animated fadeInUp wow">搜索你的另一半</h3>
+                        <h3 class="animated fadeInUp wow">
+                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal"
+                                    data-target="#demo1" data-whatever="@mdo" title="尽最大的努力，来解决你的问题！">搜索你的另一半
+                            </button>
+                        </h3>
                         <p class="animated fadeInDown wow">点击此处搜索你心目中的另一半。</p>
                     </div>
                 </div>
