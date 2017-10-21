@@ -40,6 +40,11 @@
         input.labelauty + label {
             font: 12px "Microsoft Yahei";
         }
+        input[type="checkbox"] + label {
+            cursor: pointer;
+            width: 105px;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -50,7 +55,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title" id="exampleModalLabel">新的帖子</h4>
+                <h4 class="modal-title" id="exampleModalLabel">发布新帖</h4>
             </div>
             <div class="modal-body">
                 <div>
@@ -60,7 +65,7 @@
                     </div>
                     <div class="form-group">
                         <label for="post_message-text" class="control-label">你的故事</label>
-                        <textarea class="form-control" id="post_message-text"></textarea>
+                        <textarea class="form-control" id="post_message-text" style="height: 250px"></textarea>
                     </div>
                     <%--<div class="form-group">
                         <label class="control-label">选择你的性格特点</label>
@@ -123,17 +128,25 @@
                             </div>
                         </div>
                     </div>--%>
-                    <div>
-                        <h3>您擅长的技能（复选框）</h3>
+                    <div class="form-group">
+                        <label for="post_message-text" class="control-label">选择你的兴趣爱好或是性格特点（多选）</label>
                             <div class="center" style="width: 467px;">
-                                <input type="checkbox" id="checkbox-7-1" /><label for="checkbox-7-1"><span>AGREE</span></label>
-                                <input type="checkbox" id="checkbox-7-2" /><label for="checkbox-7-2"><span>BUY</span></label>
-                                <input type="checkbox" id="checkbox-7-3" checked /><label for="checkbox-7-3"><span>SELL</span></label>
-                                <input type="checkbox" id="checkbox-7-4" /><label for="checkbox-7-4"><span>OKAY</span></label>
+                                <input type="checkbox" name="steady" id="checkbox-7-1" /><label for="checkbox-7-1"><span>稳重</span></label>
+                                <input type="checkbox" name="romantic" id="checkbox-7-2" /><label for="checkbox-7-2"><span>浪漫</span></label>
+                                <input type="checkbox" name="live_waves_cute" id="checkbox-7-3" /><label for="checkbox-7-3"><span>活泼可爱</span></label>
+                                <input type="checkbox" name="humor" id="checkbox-7-4" /><label for="checkbox-7-4"><span>幽默</span></label>
+                                <input type="checkbox" name="free" id="checkbox-7-5" /><label for="checkbox-7-5"><span>自由</span></label>
+                                <input type="checkbox" name="clever" id="checkbox-7-6" /><label for="checkbox-7-6"><span>聪明</span></label>
+                                <input type="checkbox" name="serious" id="checkbox-7-7" /><label for="checkbox-7-7"><span>认真</span></label>
+                                <input type="checkbox" name="simple" id="checkbox-7-8" /><label for="checkbox-7-8"><span>简单</span></label>
+                                <input type="checkbox" name="game" id="checkbox-7-9" /><label for="checkbox-7-9"><span>游戏</span></label>
+                                <input type="checkbox" name="music" id="checkbox-7-10" /><label for="checkbox-7-10"><span>音乐</span></label>
+                                <input type="checkbox" name="sport" id="checkbox-7-11" /><label for="checkbox-7-11"><span>运动</span></label>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="post_message-text" class="control-label">上传图片</label>
                         <div id="fileUploadContent" class="fileUploadContent"></div>
 
                         <%--<button onclick="testUpload()">提交</button>--%>

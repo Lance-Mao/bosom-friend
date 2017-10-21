@@ -555,6 +555,72 @@ input[id^="checkbox-2-"] + label {
 	width: 100%;
 	height: 100%;
 }
+#checkbox-7-5 + label:before {
+	width: 0;
+	height: 100%;
+	left: auto;
+	right: 0;
+}
+#checkbox-7-5:checked + label:before {
+	width: 100%;
+	height: 100%;
+}
+#checkbox-7-6 + label:before {
+	width: 100%;
+	height: 0;
+	bottom: 0;
+	top: auto;
+}
+#checkbox-7-6:checked + label:before {
+	width: 100%;
+	height: 100%;
+}
+#checkbox-7-7 + label:before {
+	width: 100%;
+	height: 0;
+}
+#checkbox-7-7:checked + label:before {
+	width: 100%;
+	height: 100%;
+}
+#checkbox-7-8 + label:before {
+	width: 100%;
+	height: 0;
+	bottom: 0;
+	top: auto;
+}
+#checkbox-7-8:checked + label:before {
+	width: 100%;
+	height: 100%;
+}
+#checkbox-7-9 + label:before {
+	width: 0;
+	height: 100%;
+	left: auto;
+	right: 0;
+}
+#checkbox-7-9:checked + label:before {
+	width: 100%;
+	height: 100%;
+}
+#checkbox-7-10 + label:before {
+	width: 100%;
+	height: 0;
+}
+#checkbox-7-10:checked + label:before {
+	width: 100%;
+	height: 100%;
+}
+#checkbox-7-11 + label:before {
+	width: 0;
+	height: 100%;
+	left: auto;
+	right: 0;
+}
+#checkbox-7-11:checked + label:before {
+	width: 100%;
+	height: 100%;
+}
 
 
 /* ==================================================================== */
