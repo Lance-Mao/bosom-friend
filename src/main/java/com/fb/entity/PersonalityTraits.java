@@ -12,10 +12,11 @@ public class PersonalityTraits {
     private String game;
     private String music;
     private String sport;
+    private Integer postId;
     public PersonalityTraits() {
         super();
     }
-    public PersonalityTraits(Integer id,String steady,String romantic,String liveWavesCute,String humor,String free,String clever,String serious,String simple,String game,String music,String sport) {
+    public PersonalityTraits(Integer id,String steady,String romantic,String liveWavesCute,String humor,String free,String clever,String serious,String simple,String game,String music,String sport,Integer postId) {
         super();
         this.id = id;
         this.steady = steady;
@@ -29,6 +30,7 @@ public class PersonalityTraits {
         this.game = game;
         this.music = music;
         this.sport = sport;
+        this.postId = postId;
     }
     public Integer getId() {
         return this.id;
@@ -124,6 +126,14 @@ public class PersonalityTraits {
 
     public void setSport(String sport) {
         this.sport = sport;
+    }
+
+    public Integer getPostId() {
+        return this.postId;
+    }
+
+    public void setPostId(Integer postId) {
+        this.postId = postId;
     }
 
 }

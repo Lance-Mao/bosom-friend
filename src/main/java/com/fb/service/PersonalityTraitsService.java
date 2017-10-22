@@ -1,10 +1,7 @@
 package com.fb.service;
-
+import java.util.List;
 import com.fb.entity.PersonalityTraits;
 import com.fb.common.Assist;
-
-import java.util.List;
-
 public interface PersonalityTraitsService{
 	/**
 	 * 获得PersonalityTraits数据的总行数,可以通过辅助工具Assist进行条件查询,如果没有条件则传入null
@@ -66,7 +63,7 @@ public interface PersonalityTraitsService{
 	 * @param assist
 	 * @return
 	 */
-    int updatePersonalityTraits(PersonalityTraits value, Assist assist);
+    int updatePersonalityTraits(PersonalityTraits value,  Assist assist);
 	/**
 	 * 通过PersonalityTraits的id更新PersonalityTraits中属性不为null的数据
 	 * @param enti

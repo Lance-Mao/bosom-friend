@@ -1,16 +1,13 @@
-package com.fb.service.impl;
-
-import com.fb.common.Assist;
+package com.fb.service.Impl;
+import java.util.List;
 import com.fb.dao.PersonalityTraitsDao;
 import com.fb.entity.PersonalityTraits;
+import com.fb.common.Assist;
 import com.fb.service.PersonalityTraitsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-
 @Service
-public class PersonalityTraitsServiceImpl implements PersonalityTraitsService {
+public class PersonalityTraitsServiceImpl implements PersonalityTraitsService{
     @Autowired
     private PersonalityTraitsDao personalityTraitsDao;
     @Override

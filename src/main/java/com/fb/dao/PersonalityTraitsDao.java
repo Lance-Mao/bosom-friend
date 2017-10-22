@@ -1,12 +1,8 @@
 package com.fb.dao;
-
-
-import com.fb.common.Assist;
 import com.fb.entity.PersonalityTraits;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
-
+import com.fb.common.Assist;
+import org.apache.ibatis.annotations.Param;
 public interface PersonalityTraitsDao{
 	/**
 	 * 获得PersonalityTraits数据的总行数,可以通过辅助工具Assist进行条件查询,如果没有条件则传入null
