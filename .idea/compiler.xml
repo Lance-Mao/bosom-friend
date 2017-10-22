@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="beauty_ssm" />
         <module name="bosom-friend" />
+        <module name="bosom_friend" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="beauty_ssm" target="1.7" />
       <module name="bosom-friend" target="1.7" />
+      <module name="bosom_friend" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

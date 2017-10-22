@@ -5,16 +5,18 @@ public class Post {
     private String content;
     private String img;
     private java.util.Date date;
+    private String personalitytraits;
     public Post() {
         super();
     }
-    public Post(Integer id,String title,String content,String img,java.util.Date date) {
+    public Post(Integer id,String title,String content,String img,java.util.Date date,String personalitytraits) {
         super();
         this.id = id;
         this.title = title;
         this.content = content;
         this.img = img;
         this.date = date;
+        this.personalitytraits = personalitytraits;
     }
     public Integer getId() {
         return this.id;
@@ -56,14 +58,12 @@ public class Post {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", img='" + img + '\'' +
-                ", date=" + date +
-                '}';
+    public String getPersonalitytraits() {
+        return this.personalitytraits;
     }
+
+    public void setPersonalitytraits(String personalitytraits) {
+        this.personalitytraits = personalitytraits;
+    }
+
 }
