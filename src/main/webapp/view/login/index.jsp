@@ -80,10 +80,10 @@
 			<h2 class="sub-agileits-w3layouts">登录</h2>
 			<div>
 					<input type="text" name="userName" id="userName" placeholder="用户" required="" />
-				<span id="userNameNull" style="display: none;color: red">用户名不能为空！！！</span>
+				<p id="userNameNull" style="display: none;color: red">用户名不能为空！！！</p>
 					<input type="password" name="Password" id="passWord" placeholder="密码" required="" />
-				<span id="passWordNull" style="display: none;color: red">密码不能为空！！！</span>
-				<span id="userNameAndPassWordErr" style="display: none;color: red">用户名或密码错误！！！</span>
+				<p id="passWordNull" style="display: none;color: red">密码不能为空！！！</p>
+				<p id="userNameAndPassWordErr" style="display: none;color: red">用户名或密码错误！！！</p>
 					<a href="#" class="forgot-w3layouts">忘记密码 ?</a>
 				<div class="submit-w3l">
 					<button id="inputBySubmit" onclick="toSubmit()">登录</button>

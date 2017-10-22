@@ -146,7 +146,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="post_message-text" class="control-label">上传图片</label>
+                        <label for="post_message-text" class="control-label">上传照片</label>
                         <div id="fileUploadContent" class="fileUploadContent"></div>
 
                         <%--<button onclick="testUpload()">提交</button>--%>
@@ -182,10 +182,10 @@
 <%--图片上传--%>
 <script type="text/javascript">
     $("#fileUploadContent").initUpload({
-        "uploadUrl": "#",//上传文件信息地址
+        "uploadUrl": "${baseurl}/psot/uploadImage",//上传文件信息地址
         //"size":350,//文件大小限制，单位kb,默认不限制
-        //"maxFileNumber":3,//文件个数限制，为整数
-        //"filelSavePath":"",//文件上传地址，后台设置的根目录
+        "maxFileNumber":1,//文件个数限制，为整数
+        "filelSavePath":"${baseurl}/images/user",//文件上传地址，后台设置的根目录
         "beforeUpload": beforeUploadFun,//在上传前执行的函数
         //"onUpload":onUploadFun，//在上传后执行的函数
         //autoCommit:true,//文件是否自动上传

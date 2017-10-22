@@ -7,4 +7,5 @@
 <c:set var="baseurl" value="<%=basePath%>"></c:set>
 <script>
     var baseUrl = "${baseurl}";
+    var IMAGE_PREFIX = baseUrl+"/images";
 </script>
