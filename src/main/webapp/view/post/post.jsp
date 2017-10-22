@@ -11,9 +11,11 @@
     <title>Title</title>
 
     <%--复选框插件--%>
-    <link href="${baseurl}/resource/public/jquery-pretty-radio-checkbox/css/styles.css" rel="stylesheet" />
-    <link href="${baseurl}/resource/public/jquery-pretty-radio-checkbox/css/inserthtml.com.radios.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="${baseurl}/resource/public/jquery-pretty-radio-checkbox/css/default.css">
+    <link href="${baseurl}/resource/public/jquery-pretty-radio-checkbox/css/styles.css" rel="stylesheet"/>
+    <link href="${baseurl}/resource/public/jquery-pretty-radio-checkbox/css/inserthtml.com.radios.css" rel="stylesheet"
+          type="text/css"/>
+    <link rel="stylesheet" type="text/css"
+          href="${baseurl}/resource/public/jquery-pretty-radio-checkbox/css/default.css">
     <!--[if lte IE 8]>
     <link href="ie8.css" rel="stylesheet" type="text/css"/>
     <![endif]-->
@@ -40,6 +42,7 @@
         input.labelauty + label {
             font: 12px "Microsoft Yahei";
         }
+
         input[type="checkbox"] + label {
             cursor: pointer;
             width: 105px;
@@ -67,114 +70,114 @@
                         <label for="post_message-text" class="control-label">你的故事</label>
                         <textarea class="form-control" id="post_message-text" style="height: 250px"></textarea>
                     </div>
-                    <%--<div class="form-group">
-                        <label class="control-label">选择你的性格特点</label>
-                        <div>
-                            <div class="checkbox">
-                                <input type="checkbox" id="steady">
-                                <label for="steady">
-                                    稳重
-                                </label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="romantic">
-                                <label for="romantic">
-                                    浪漫
-                                </label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="live_waves_cute">
-                                <label for="live_waves_cute">
-                                    活泼可爱
-                                </label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="humor">
-                                <label for="humor">
-                                    幽默
-                                </label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="free">
-                                <label for="free">
-                                    自由
-                                </label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="clever">
-                                <label for="clever">
-                                    聪明
-                                </label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="serious">
-                                <label for="serious">
-                                    认真
-                                </label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="simple">
-                                <label for="simple">
-                                    简单
-                                </label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="game">
-                                <label for="game">
-                                    游戏
-                                </label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="music">
-                                <label for="music">
-                                    音乐
-                                </label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="checkbox" id="sport">
-                                <label for="sport">
-                                    运动
-                                </label>
-                            </div>
-                        </div>
-                    </div>--%>
                     <div class="form-group">
                         <label for="post_message-text" class="control-label">选择你的兴趣爱好或是性格特点（多选）</label>
-                            <div class="center" style="width: 467px;">
-                                <input type="checkbox" name="steady" id="checkbox-7-1" /><label for="checkbox-7-1"><span>稳重</span></label>
-                                <input type="checkbox" name="romantic" id="checkbox-7-2" /><label for="checkbox-7-2"><span>浪漫</span></label>
-                                <input type="checkbox" name="live_waves_cute" id="checkbox-7-3" /><label for="checkbox-7-3"><span>活泼可爱</span></label>
-                                <input type="checkbox" name="humor" id="checkbox-7-4" /><label for="checkbox-7-4"><span>幽默</span></label>
-                                <input type="checkbox" name="free" id="checkbox-7-5" /><label for="checkbox-7-5"><span>自由</span></label>
-                                <input type="checkbox" name="clever" id="checkbox-7-6" /><label for="checkbox-7-6"><span>聪明</span></label>
-                                <input type="checkbox" name="serious" id="checkbox-7-7" /><label for="checkbox-7-7"><span>认真</span></label>
-                                <input type="checkbox" name="simple" id="checkbox-7-8" /><label for="checkbox-7-8"><span>简单</span></label>
-                                <input type="checkbox" name="game" id="checkbox-7-9" /><label for="checkbox-7-9"><span>游戏</span></label>
-                                <input type="checkbox" name="music" id="checkbox-7-10" /><label for="checkbox-7-10"><span>音乐</span></label>
-                                <input type="checkbox" name="sport" id="checkbox-7-11" /><label for="checkbox-7-11"><span>运动</span></label>
-                            </div>
+                        <div class="center" style="width: 467px;">
+                            <input type="checkbox" name="steady" id="checkbox-7-1"/><label
+                                for="checkbox-7-1"><span>稳重</span></label>
+                            <input type="checkbox" name="romantic" id="checkbox-7-2"/><label
+                                for="checkbox-7-2"><span>浪漫</span></label>
+                            <input type="checkbox" name="live_waves_cute" id="checkbox-7-3"/><label
+                                for="checkbox-7-3"><span>活泼可爱</span></label>
+                            <input type="checkbox" name="humor" id="checkbox-7-4"/><label
+                                for="checkbox-7-4"><span>幽默</span></label>
+                            <input type="checkbox" name="free" id="checkbox-7-5"/><label
+                                for="checkbox-7-5"><span>自由</span></label>
+                            <input type="checkbox" name="clever" id="checkbox-7-6"/><label
+                                for="checkbox-7-6"><span>聪明</span></label>
+                            <input type="checkbox" name="serious" id="checkbox-7-7"/><label
+                                for="checkbox-7-7"><span>认真</span></label>
+                            <input type="checkbox" name="simple" id="checkbox-7-8"/><label
+                                for="checkbox-7-8"><span>简单</span></label>
+                            <input type="checkbox" name="game" id="checkbox-7-9"/><label
+                                for="checkbox-7-9"><span>游戏</span></label>
+                            <input type="checkbox" name="music" id="checkbox-7-10"/><label
+                                for="checkbox-7-10"><span>音乐</span></label>
+                            <input type="checkbox" name="sport" id="checkbox-7-11"/><label
+                                for="checkbox-7-11"><span>运动</span></label>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="post_message-text" class="control-label">上传图片</label>
-                        <div id="fileUploadContent" class="fileUploadContent"></div>
+                </div>
+                <div class="form-group">
+                    <label for="post_message-text" class="control-label">上传照片</label>
+                    <div id="fileUploadContent" class="fileUploadContent"></div>
 
-                        <%--<button onclick="testUpload()">提交</button>--%>
-                    </div>
+                    <%--<button onclick="testUpload()">提交</button>--%>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="submitMsgOfPost()">Send message</button>
-            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="submitMsgOfPost()">Send message</button>
         </div>
     </div>
 </div>
+</div>
 
 <script type="text/javascript">
+    let userImgName;
     $("#buttonOfPost").click(function () {
         $('#post_a_post').modal({backdrop: 'static', keyboard: false});
     });
 
     function submitMsgOfPost() {
-        alert(123);
+        let steady;
+        let romantic;
+        let live_waves_cute;
+        let humor;
+        let free;
+        let clever;
+        let serious;
+        let simple;
+        let game;
+        let music;
+        let sport;
+        let imgName;
+        //获取帖子的标题和内容
         let title = $("#post_recipient-name").val();
         let content = $("#post_message-text").val();
-        alert($("#serious").prop("selected", true).val());
-        alert($("#simple").prop("selected", true).val());
-        alert($("#game").prop("selected", true).val());
-        alert($("#music").prop("selected", true).val());
-        alert($("#sport").prop("selected", true).val());
+
+        //获取其性格特点
+        $("input[name='steady']:checked").val() === 'on' ? steady = 1 : steady = 0;
+        $("input[name='romantic']:checked").val() === "on" ? romantic = 1 : romantic = 0;
+        $("input[name='live_waves_cute']:checked").val() === "on" ? live_waves_cute = 1 : live_waves_cute = 0;
+        $("input[name='humor']:checked").val() === "on" ? humor = 1 : humor = 0;
+        $("input[name='free']:checked").val() === "on" ? free = 1 : free = 0;
+        $("input[name='clever']:checked").val() === "on" ? clever = 1 : clever = 0;
+        $("input[name='serious']:checked").val() === "on" ? serious = 1 : serious = 0;
+        $("input[name='simple']:checked").val() === "on" ? simple = 1 : simple = 0;
+        $("input[name='game']:checked").val() === "on" ? game = 1 : game = 0;
+        $("input[name='music']:checked").val() === "on" ? music = 1 : music = 0;
+        $("input[name='sport']:checked").val() === "on" ? sport = 1 : sport = 0;
+
+        //获取图片的文件名
+        imgName = userImgName;
+
+        let postInfo = {
+            title:title,
+            content:content,
+            steady:steady,
+            romantic:romantic,
+            live_waves_cute:live_waves_cute,
+            humor:humor,
+            free:free,
+            clever:clever,
+            serious:serious,
+            simple:simple,
+            game:game,
+            music:music,
+            sport:sport,
+            img:imgName,
+        }
+
+        $.ajax({
+            url: "${baseurl}/post/submitPostInfo",
+            type: "post",
+            data: postInfo,
+            success: function (data) {
+
+            }
+        })
     }
 
 </script>
@@ -182,12 +185,12 @@
 <%--图片上传--%>
 <script type="text/javascript">
     $("#fileUploadContent").initUpload({
-        "uploadUrl": "#",//上传文件信息地址
+        "uploadUrl": "${baseurl}/post/uploadImage",//上传文件信息地址
         //"size":350,//文件大小限制，单位kb,默认不限制
-        //"maxFileNumber":3,//文件个数限制，为整数
-        //"filelSavePath":"",//文件上传地址，后台设置的根目录
+        "maxFileNumber": 1,//文件个数限制，为整数
+        <%--"filelSavePath":"${baseurl}/images/user",//文件上传地址，后台设置的根目录--%>
         "beforeUpload": beforeUploadFun,//在上传前执行的函数
-        //"onUpload":onUploadFun，//在上传后执行的函数
+        "onUpload": onUploadFun,//在上传后执行的函数
         //autoCommit:true,//文件是否自动上传
         "fileType": ['png', 'jpg', 'docx', 'doc']//文件类型限制，默认不限制，注意写的是文件后缀
     });
@@ -197,16 +200,11 @@
     }
 
     function onUploadFun(opt, data) {
-        alert(data);
+        userImgName = data.data; //图片上传之后的文件名
         uploadTools.uploadError(opt);//显示上传错误
         uploadTools.uploadSuccess(opt);//显示上传成功
     }
 
-
-    function testUpload() {
-        var opt = uploadTools.getOpt("fileUploadContent");
-        uploadEvent.uploadFileEvent(opt);
-    }
 </script>
 
 </body>

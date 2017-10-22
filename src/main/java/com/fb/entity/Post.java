@@ -56,4 +56,14 @@ public class Post {
         this.date = date;
     }
 
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", img='" + img + '\'' +
+                ", date=" + date +
+                '}';
+    }
 }
