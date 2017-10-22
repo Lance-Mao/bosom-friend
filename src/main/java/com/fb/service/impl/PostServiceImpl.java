@@ -1,4 +1,4 @@
-package com.fb.service.Impl;
+package com.fb.service.impl;
 import java.util.List;
 import com.fb.dao.PostDao;
 import com.fb.entity.Post;

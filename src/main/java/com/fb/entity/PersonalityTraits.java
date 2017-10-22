@@ -126,4 +126,21 @@ public class PersonalityTraits {
         this.sport = sport;
     }
 
+    @Override
+    public String toString() {
+        return "PersonalityTraits{" +
+                "id=" + id +
+                ", steady='" + steady + '\'' +
+                ", romantic='" + romantic + '\'' +
+                ", liveWavesCute='" + liveWavesCute + '\'' +
+                ", humor='" + humor + '\'' +
+                ", free='" + free + '\'' +
+                ", clever='" + clever + '\'' +
+                ", serious='" + serious + '\'' +
+                ", simple='" + simple + '\'' +
+                ", game='" + game + '\'' +
+                ", music='" + music + '\'' +
+                ", sport='" + sport + '\'' +
+                '}';
+    }
 }
