@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-10-18 09:17:54
+Date: 2017-10-22 10:49:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -88,6 +88,23 @@ CREATE TABLE `bf_personality_traits` (
 
 -- ----------------------------
 -- Records of bf_personality_traits
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for bf_post
+-- ----------------------------
+DROP TABLE IF EXISTS `bf_post`;
+CREATE TABLE `bf_post` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `content` varchar(1000) NOT NULL,
+  `img` varchar(200) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of bf_post
 -- ----------------------------
 
 -- ----------------------------
