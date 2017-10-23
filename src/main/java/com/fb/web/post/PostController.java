@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("post")
@@ -41,6 +42,8 @@ public class PostController {
     @ResponseBody
     public Result submitPostInfo(Post post, PersonalityTraits personalityTraits) {
         try {
+
+            String UUIDByPost = UUID.randomUUID().toString();
 
             int num_0 = personalityTraitsService.insertPersonalityTraits(personalityTraits);
 
