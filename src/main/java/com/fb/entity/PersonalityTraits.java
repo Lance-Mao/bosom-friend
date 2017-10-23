@@ -12,11 +12,11 @@ public class PersonalityTraits {
     private String game;
     private String music;
     private String sport;
-    private Integer postId;
+    private String postId;
     public PersonalityTraits() {
         super();
     }
-    public PersonalityTraits(Integer id,String steady,String romantic,String liveWavesCute,String humor,String free,String clever,String serious,String simple,String game,String music,String sport,Integer postId) {
+    public PersonalityTraits(Integer id,String steady,String romantic,String liveWavesCute,String humor,String free,String clever,String serious,String simple,String game,String music,String sport,String postId) {
         super();
         this.id = id;
         this.steady = steady;
@@ -128,14 +128,20 @@ public class PersonalityTraits {
         this.sport = sport;
     }
 
+<<<<<<< HEAD
+    public String getPostId() {
+=======
     public Integer getPostId() {
+>>>>>>> 1d3afaf38aa7cade47279c2363ef497e8ebe1826
         return this.postId;
     }
 
-    public void setPostId(Integer postId) {
+    public void setPostId(String postId) {
         this.postId = postId;
     }
 
+<<<<<<< HEAD
+=======
     @Override
     public String toString() {
         return "PersonalityTraits{" +
@@ -153,4 +159,5 @@ public class PersonalityTraits {
                 ", sport='" + sport + '\'' +
                 '}';
     }
+>>>>>>> 1d3afaf38aa7cade47279c2363ef497e8ebe1826
 }
