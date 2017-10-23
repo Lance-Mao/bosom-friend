@@ -105,8 +105,8 @@
     <!-- 将Post插入到对应数据库的表中,包括属性值为null的数据-->
 
     <insert id="insertPost" parameterType="com.fb.entity.Post">
-        insert into bf_post(id,title,content,img,date,PersonalityTraits) 
-        values(#{id},#{title},#{content},#{img},#{date},#{personalitytraits})
+        insert into bf_post(id,title,content,img,date,PersonalityTraits,userName)
+        values(#{id},#{title},#{content},#{img},#{date},#{personalitytraits},#{userName})
     </insert>
 
     <!-- 将Post中属性值不为null的数据,插入到对应数据库的表中-->
@@ -215,5 +215,9 @@
         </set>
         <if test="assist.require!=null"><include refid="updateAssist" /></if>
     </update>
+
+    <select id="selectPostByUserName" parameterType="string" resultType="map">
+        select * from bf_post,bf_personality_traits WHERE userName = #{userName} AND post_id = personalityTraits;
+    </select>
 
 </mapper>

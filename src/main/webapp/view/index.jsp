@@ -171,7 +171,7 @@
         <div class="container">
             <h2>单身求带走</h2>
             <h6>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum</h6>
-            <div class="inner_section">
+            <div class="inner_section" id="showPostForIndex">
                 <div class="row">
                     <div class="col-md-6"><img class="img-responsive" src="/resource/public/indexStyle/img/about2.png"
                                                align=""></div>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -19,10 +20,11 @@ public class UserController {
 
     @RequestMapping("/login")
     @ResponseBody
-    public Result login(User user) {
+    public Result login(User user, HttpServletRequest request) {
         List<User> data = null;
         try {
             data = userService.selectUser(user);
+            request.getSession().setAttribute("userName",user.getUserName());
         } catch (Exception e) {
             e.printStackTrace();
         }

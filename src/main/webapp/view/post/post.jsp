@@ -154,20 +154,20 @@
         imgName = userImgName;
 
         let postInfo = {
-            title:title,
-            content:content,
-            steady:steady,
-            romantic:romantic,
-            live_waves_cute:live_waves_cute,
-            humor:humor,
-            free:free,
-            clever:clever,
-            serious:serious,
-            simple:simple,
-            game:game,
-            music:music,
-            sport:sport,
-            img:imgName,
+            title: title,
+            content: content,
+            steady: steady,
+            romantic: romantic,
+            live_waves_cute: live_waves_cute,
+            humor: humor,
+            free: free,
+            clever: clever,
+            serious: serious,
+            simple: simple,
+            game: game,
+            music: music,
+            sport: sport,
+            img: imgName,
         }
 
         $.ajax({
@@ -175,10 +175,101 @@
             type: "post",
             data: postInfo,
             success: function (data) {
-
+                if (data.result === true) {
+                    loadPost();
+//                    $('#post_a_post').hide();
+                }
             }
         })
     }
+
+    function loadPost() {
+        $.ajax({
+            url: "${baseurl}/post/loadPost",
+            type: "post",
+            success: function (data) {
+                if (data.result === true) {
+                    //首页显示发布的帖子
+                    showPostForIndex(data.data)
+//                    location.reload();
+                }
+            }
+        })
+    }
+
+    function showPostForIndex(postInfo) {
+        console.log(postInfo)
+        $("#showPostForIndex").html("");
+        let count = 0;
+        for (let item of postInfo) {
+            count++;
+            if (count % 2 === 0) {
+                $("#showPostForIndex").append(`
+            <div class="row">
+                    <div class="col-md-6"><img class="img-responsive" src="/resource/public/indexStyle/img/about2.png"
+                                               align=""></div>
+                    <div class="col-md-6">
+                        <h3>` + item.title + `</h3>
+                        <p>` + item.content + `</p>
+                        <h4>Hobbies </h4>
+                        <ul class="about-us-list">
+                            <li class="points">
+                                <span class="label label-default">默认标签</span>
+                                简书1234156789789789789789787897987897
+                            </li>
+                            <li class="points">
+                                <span class="label label-primary">主要标签</span>
+                                简书简书1234156789789789789789787897987897
+                            </li>
+                            <li class="points">
+                                <span class="label label-success">成功标签</span>
+                                简书简书1234156789789789789789787897987897
+                            </li>
+                            <li class="points">
+                                <span class="label label-info">信息标签</span>
+                                简书简书1234156789789789789789787897987897
+                            </li>
+                            <li class="points">
+                                <span class="label label-warning">警告标签</span>
+                                简书简书1234156789789789789789787897987897
+                            </li>
+                            <li class="points">
+                                <span class="label label-danger">危险标签</span>
+                                简书简书1234156789789789789789787897987897
+                            </li>
+                        </ul>
+                        </div>
+                </div>`)
+            } else {
+                $("#showPostForIndex").append(`
+               <div class="row mrgTop30">
+                    <div class="col-md-6">
+                        <h3>`+ item.title +`</h3>
+                        <p>`+item.content+`</p>
+                        <h4>Hobbies </h4>
+                        <ul class="about-us-list">
+                            <li class="points">Consectetur Morbi sagittis, sem quisci ipsum gravida tortor</li>
+                            <li class="points">Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida</li>
+                            <li class="points">Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci
+                                gravida
+                            </li>
+                            <li class="points">Sagittis, sem quis lacinia faucibus, orci ipsum gravida</li>
+                            <li class="points">Ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6"><img class="img-responsive"
+                    src="${baseurl}/resource/public/indexStyle/img/about1.png" align="">
+                    </div>
+                    </div>
+                    `)
+                        }
+
+                    }
+                }
+
+                $(function () {
+                    loadPost();
+                })
 
 </script>
 

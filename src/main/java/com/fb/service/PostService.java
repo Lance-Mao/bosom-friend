@@ -1,7 +1,11 @@
 package com.fb.service;
 import java.util.List;
+import java.util.Map;
+
 import com.fb.entity.Post;
 import com.fb.common.Assist;
+import org.omg.CORBA.Object;
+
 public interface PostService{
 	/**
 	 * 获得Post数据的总行数,可以通过辅助工具Assist进行条件查询,如果没有条件则传入null
@@ -77,4 +81,7 @@ public interface PostService{
 	 * @return
 	 */
     int updateNonEmptyPost(Post value, Assist assist);
+
+    //通过用户名查询该用户发布的帖子
+	List<Map<String,Object>> selectPostByUserName(String userName);
 }

@@ -4,12 +4,13 @@ public class Post {
     private String title;
     private String content;
     private String img;
-    private java.util.Date date;
+    private String date;
     private String personalitytraits;
+    private String userName;
     public Post() {
         super();
     }
-    public Post(Integer id,String title,String content,String img,java.util.Date date,String personalitytraits) {
+    public Post(Integer id,String title,String content,String img,String date,String personalitytraits) {
         super();
         this.id = id;
         this.title = title;
@@ -18,6 +19,17 @@ public class Post {
         this.date = date;
         this.personalitytraits = personalitytraits;
     }
+
+    public Post(Integer id, String title, String content, String img, String date, String personalitytraits, String userName) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.img = img;
+        this.date = date;
+        this.personalitytraits = personalitytraits;
+        this.userName = userName;
+    }
+
     public Integer getId() {
         return this.id;
     }
@@ -50,11 +62,11 @@ public class Post {
         this.img = img;
     }
 
-    public java.util.Date getDate() {
+    public String getDate() {
         return this.date;
     }
 
-    public void setDate(java.util.Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -66,4 +78,24 @@ public class Post {
         this.personalitytraits = personalitytraits;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", img='" + img + '\'' +
+                ", date='" + date + '\'' +
+                ", personalitytraits='" + personalitytraits + '\'' +
+                ", userName='" + userName + '\'' +
+                '}';
+    }
 }

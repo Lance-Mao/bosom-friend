@@ -1,8 +1,12 @@
 package com.fb.dao;
 import com.fb.entity.Post;
 import java.util.List;
+import java.util.Map;
+
 import com.fb.common.Assist;
 import org.apache.ibatis.annotations.Param;
+import org.omg.CORBA.Object;
+
 public interface PostDao{
 	/**
 	 * 获得Post数据的总行数,可以通过辅助工具Assist进行条件查询,如果没有条件则传入null
@@ -78,4 +82,6 @@ public interface PostDao{
 	 * @return
 	 */
     int updateNonEmptyPost(@Param("enti") Post value, @Param("assist") Assist assist);
+
+	List<Map<String,Object>> selectPostByUserName(@Param("userName") String userName);
 }

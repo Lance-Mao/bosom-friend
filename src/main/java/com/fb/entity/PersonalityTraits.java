@@ -128,11 +128,7 @@ public class PersonalityTraits {
         this.sport = sport;
     }
 
-<<<<<<< HEAD
     public String getPostId() {
-=======
-    public Integer getPostId() {
->>>>>>> 1d3afaf38aa7cade47279c2363ef497e8ebe1826
         return this.postId;
     }
 
@@ -140,8 +136,6 @@ public class PersonalityTraits {
         this.postId = postId;
     }
 
-<<<<<<< HEAD
-=======
     @Override
     public String toString() {
         return "PersonalityTraits{" +
@@ -157,7 +151,7 @@ public class PersonalityTraits {
                 ", game='" + game + '\'' +
                 ", music='" + music + '\'' +
                 ", sport='" + sport + '\'' +
+                ", postId='" + postId + '\'' +
                 '}';
     }
->>>>>>> 1d3afaf38aa7cade47279c2363ef497e8ebe1826
 }

@@ -1,9 +1,12 @@
-package com.fb.service.Impl;
+package com.fb.service.impl;
 import java.util.List;
+import java.util.Map;
+
 import com.fb.dao.PostDao;
 import com.fb.entity.Post;
 import com.fb.common.Assist;
 import com.fb.service.PostService;
+import org.omg.CORBA.Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
@@ -57,6 +60,11 @@ public class PostServiceImpl implements PostService{
     @Override
     public int updateNonEmptyPost(Post value, Assist assist){
         return postDao.updateNonEmptyPost(value,assist);
+    }
+
+    @Override
+    public List<Map<String, Object>> selectPostByUserName(String userName) {
+        return postDao.selectPostByUserName(userName);
     }
 
     public PostDao getPostDao() {
