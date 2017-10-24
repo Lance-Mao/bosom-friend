@@ -217,7 +217,11 @@
     </update>
 
     <select id="selectPostByUserName" parameterType="string" resultType="map">
-        select * from bf_post,bf_personality_traits WHERE userName = #{userName} AND post_id = personalityTraits;
+        select * from
+        bf_post,bf_personality_traits
+        WHERE userName = #{userName}
+        AND post_id = personalityTraits
+        ORDER BY bf_post.id DESC;
     </select>
 
 </mapper>

@@ -72,7 +72,10 @@ public class PostController {
     public Result loadPost(HttpServletRequest request) {
         try {
             String userName = (String) request.getSession().getAttribute("userName");
+            //通过用户名进行查询该用户发布的帖子
             List<Map<String,Object>> postInfo = postService.selectPostByUserName(userName);
+            //查询全部的用户所发布的帖子，在首页进行分页显示
+//            List<Map<String, Object>> postInfoByPage = postService.selectPostOfAll();
             return Result.success(postInfo, Constant.UPLOAD_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
