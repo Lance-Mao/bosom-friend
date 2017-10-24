@@ -67,6 +67,11 @@ public class PostServiceImpl implements PostService{
         return postDao.selectPostByUserName(userName);
     }
 
+    @Override
+    public List<Map<String, Object>> selectPostOfAll() {
+        return postDao.selectPostOfAll();
+    }
+
     public PostDao getPostDao() {
         return this.postDao;
     }

@@ -202,6 +202,18 @@
         $("#showPostForIndex").html("");
         let count = 0;
         for (let item of postInfo) {
+            let labels;
+            labels = {
+                free: item.free,
+                game: item.game,
+                humor: item.humor,
+                music: item.music,
+                romantic: item.romantic,
+                serious: item.serious,
+                simple: item.simple,
+                sport: item.sport,
+                steady: item.steady
+            };
             count++;
             if (count % 2 === 0) {
                 $("#showPostForIndex").append(`
@@ -213,29 +225,7 @@
                         <p>` + item.content + `</p>
                         <h4>Hobbies </h4>
                         <ul class="about-us-list">
-                            <li class="points">
-                                <span class="label label-default">默认标签</span>
-
-                            </li>
-                            <li class="points">
-                                <span class="label label-primary">主要标签</span>
-
-                            </li>
-                            <li class="points">
-                                <span class="label label-success">成功标签</span>
-
-                            </li>
-                            <li class="points">
-                                <span class="label label-info">信息标签</span>
-
-                            </li>
-                            <li class="points">
-                                <span class="label label-warning">警告标签</span>
-
-                            </li>
-                            <li class="points">
-                                <span class="label label-danger">危险标签</span>
-
+                        `+showLabel(labels)+`
                             </li>
                         </ul>
                         </div>
@@ -248,30 +238,7 @@
                         <p>` + item.content + `</p>
                          <h4>Hobbies </h4>
                         <ul class="about-us-list">
-                            <li class="points">
-                                <span class="label label-default">默认标签</span>
-
-                            </li>
-                            <li class="points">
-                                <span class="label label-primary">主要标签</span>
-
-                            </li>
-                            <li class="points">
-                                <span class="label label-success">成功标签</span>
-
-                            </li>
-                            <li class="points">
-                                <span class="label label-info">信息标签</span>
-
-                            </li>
-                            <li class="points">
-                                <span class="label label-warning">警告标签</span>
-
-                            </li>
-                            <li class="points">
-                                <span class="label label-danger">危险标签</span>
-
-                            </li>
+                            `+showLabel(labels)+`
                         </ul>
                     </div>
                     <div class="col-md-6"><img class="img-responsive"
@@ -282,6 +249,54 @@
             }
 
         }
+    }
+
+    function showLabel(labels) {
+        let html_ = "";
+        if (labels.free === "1") {
+            html_ += `<li class="points">
+                                <span class="label label-success">自由</span>
+                            </li>`
+        }
+        if (labels.game === "1") {
+            html_ += `<li class="points">
+                                <span class="label label-primary">游戏</span>
+                            </li>`
+        }
+        if (labels.humor === "1") {
+            html_ += `<li class="points">
+                                <span class="label label-success">幽默</span>
+                            </li>`
+        }if (labels.music === "1") {
+            html_ += `<li class="points">
+                                <span class="label label-info">音乐</span>
+                            </li>`
+        }if (labels.romantic === "1") {
+            html_ += `<li class="points">
+                                <span class="label label-success">浪漫</span>
+                            </li>`
+        }if (labels.serious === "1") {
+            html_ += `<li class="points">
+                                <span class="label label-danger">认真</span>
+                            </li>`
+        }
+        if (labels.simple === "1") {
+            html_ += `<li class="points">
+                                <span class="label label-warning">简单</span>
+                            </li>`
+        }
+        if (labels.sport === "1") {
+            html_ += `<li class="points">
+                                <span class="label label-info">运动</span>
+                            </li>`
+        }
+        if (labels.steady === "1") {
+            html_ += `<li class="points">
+                                <span class="label label-warning">稳重</span>
+                            </li>`
+        }
+
+        return html_;
     }
 
     $(function () {

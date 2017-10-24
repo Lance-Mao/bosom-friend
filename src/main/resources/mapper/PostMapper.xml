@@ -224,4 +224,11 @@
         ORDER BY bf_post.id DESC;
     </select>
 
+    <select id="selectPostOfAll" resultType="map">
+         select * from
+        bf_post,bf_personality_traits
+        WHERE post_id = personalityTraits
+        ORDER BY bf_post.id DESC;
+    </select>
+
 </mapper>

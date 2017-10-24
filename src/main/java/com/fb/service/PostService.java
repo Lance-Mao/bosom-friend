@@ -84,4 +84,6 @@ public interface PostService{
 
     //通过用户名查询该用户发布的帖子
 	List<Map<String,Object>> selectPostByUserName(String userName);
+
+    List<Map<String,Object>> selectPostOfAll();
 }

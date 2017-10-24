@@ -84,4 +84,6 @@ public interface PostDao{
     int updateNonEmptyPost(@Param("enti") Post value, @Param("assist") Assist assist);
 
 	List<Map<String,Object>> selectPostByUserName(@Param("userName") String userName);
+
+	List<Map<String,Object>> selectPostOfAll();
 }
