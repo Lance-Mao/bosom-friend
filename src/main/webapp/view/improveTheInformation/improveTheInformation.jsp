@@ -117,22 +117,32 @@
                     let dataInfo = data.data[0];
                     if (dataInfo.user_name !== null) {
                         $("#userName").val(dataInfo.user_name);
+                        $("#footerUserName").val(dataInfo.user_name); //显示个人中心模块中的信息
                     }
                     if (dataInfo.job !== null) {
                         $("#job").val(dataInfo.job);
+                        $("#footerJob").val(dataInfo.job);
                     }
                     if (dataInfo.phone !== null) {
                         $("#phone").val(dataInfo.phone);
+                        $("#footerPhone").val(dataInfo.phone);
                     }
                     if (dataInfo.birthday !== null) {
                         $("#birthday").val(dataInfo.birthday);
+                        $("#footerBirthday").val(dataInfo.birthday);
                     }
                     if (dataInfo.living !== null) {
                         $("#placeOfResidence").val(dataInfo.living);
+                        $("#footerLiving").val(dataInfo.living);
                     }
                     if (dataInfo.signature !== null) {
                         $("#signature").val(dataInfo.signature);
+                        $("#footerContent").val(dataInfo.signature);
                     }
+                    if (dataInfo.userImg !== null) {
+                        $("#showMyImgInFooter").prop("src", IMAGE_PREFIX + dataInfo.userImg);
+                    }
+                    console.log(dataInfo);
                 }
             }
         })

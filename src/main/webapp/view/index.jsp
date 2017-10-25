@@ -43,6 +43,7 @@
     <%@include file="post/post.jsp" %>
     <%@include file="improveTheInformation/improveTheInformation.jsp" %>
     <%@include file="leaveMessage/leaveMessage.jsp" %>
+    <%@include file="personalCenter/personalCenter.jsp" %>
 
     <%--引入layui--%>
     <%--<link rel="stylesheet" href="${baseurl}/resource/public/layui/css/layui.css" type="text/css">--%>
@@ -466,23 +467,15 @@
         <section class="page_section contact" id="contact">
             <div class="contact_section">
                 <h2>个人中心</h2>
-                <h6>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum</h6>
+                <h6>关于我的详细的信息</h6>
 
             </div>
             <div class="row">
                 <div class="col-lg-4 wow fadeInLeft">
                     <div class="contact_info">
                         <div class="detail">
-                            <h4>Location Address</h4>
-                            <p>Riock Church</br> #104, Some street, NewYork, USA</p>
-                        </div>
-                        <div class="detail">
-                            <h4>call us</h4>
-                            <p>+1 234 567890</p>
-                        </div>
-                        <div class="detail">
-                            <h4>Email us</h4>
-                            <p>support@sitename.com</p>
+                            <h4>我的照片</h4>
+                            <p><img id="showMyImgInFooter" src=""></p>
                         </div>
                     </div>
 
@@ -500,26 +493,34 @@
                 </div>
                 <div class="col-lg-8 wow fadeInLeft delay-06s">
                     <div class="form">
-                        <input class="input-text" type="text" name="" value="Your Name *"
+                        <input id="footerUserName" class="input-text" type="text" name="" value="Your Name *"
                                onFocus="if(this.value==this.defaultValue)this.value='';"
-                               onBlur="if(this.value=='')this.value=this.defaultValue;">
-                        <input class="input-text" type="text" name="" value="Your E-mail *"
+                               onBlur="if(this.value=='')this.value=this.defaultValue;" readonly>
+                        <input id="footerPhone" class="input-text" type="text" name="" value="Your Phone *"
                                onFocus="if(this.value==this.defaultValue)this.value='';"
-                               onBlur="if(this.value=='')this.value=this.defaultValue;">
-                        <textarea class="input-text text-area" cols="0" rows="0"
+                               onBlur="if(this.value=='')this.value=this.defaultValue;" readonly>
+                        <input id="footerLiving" class="input-text" type="text" name="" value="Your Living *"
+                               onFocus="if(this.value==this.defaultValue)this.value='';"
+                               onBlur="if(this.value=='')this.value=this.defaultValue;" readonly>
+                        <input id="footerJob" class="input-text" type="text" name="" value="Your Living *"
+                               onFocus="if(this.value==this.defaultValue)this.value='';"
+                               onBlur="if(this.value=='')this.value=this.defaultValue;" readonly>
+                        <input id="footerBirthday" class="input-text" type="text" name="" value="Your BirthDay *"
+                               onFocus="if(this.value==this.defaultValue)this.value='';"
+                               onBlur="if(this.value=='')this.value=this.defaultValue;" readonly>
+                        <textarea id="footerContent" class="input-text text-area" cols="0" rows="0"
                                   onFocus="if(this.value==this.defaultValue)this.value='';"
-                                  onBlur="if(this.value=='')this.value=this.defaultValue;">Your Message *</textarea>
-                        <input class="input-btn" type="submit" value="send message">
+                                  onBlur="if(this.value=='')this.value=this.defaultValue;" readonly>Your Message *</textarea>
+                        <input class="input-btn" type="submit" value="修改信息" href="#openImproveTheInformation">
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    <div class="container">
-        <div class="footer_bottom">Copyright &copy; 2016.Company name All rights reserved.<a target="_blank"
-                                                                                             href="http://www.smallseashell.com/html/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-        </div>
-    </div>
+    <%--<div class="container">--%>
+        <%--<div class="footer_bottom">Copyright &copy; 2016.Company name All rights reserved.--%>
+        <%--</div>--%>
+    <%--</div>--%>
 </footer>
 
 </body>
