@@ -112,7 +112,6 @@
         </div>
     </div>
 </div>
-</div>
 
 <script type="text/javascript">
     let userImgName;
@@ -168,7 +167,7 @@
             music: music,
             sport: sport,
             img: imgName,
-        }
+        };
 
         $.ajax({
             url: "${baseurl}/post/submitPostInfo",
