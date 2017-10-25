@@ -71,7 +71,7 @@
                         <textarea class="form-control" id="post_message-text" style="height: 250px"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="post_message-text" class="control-label">选择你的兴趣爱好或是性格特点（多选）</label>
+                        <label for="post_message-text" class="control-label">选择与你相符的标签（多选）</label>
                         <div class="center" style="width: 467px;">
                             <input type="checkbox" name="steady" id="checkbox-7-1"/><label
                                 for="checkbox-7-1"><span>稳重</span></label>
@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="post_message-text" class="control-label">上传照片</label>
+                    <label for="post_message-text" class="control-label">添加照片</label>
                     <div id="fileUploadContent" class="fileUploadContent"></div>
 
                     <%--<button onclick="testUpload()">提交</button>--%>

@@ -128,7 +128,7 @@
                             class="fa fa-bank"></i></span></div>
                     <div class="service_block">
                         <h3 class="animated fadeInUp wow">
-                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal"
+                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal" id="openImproveTheInformation"
                                     data-target="#improveTheInformation" data-whatever="@mdo" title="完善信息，开启精彩之旅！">完善信息
                             </button>
                         </h3>

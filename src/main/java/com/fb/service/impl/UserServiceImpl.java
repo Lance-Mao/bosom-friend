@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -60,6 +61,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updateNonEmptyUser(User value, Assist assist){
         return userDao.updateNonEmptyUser(value,assist);
+    }
+
+    @Override
+    public List<Map<String, Object>> selectUserByUserName(String userName) {
+        return userDao.selectUserByUserName(userName);
+    }
+
+    @Override
+    public void updateUserInfo(User user) {
+        userDao.updateUserInfo(user);
     }
 
     public UserDao getUserDao() {

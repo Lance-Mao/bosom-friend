@@ -6,6 +6,7 @@ import com.fb.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserDao{
 	/**
@@ -82,4 +83,8 @@ public interface UserDao{
 	 * @return
 	 */
     int updateNonEmptyUser(@Param("enti") User value, @Param("assist") Assist assist);
+
+    List<Map<String,Object>> selectUserByUserName(@Param("userName") String userName);
+
+	void updateUserInfo(User user);
 }

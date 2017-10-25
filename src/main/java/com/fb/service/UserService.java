@@ -6,6 +6,7 @@ import com.fb.common.Assist;
 import com.fb.entity.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserService{
 	/**
@@ -82,4 +83,8 @@ public interface UserService{
 	 * @return
 	 */
     int updateNonEmptyUser(User value, Assist assist)throws Exception;
+
+	List<Map<String,Object>> selectUserByUserName(String userName);
+
+	void updateUserInfo(User user);
 }

@@ -8,11 +8,14 @@ public class User {
     private String sex;
     private String birthday;
     private String job;
+    private String living;
+    private String signature;
+    private String userImg;
     public User() {
         super();
     }
-    public User(Integer id,String userCount,String userName,String userPass,String phone,String sex,String birthday,String job) {
-        super();
+
+    public User(Integer id, String userCount, String userName, String userPass, String phone, String sex, String birthday, String job, String living, String signature, String userImg) {
         this.id = id;
         this.userCount = userCount;
         this.userName = userName;
@@ -21,7 +24,27 @@ public class User {
         this.sex = sex;
         this.birthday = birthday;
         this.job = job;
+        this.living = living;
+        this.signature = signature;
+        this.userImg = userImg;
     }
+
+    public String getLiving() {
+        return living;
+    }
+
+    public void setLiving(String living) {
+        this.living = living;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
     public Integer getId() {
         return this.id;
     }
@@ -86,6 +109,14 @@ public class User {
         this.job = job;
     }
 
+    public String getUserImg() {
+        return userImg;
+    }
+
+    public void setUserImg(String userImg) {
+        this.userImg = userImg;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -94,9 +125,12 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", userPass='" + userPass + '\'' +
                 ", phone='" + phone + '\'' +
-                ", sex=" + sex +
-                ", birthday=" + birthday +
+                ", sex='" + sex + '\'' +
+                ", birthday='" + birthday + '\'' +
                 ", job='" + job + '\'' +
+                ", living='" + living + '\'' +
+                ", signature='" + signature + '\'' +
+                ", userImg='" + userImg + '\'' +
                 '}';
     }
 }
