@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, maximum-scale=1">
     <title>Home</title>
-    <link rel="stylesheet" href="${baseurl}/resource/public/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <%--<link rel="stylesheet" href="${baseurl}/resource/public/bootstrap-3.3.7-dist/css/bootstrap.css">--%>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/jquery-scrolltofixed.js"></script>
@@ -39,6 +39,9 @@
     <%--<script type="text/javascript" src="${baseurl}/resource/public/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>--%>
      <%--语言包，可选，但是中文情况下请引入--%>
     <script src="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/js/locales/zh.js" type="text/javascript"></script>
+
+    <%--图标库--%>
+    <link rel="stylesheet" href="${baseurl}/resource/public/font-awesome-4.7.0/css/font-awesome.min.css">
 
     <%--引入相关jsp文件--%>
     <%@include file="post/post.jsp" %>

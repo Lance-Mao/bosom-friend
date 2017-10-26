@@ -272,8 +272,8 @@
                     src="` + IMAGE_PREFIX + item.img + `" align="">
                     <div>
                     <br><br>
-                   <span class="glyphicon glyphicon-eye-open" aria-hidden="true">&nbsp;预览(1000)&nbsp;</span>
-                   <span class="glyphicon glyphicon-heart" aria-hidden="true">&nbsp;喜欢(1000)</span>
+                    <span><i class="fa fa-eye fa-3lg"></i>&nbsp;预览(1000)&nbsp;</span>
+                    <span><i class="fa fa-heart fa-3lg"></i>&nbsp;喜欢(1000)</span>
 </div>
                     </div>
                     </div>
