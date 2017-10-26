@@ -26,6 +26,7 @@
     <link href="${baseurl}/resource/public/fileUpload/css/fileUpload.css" rel="stylesheet" type="text/css">
     <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/fileUpload/js/fileUpload.js"></script>
+
     <style>
         ul {
             list-style-type: none;
@@ -47,6 +48,23 @@
             cursor: pointer;
             width: 105px;
             height: auto;
+        }
+        hr {
+            height: 30px;
+            border-style: solid;
+            border-color: black;
+            border-width: 1px 0 0 0;
+            border-radius: 20px;
+        }
+        hr:before {
+            display: block;
+            content: "";
+            height: 30px;
+            margin-top: -31px;
+            border-style: solid;
+            border-color: black;
+            border-width: 0 0 1px 0;
+            border-radius: 20px;
         }
     </style>
 </head>
@@ -214,38 +232,54 @@
                 steady: item.steady
             };
             count++;
-            if (count % 2 === 0) {
-                $("#showPostForIndex").append(`
-            <div class="row">
-                    <div class="col-md-6"><img class="img-responsive" src="` + IMAGE_PREFIX + item.img + `"
-                                               align=""></div>
-                    <div class="col-md-6">
-                        <h3>` + item.title + `</h3>
-                        <p>` + item.content + `</p>
-                        <h4>Hobbies </h4>
-                        <ul class="about-us-list">
-                        `+showLabel(labels)+`
-                            </li>
-                        </ul>
-                        </div>
-                </div>`)
-            } else {
+//            if (count % 2 === 0) {
+//                $("#showPostForIndex").append(`
+//            <div class="row mrgTop30">
+//                    <div class="col-md-6"><img class="img-responsive" src="` + IMAGE_PREFIX + item.img + `"
+//                                               align=""></div>
+//                    <div class="col-md-6">
+//                    <div>
+//                    <img style="border-radius:95px;width: 50px" src="`+IMAGE_PREFIX + item.img+`"><span style="font-size: 20px;margin: 0 15px">`+item.userName+`</span><button type="button" class="btn btn-primary"
+//    data-toggle="button">添加好友</button>
+//</div>
+//                        <h3>` + item.title + `</h3>
+//                        <p>` + item.content + `</p>
+//                        <h4>Hobbies </h4>
+//                        <ul class="about-us-list">
+//                        ` + showLabel(labels) + `
+//                            </li>
+//                        </ul>
+//                        </div>
+//                </div>`)
+//            } else {
                 $("#showPostForIndex").append(`
                <div class="row mrgTop30">
                     <div class="col-md-6">
+                    <div>
+                    <img style="border-radius:95px;width: 50px;" src="`+IMAGE_PREFIX + item.img+`"><span style="font-size: 20px;margin: 0 15px">`+item.userName+`</span>
+                    <button type="button" data-toggle="modal" class="btn btn-primary">添加好友</button>
+</div>
+<br>
+<br>
                         <h3>` + item.title + `</h3>
                         <p>` + item.content + `</p>
-                         <h4>Hobbies </h4>
+                         <h4>相关标签 </h4>
                         <ul class="about-us-list">
-                            `+showLabel(labels)+`
+                            ` + showLabel(labels) + `
                         </ul>
                     </div>
-                    <div class="col-md-6"><img class="img-responsive"
+                    <div class="col-md-6"><img style="width: 600px;height: 400px;margin-top: 100px" class="img-responsive"
                     src="` + IMAGE_PREFIX + item.img + `" align="">
+                    <div>
+                    <br><br>
+                   <span class="glyphicon glyphicon-eye-open" aria-hidden="true">&nbsp;预览(1000)&nbsp;</span>
+                   <span class="glyphicon glyphicon-heart" aria-hidden="true">&nbsp;喜欢(1000)</span>
+</div>
                     </div>
                     </div>
+                    <hr>
                     `)
-            }
+//            }
 
         }
     }
@@ -266,15 +300,18 @@
             html_ += `<li class="points">
                                 <span class="label label-success">幽默</span>
                             </li>`
-        }if (labels.music === "1") {
+        }
+        if (labels.music === "1") {
             html_ += `<li class="points">
                                 <span class="label label-info">音乐</span>
                             </li>`
-        }if (labels.romantic === "1") {
+        }
+        if (labels.romantic === "1") {
             html_ += `<li class="points">
                                 <span class="label label-success">浪漫</span>
                             </li>`
-        }if (labels.serious === "1") {
+        }
+        if (labels.serious === "1") {
             html_ += `<li class="points">
                                 <span class="label label-danger">认真</span>
                             </li>`

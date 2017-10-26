@@ -15,7 +15,7 @@
 </body>
 
 <script>
-    $(function () {
+    $   (function () {
         $("#footerUserName")
     })
 </script>

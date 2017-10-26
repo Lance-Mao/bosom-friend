@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, maximum-scale=1">
     <title>Home</title>
+    <link rel="stylesheet" href="${baseurl}/resource/public/bootstrap-3.3.7-dist/css/bootstrap.css">
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/indexStyle/js/jquery-scrolltofixed.js"></script>
@@ -129,7 +130,7 @@
                             class="fa fa-bank"></i></span></div>
                     <div class="service_block">
                         <h3 class="animated fadeInUp wow">
-                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal" id="openImproveTheInformation"
+                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal"  id="openImproveTheInformation"
                                     data-target="#improveTheInformation" data-whatever="@mdo" title="完善信息，开启精彩之旅！">完善信息
                             </button>
                         </h3>
@@ -478,18 +479,6 @@
                             <p><img id="showMyImgInFooter" src=""></p>
                         </div>
                     </div>
-
-
-                    <ul class="social_links">
-                        <li class="twitter animated bounceIn wow delay-02s"><a href="javascript:void(0)"><i
-                                class="fa fa-twitter"></i></a></li>
-                        <li class="facebook animated bounceIn wow delay-03s"><a href="javascript:void(0)"><i
-                                class="fa fa-facebook"></i></a></li>
-                        <li class="pinterest animated bounceIn wow delay-04s"><a href="javascript:void(0)"><i
-                                class="fa fa-pinterest"></i></a></li>
-                        <li class="gplus animated bounceIn wow delay-05s"><a href="javascript:void(0)"><i
-                                class="fa fa-google-plus"></i></a></li>
-                    </ul>
                 </div>
                 <div class="col-lg-8 wow fadeInLeft delay-06s">
                     <div class="form">
@@ -511,16 +500,11 @@
                         <textarea id="footerContent" class="input-text text-area" cols="0" rows="0"
                                   onFocus="if(this.value==this.defaultValue)this.value='';"
                                   onBlur="if(this.value=='')this.value=this.defaultValue;" readonly>Your Message *</textarea>
-                        <input class="input-btn" type="submit" value="修改信息" href="#openImproveTheInformation">
                     </div>
                 </div>
             </div>
         </section>
     </div>
-    <%--<div class="container">--%>
-        <%--<div class="footer_bottom">Copyright &copy; 2016.Company name All rights reserved.--%>
-        <%--</div>--%>
-    <%--</div>--%>
 </footer>
 
 </body>
