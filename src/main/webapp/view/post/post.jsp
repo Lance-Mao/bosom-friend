@@ -133,6 +133,7 @@
 
 <script type="text/javascript">
     let userImgName;
+    let currentUserName;
     $("#buttonOfPost").click(function () {
         $('#post_a_post').modal({backdrop: 'static', keyboard: false});
     });
@@ -206,6 +207,8 @@
             url: "${baseurl}/post/loadPost",
             type: "post",
             success: function (data) {
+                console.log("123456789")
+                console.log(data)
                 if (data.result === true) {
                     //首页显示发布的帖子
                     showPostForIndex(data.data);
@@ -257,7 +260,9 @@
                     <div class="col-md-6">
                     <div>
                     <img style="border-radius:95px;width: 50px;" src="`+IMAGE_PREFIX + item.img+`"><span style="font-size: 20px;margin: 0 15px">`+item.userName+`</span>
-                    <button type="button" data-toggle="modal" class="btn btn-primary">添加好友</button>
+                    <button type="button" class="btn btn-lg btn-default" data-toggle="modal"  id="addFriend"
+                                    data-target="#showAddFriendPage" data-whatever="@mdo" title="点击添加对方为好友！！" `+item.userName+`>添加好友
+                            </button>
 </div>
 <br>
 <br>

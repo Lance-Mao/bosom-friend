@@ -9,6 +9,8 @@ public class Result {
 
     private String msg;
 
+    private Object data1;
+
     public Result(boolean result) {
         this.result = result;
     }
@@ -29,12 +31,22 @@ public class Result {
         this.msg = msg;
     }
 
+    public Result(boolean result, Object data, String msg, Object data1) {
+        this.result = result;
+        this.data = data;
+        this.msg = msg;
+        this.data1 = data1;
+    }
+
     public static Result success() {
         return new Result(true);
     }
 
     public static Result success(Object obj, String msg) {
         return new Result(true, obj, msg);
+    }
+    public static Result success(Object obj,Object obj1, String msg) {
+        return new Result(true, obj, msg,obj1);
     }
 
     public static Result failure(Object obj, String msg) {

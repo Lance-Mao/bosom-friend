@@ -48,6 +48,7 @@
     <%@include file="improveTheInformation/improveTheInformation.jsp" %>
     <%@include file="leaveMessage/leaveMessage.jsp" %>
     <%@include file="personalCenter/personalCenter.jsp" %>
+    <%@include file="addFriend/showAddFriendPage.jsp" %>
 
     <%--引入layui--%>
     <%--<link rel="stylesheet" href="${baseurl}/resource/public/layui/css/layui.css" type="text/css">--%>

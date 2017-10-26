@@ -77,7 +77,7 @@ public class PostController {
             List<Map<String,Object>> postInfo = postService.selectPostOfAll();
             //查询全部的用户所发布的帖子，在首页进行分页显示
 //            List<Map<String, Object>> postInfoByPage = postService.selectPostOfAll();
-            return Result.success(postInfo, Constant.UPLOAD_SUCCESS);
+            return Result.success(postInfo,userName,Constant.UPLOAD_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
         }
