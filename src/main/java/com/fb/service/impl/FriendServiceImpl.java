@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Service
 public class FriendServiceImpl implements FriendService {
@@ -61,6 +63,11 @@ public class FriendServiceImpl implements FriendService {
     @Override
     public int updateNonEmptyFriend(Friend value, Assist assist){
         return friendDao.updateNonEmptyFriend(value,assist);
+    }
+
+    @Override
+    public List<Map<String, Objects>> selectFriendOfIsFriend(Friend friend) {
+        return friendDao.selectFriendOfIsFriend(friend);
     }
 
     public FriendDao getFriendDao() {

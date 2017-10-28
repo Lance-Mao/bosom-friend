@@ -6,6 +6,8 @@ import com.fb.entity.Friend;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public interface FriendDao{
 	/**
@@ -82,4 +84,6 @@ public interface FriendDao{
 	 * @return
 	 */
     int updateNonEmptyFriend(@Param("enti") Friend value, @Param("assist") Assist assist);
+
+	List<Map<String, Objects>> selectFriendOfIsFriend(Friend friend);
 }

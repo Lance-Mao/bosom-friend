@@ -5,6 +5,8 @@ import com.fb.common.Assist;
 import com.fb.entity.Friend;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public interface FriendService{
 	/**
@@ -81,4 +83,6 @@ public interface FriendService{
 	 * @return
 	 */
     int updateNonEmptyFriend(Friend value, Assist assist);
+
+	List<Map<String, Objects>> selectFriendOfIsFriend(Friend friend);
 }

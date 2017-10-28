@@ -49,6 +49,7 @@
             width: 105px;
             height: auto;
         }
+
         hr {
             height: 30px;
             border-style: solid;
@@ -56,6 +57,7 @@
             border-width: 1px 0 0 0;
             border-radius: 20px;
         }
+
         hr:before {
             display: block;
             content: "";
@@ -133,7 +135,10 @@
 
 <script type="text/javascript">
     let userImgName;
-    let currentUserName;
+    let currentUserName; //当前用户姓名
+    let currentLoginUser;  //当前登陆用户
+    let whetherItIsAFriend; //是否为好友
+    let whetherItIsAFriends; //
     $("#buttonOfPost").click(function () {
         $('#post_a_post').modal({backdrop: 'static', keyboard: false});
     });
@@ -207,8 +212,6 @@
             url: "${baseurl}/post/loadPost",
             type: "post",
             success: function (data) {
-                console.log("123456789")
-                console.log(data)
                 if (data.result === true) {
                     //首页显示发布的帖子
                     showPostForIndex(data.data);
@@ -218,7 +221,6 @@
     }
 
     function showPostForIndex(postInfo) {
-        console.log(postInfo)
         $("#showPostForIndex").html("");
         let count = 0;
         for (let item of postInfo) {
@@ -234,8 +236,9 @@
                 sport: item.sport,
                 steady: item.steady
             };
-            count++;
-//            if (count % 2 === 0) {
+
+            currentUserName = item.userName;
+//            if (count % 2 ==) {
 //                $("#showPostForIndex").append(`
 //            <div class="row mrgTop30">
 //                    <div class="col-md-6"><img class="img-responsive" src="` + IMAGE_PREFIX + item.img + `"
@@ -255,13 +258,13 @@
 //                        </div>
 //                </div>`)
 //            } else {
-                $("#showPostForIndex").append(`
+            $("#showPostForIndex").append(`
                <div class="row mrgTop30">
                     <div class="col-md-6">
                     <div>
-                    <img style="border-radius:95px;width: 50px;" src="`+IMAGE_PREFIX + item.img+`"><span style="font-size: 20px;margin: 0 15px">`+item.userName+`</span>
-                    <button type="button" class="btn btn-lg btn-default" data-toggle="modal"  id="addFriend"
-                                    data-target="#showAddFriendPage" data-whatever="@mdo" title="点击添加对方为好友！！" `+item.userName+`>添加好友
+                    <img style="border-radius:95px;width: 50px;" src="` + IMAGE_PREFIX + item.img + `"><span style="font-size: 20px;margin: 0 15px">` + item.userName + `</span>
+                    <button type="button" class="btn btn-lg btn-default addFriend" data-toggle="modal"  id="addFriend"
+                                    data-target="#showAddFriendPage" data-whatever="@mdo" title="点击添加` + item.userName + `为好友！！">添加好友
                             </button>
 </div>
 <br>
@@ -284,6 +287,9 @@
                     </div>
                     <hr>
                     `)
+            isFriend();
+            //判断当前用户是否与发布帖子的用户为同一个人,如果不是则现实添加好友按钮
+//            currentLoginUser === currentUserName ? $(".addFriend").hide() : "";
 //            }
 
         }
@@ -340,8 +346,44 @@
         return html_;
     }
 
+    function getTheUurrentUser() {
+        $.ajax({
+            url: "${baseurl}/user/getUserName",
+            type: "post",
+            success: function (data) {
+                currentLoginUser = data.data;
+            }
+        })
+    }
+
+    function isFriend() {
+        let friendInfo = {
+            userId: currentLoginUser,
+            friendId: currentUserName,
+        }
+        $.ajax({
+            url: "${baseurl}/addFriend/isFriend",
+            type: "post",
+            data: friendInfo,
+            success: function (data) {
+                if (data.result) {
+                    if (data.data.length !== 0) {
+                        whetherItIsAFriends = true;  //将查询出来的结果即双方是否为好友赋与全局变量;
+                    } else {
+                        whetherItIsAFriends = false;
+                    }
+                    //判断该用户是否当前登陆用户互为好友
+                    whetherItIsAFriends === true ? $(".addFriend").text("互为好友") : null;
+                    whetherItIsAFriends === true ? $(".addFriend").prop("disabled", true) : null;
+                    whetherItIsAFriends === true ? $(".addFriend").addCss("background-color", "red") : null;
+                }
+            }
+        })
+    }
+
     $(function () {
         loadPost();
+        getTheUurrentUser();
     })
 
 </script>

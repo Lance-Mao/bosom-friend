@@ -96,8 +96,8 @@
     <!-- 将Friend插入到对应数据库的表中,包括属性值为null的数据-->
 
     <insert id="insertFriend" parameterType="com.fb.entity.Friend">
-        insert into bf_friend(id,user_id,friend_id) 
-        values(#{id},#{userId},#{friendId})
+        insert into bf_friend(user_id,friend_id)
+        values(#{userId},#{friendId})
     </insert>
 
     <!-- 将Friend中属性值不为null的数据,插入到对应数据库的表中-->
@@ -176,5 +176,12 @@
         </set>
         <if test="assist.require!=null"><include refid="updateAssist" /></if>
     </update>
+
+    <select id="selectFriendOfIsFriend" parameterType="com.fb.entity.Friend" resultType="map">
+        select * from bf_friend
+        WHERE user_id = #{userId}
+        AND
+        friend_id = #{friendId}
+    </select>
 
 </mapper>

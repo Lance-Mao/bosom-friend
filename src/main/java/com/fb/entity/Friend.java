@@ -1,39 +1,53 @@
 package com.fb.entity;
 public class Friend {
     private Integer id;
-    private Integer userId;
-    private Integer friendId;
-    public Friend() {
-        super();
-    }
-    public Friend(Integer id,Integer userId,Integer friendId) {
-        super();
+    private String userId;
+    private String friendId;
+
+    public Friend(Integer id, String userId, String friendId) {
         this.id = id;
         this.userId = userId;
         this.friendId = friendId;
     }
+
+    public Friend(String userId, String friendId) {
+        this.userId = userId;
+        this.friendId = friendId;
+    }
+
+    public Friend() {
+    }
+
     public Integer getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return this.userId;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public Integer getFriendId() {
-        return this.friendId;
+    public String getFriendId() {
+        return friendId;
     }
 
-    public void setFriendId(Integer friendId) {
+    public void setFriendId(String friendId) {
         this.friendId = friendId;
     }
 
+    @Override
+    public String toString() {
+        return "Friend{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", friendId='" + friendId + '\'' +
+                '}';
+    }
 }

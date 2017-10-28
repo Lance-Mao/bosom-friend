@@ -47,6 +47,18 @@ public class UserController {
         return Result.failure("null",Constant.ACCOUNT_IS_EXIST);
     }
 
+    @RequestMapping("/getUserName")
+    @ResponseBody
+    public Result getUserName(HttpServletRequest request) {
+        try {
+            return Result.success(request.getSession().getAttribute("userName"),Constant.SEARCH_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return Result.failure("null",Constant.ACCOUNT_IS_EXIST);
+    }
+
     @RequestMapping("/toIndex")
     public String toIndex() {
         return "index";

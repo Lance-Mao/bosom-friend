@@ -142,7 +142,6 @@
                     if (dataInfo.userImg !== null) {
                         $("#showMyImgInFooter").prop("src", IMAGE_PREFIX + dataInfo.userImg);
                     }
-                    console.log(dataInfo);
                 }
             }
         })

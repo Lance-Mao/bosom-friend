@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
-@Controller
-@RequestMapping("information")
-public class informationController {
+    @Controller
+    @RequestMapping("information")
+public class InformationController {
 
     @Autowired
     UserService userService;
