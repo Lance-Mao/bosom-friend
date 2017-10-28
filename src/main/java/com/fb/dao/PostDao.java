@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.fb.common.Assist;
+import com.fb.util.PageUtil;
 import org.apache.ibatis.annotations.Param;
 import org.omg.CORBA.Object;
 
@@ -86,4 +87,6 @@ public interface PostDao{
 	List<Map<String,Object>> selectPostByUserName(@Param("userName") String userName);
 
 	List<Map<String,Object>> selectPostOfAll();
+
+    List<Map<String,Object>> tabToShowPosts(PageUtil pageUtil);
 }

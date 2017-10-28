@@ -2,8 +2,8 @@ package com.fb.util;
 
 public class PageUtil {
     private Long totalSize;//总页数
-    private Integer currentIndex;
-    private Integer pageSize; //每页数量
+    private Integer currentIndex;//当前页数
+    private Integer pageSize;//每页数量
     private Long totalCount;//总记录数
     private Object data;
 

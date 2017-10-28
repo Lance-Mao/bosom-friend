@@ -45,7 +45,6 @@
             friendId: currentUserName,  //添加的好友
             userId: currentLoginUser, //当前登陆的用户
         }
-
         $.ajax({
             url: "${baseurl}/addFriend/confirmAddFriend",
             type: "post",
@@ -57,6 +56,7 @@
             }
         })
     }
+
 </script>
 
 </html>

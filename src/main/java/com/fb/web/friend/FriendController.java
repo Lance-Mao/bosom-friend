@@ -1,4 +1,4 @@
-package com.fb.web.addFriend;
+package com.fb.web.friend;
 
 import com.fb.dto.Result;
 import com.fb.entity.Friend;
@@ -9,13 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 @Controller
 @RequestMapping("addFriend")
-public class AddFriendController {
+public class FriendController {
 
     @Autowired
     FriendService friendService;
@@ -39,6 +40,20 @@ public class AddFriendController {
             List<Map<String,Objects>> friendInfo = friendService.selectFriendOfIsFriend(friend);
 
             return Result.success(friendInfo, Constant.ADD_SUCCESS);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return Result.failure(null, Constant.ADD_FAILURE);
+    }
+
+    @RequestMapping("showMyFriend")
+    @ResponseBody
+    public Result showMyFriend(HttpServletRequest request) {
+        try {
+            String userName = (String) request.getSession().getAttribute("userName");
+            List<Map<String,Object>> myFriendInfo = friendService.selectMyFriendAll(userName);
+
+            return Result.success(myFriendInfo, Constant.ADD_SUCCESS);
         } catch (Exception e) {
             System.out.println(e);
         }

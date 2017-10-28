@@ -215,6 +215,8 @@
                 if (data.result === true) {
                     //首页显示发布的帖子
                     showPostForIndex(data.data);
+                    //显示我的添加的好友
+                    showMyFriend();
                 }
             }
         })
@@ -224,6 +226,7 @@
         $("#showPostForIndex").html("");
         let count = 0;
         for (let item of postInfo) {
+            count++;
             let labels;
             labels = {
                 free: item.free,
@@ -238,26 +241,6 @@
             };
 
             currentUserName = item.userName;
-//            if (count % 2 ==) {
-//                $("#showPostForIndex").append(`
-//            <div class="row mrgTop30">
-//                    <div class="col-md-6"><img class="img-responsive" src="` + IMAGE_PREFIX + item.img + `"
-//                                               align=""></div>
-//                    <div class="col-md-6">
-//                    <div>
-//                    <img style="border-radius:95px;width: 50px" src="`+IMAGE_PREFIX + item.img+`"><span style="font-size: 20px;margin: 0 15px">`+item.userName+`</span><button type="button" class="btn btn-primary"
-//    data-toggle="button">添加好友</button>
-//</div>
-//                        <h3>` + item.title + `</h3>
-//                        <p>` + item.content + `</p>
-//                        <h4>Hobbies </h4>
-//                        <ul class="about-us-list">
-//                        ` + showLabel(labels) + `
-//                            </li>
-//                        </ul>
-//                        </div>
-//                </div>`)
-//            } else {
             $("#showPostForIndex").append(`
                <div class="row mrgTop30">
                     <div class="col-md-6">
@@ -289,9 +272,10 @@
                     `)
             isFriend();
             //判断当前用户是否与发布帖子的用户为同一个人,如果不是则现实添加好友按钮
-//            currentLoginUser === currentUserName ? $(".addFriend").hide() : "";
-//            }
-
+            currentLoginUser === currentUserName ? $(".addFriend").hide() : "";
+            if (count === 3) {
+                break;
+            }
         }
     }
 
@@ -375,15 +359,64 @@
                     //判断该用户是否当前登陆用户互为好友
                     whetherItIsAFriends === true ? $(".addFriend").text("互为好友") : null;
                     whetherItIsAFriends === true ? $(".addFriend").prop("disabled", true) : null;
-                    whetherItIsAFriends === true ? $(".addFriend").addCss("background-color", "red") : null;
                 }
             }
         })
     }
 
+    //显示已添加的好友
+    function showMyFriend() {
+        $.ajax({
+            url: "${baseurl}/addFriend/showMyFriend",
+            type: "post",
+            success: function (data) {
+                console.log(data.data)
+                if (data.result) {
+                    $("#showMyFriend").html("");
+                    for (let item of data.data) {
+                        $("#showMyFriend").append(`
+                    <div class="col-md-3 centered"><img class="img img-circle"
+                                                        src="${baseurl}/images/user/` + item.userImg + `"
+                                                        height="120px" width="120px" alt="">
+                        <h4><strong>昵称：` + item.user_name + `</strong></h4>
+                        <p>性别：` + item.sex + `</p>
+                        <p>工作：` + item.job + `</p>
+                        <p>现居住地：` + item.living + `</p>
+                        <p>出生日期：` + item.birthday + `</p>
+                        <br/></div>`);
+                    }
+                }
+            }
+        })
+    }
+
+    function tabToShowPosts() {
+        $("#pagerArea").cypager({
+            pg_size: 3, pg_nav_count: 5, pg_total_count: 4, pg_call_fun: function (count) {
+                let currentIndex = count;
+                let pageSize = 3;
+                let pageInfo = {
+                    currentIndex: currentIndex,
+                    pageSize: pageSize
+                };
+                $.ajax({
+                    url: "${baseurl}/post/tabToShowPosts",
+                    type: "post",
+                    data: pageInfo,
+                    success: function (data) {
+                        if (data.result) {
+                            alert(data.data);
+                        }
+                    }
+                })
+            }
+        });
+    }
+
     $(function () {
         loadPost();
         getTheUurrentUser();
+        tabToShowPosts();
     })
 
 </script>

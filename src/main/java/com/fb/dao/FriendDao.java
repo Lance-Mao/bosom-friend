@@ -86,4 +86,6 @@ public interface FriendDao{
     int updateNonEmptyFriend(@Param("enti") Friend value, @Param("assist") Assist assist);
 
 	List<Map<String, Objects>> selectFriendOfIsFriend(Friend friend);
+
+	List<Map<String,Object>> selectMyFriendAll(@Param("userName") String userName);
 }

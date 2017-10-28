@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>cypager强大的jQuery分页插件</title>
+        <script src="http://www.jq22.com/jquery/1.7.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/cypager.min.css" />
+    </head>
+    <body>
+        <h3>调用方式</h3>
+        <p>由于是 jquery 插件，所以在引人 cypager.min.js 之前，要引人 jquery.min.js 本人使用的是 1.7.2 版本的，低版本的没试过。</p>
+        <pre>
+		引入css : &lt;link rel="stylesheet" href="css/cypager.min.css" /&gt;
+		引人js  : &lt;script type="text/javascript" src="js/cypager.min.js"/&gt; 
+        </pre>
+        <pre>
+		$(function(){
+			$("#pagerArea").cypager({pg_size:10,pg_nav_count:8,pg_total_count:194,pg_call_fun:function(count){
+				alert("跳转至页面:"+count+"");
+			}});
+		});
+        </pre>
+        <div id="pagerArea" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;"></div>
+
+        <div id="console" style='padding-left:10px'></div>
+
+    </body>
+    <script type="text/javascript" src="js/cypager.min.js" ></script>
+    <script>
+        $(function() {
+            $("#pagerArea").cypager({pg_size: 10, pg_nav_count: 8, pg_total_count: 194, pg_call_fun: function(count) {
+                    $("#console").html("正在加载第(" + count + ")页的数据，请稍后.......");
+                }});
+        });
+    </script>
+</html>
+
+
+

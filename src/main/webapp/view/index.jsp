@@ -49,13 +49,16 @@
     <%@include file="leaveMessage/leaveMessage.jsp" %>
     <%@include file="personalCenter/personalCenter.jsp" %>
     <%@include file="addFriend/showAddFriendPage.jsp" %>
-
     <%--引入layui--%>
     <%--<link rel="stylesheet" href="${baseurl}/resource/public/layui/css/layui.css" type="text/css">--%>
     <%--<script src="${baseurl}/resource/public/layui/layui.js" type="text/javascript"></script>--%>
 
     <%--bootstrap复选框美化插件--%>
     <link href="${baseurl}/resource/public/bootstrap-3.3.7-dist/css/awesome-bootstrap-checkbox.css" rel="stylesheet" type="text/css">
+
+    <%--引入分页插件--%>
+    <link rel="stylesheet" href="${baseurl}/resource/public/pagePlugin/css/cypager.min.css">
+    <script type="text/javascript" src="${baseurl}/resource/public/pagePlugin/js/cypager.min.js"></script>
 
 </head>
 <body>
@@ -99,7 +102,7 @@
                         <li><a href="#service" class="scroll-link">寻找你的另一半</a></li>
                         <li><a href="#aboutUs" class="scroll-link">单身求带走</a></li>
                         <li><a href="#Portfolio" class="scroll-link">成功案例</a></li>
-                        <li><a href="#team" class="scroll-link">关于我们</a></li>
+                        <li><a href="#team" class="scroll-link">好友列表</a></li>
                         <li><a href="#contact" class="scroll-link">个人中心</a></li>
                     </ul>
                 </div>
@@ -176,7 +179,7 @@
     <div class="inner_wrapper about-us aboutUs-container fadeInLeft animated wow">
         <div class="container">
             <h2>单身求带走</h2>
-            <h6>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum</h6>
+            <h6>在这里来偶遇你的另一半</h6>
             <div class="inner_section" id="showPostForIndex">
                 <div class="row">
                     <div class="col-md-6"><img class="img-responsive" src="/resource/public/indexStyle/img/about2.png"
@@ -223,6 +226,9 @@
                     </div>
                 </div>
             </div>
+            <div id="pagerArea" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;"></div>
+
+            <div id="console" style='padding-left:10px'></div>
         </div>
     </div>
 </section>
@@ -426,12 +432,12 @@
 
 <section class="page_section team" id="team"><!--main-section team-start-->
     <div class="container">
-        <h2>关于我们</h2>
+        <h2>我的好友</h2>
         <h6>Lorem ipsum dolor sit amet, consectetur adipiscing.</h6>
 
         <div id="team" name="team">
             <div class="container">
-                <div class="row centered">
+                <div class="row centered" id="showMyFriend">
 
                     <div class="col-md-3 centered"><img class="img img-circle"
                                                         src="${baseurl}/resource/public/indexStyle/img/team01.jpg"

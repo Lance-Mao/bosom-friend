@@ -7,6 +7,7 @@ import com.fb.service.PersonalityTraitsService;
 import com.fb.service.PostService;
 import com.fb.util.Constant;
 import com.fb.util.ImgUtil;
+import com.fb.util.PageUtil;
 import org.omg.CORBA.Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +38,18 @@ public class PostController {
             String imgPath = ImgUtil.saveImg(file, request.getServletContext().getRealPath("/images") + Constant.USER_IMAGE_PATH);
             String imgName = imgPath.substring(imgPath.lastIndexOf("/"));
             return Result.success(imgName, Constant.UPLOAD_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.UPLOAD_FAILURE);
+    }
+    @RequestMapping("tabToShowPosts")
+    @ResponseBody
+    public Result tabToShowPosts(PageUtil pageUtil) {
+        try {
+            List<Map<String, Object>> postInfo = postService.tabToShowPosts(pageUtil);
+            System.out.println("分页查询显示的数据："+postInfo);
+            return Result.success(null, Constant.UPLOAD_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
         }

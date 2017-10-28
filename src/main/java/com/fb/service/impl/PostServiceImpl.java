@@ -6,6 +6,7 @@ import com.fb.dao.PostDao;
 import com.fb.entity.Post;
 import com.fb.common.Assist;
 import com.fb.service.PostService;
+import com.fb.util.PageUtil;
 import org.omg.CORBA.Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -70,6 +71,11 @@ public class PostServiceImpl implements PostService{
     @Override
     public List<Map<String, Object>> selectPostOfAll() {
         return postDao.selectPostOfAll();
+    }
+
+    @Override
+    public List<Map<String, Object>> tabToShowPosts(PageUtil pageUtil) {
+        return postDao.tabToShowPosts(pageUtil);
     }
 
     public PostDao getPostDao() {

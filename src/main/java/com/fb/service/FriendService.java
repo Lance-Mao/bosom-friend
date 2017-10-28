@@ -85,4 +85,6 @@ public interface FriendService{
     int updateNonEmptyFriend(Friend value, Assist assist);
 
 	List<Map<String, Objects>> selectFriendOfIsFriend(Friend friend);
+
+	List<Map<String,Object>> selectMyFriendAll(String userName);
 }

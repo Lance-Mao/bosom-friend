@@ -21,6 +21,12 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+	<!--设置session时间-->
+	<session-config>
+		<!-- 时间单位为分钟   -->
+		<session-timeout>720</session-timeout>
+	</session-config>
+
 	<!-- druid -->
 	<servlet>
 		<servlet-name>DruidStatView</servlet-name>

@@ -70,6 +70,11 @@ public class FriendServiceImpl implements FriendService {
         return friendDao.selectFriendOfIsFriend(friend);
     }
 
+    @Override
+    public List<Map<String, Object>> selectMyFriendAll(String userName) {
+        return friendDao.selectMyFriendAll(userName);
+    }
+
     public FriendDao getFriendDao() {
         return this.friendDao;
     }
