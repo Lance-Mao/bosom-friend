@@ -88,5 +88,5 @@ public interface PostDao{
 
 	List<Map<String,Object>> selectPostOfAll();
 
-    List<Map<String,Object>> tabToShowPosts(PageUtil pageUtil);
+    List<Map<String,Object>> tabToShowPosts(Map<String, Integer> pageUtil);
 }

@@ -48,8 +48,7 @@ public class PostController {
     public Result tabToShowPosts(PageUtil pageUtil) {
         try {
             List<Map<String, Object>> postInfo = postService.tabToShowPosts(pageUtil);
-            System.out.println("分页查询显示的数据："+postInfo);
-            return Result.success(null, Constant.UPLOAD_SUCCESS);
+            return Result.success(postInfo, Constant.UPLOAD_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
         }

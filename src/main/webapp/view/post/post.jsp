@@ -370,7 +370,6 @@
             url: "${baseurl}/addFriend/showMyFriend",
             type: "post",
             success: function (data) {
-                console.log(data.data)
                 if (data.result) {
                     $("#showMyFriend").html("");
                     for (let item of data.data) {
@@ -405,7 +404,7 @@
                     data: pageInfo,
                     success: function (data) {
                         if (data.result) {
-                            alert(data.data);
+                            showPostForIndex(data.data);
                         }
                     }
                 })

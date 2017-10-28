@@ -1,4 +1,5 @@
 package com.fb.service.impl;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -75,7 +76,10 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public List<Map<String, Object>> tabToShowPosts(PageUtil pageUtil) {
-        return postDao.tabToShowPosts(pageUtil);
+        Map<String, Integer> data = new HashMap<>();
+        data.put("start",(pageUtil.getCurrentIndex()-1)*pageUtil.getPageSize());
+        data.put("pageSize", pageUtil.getPageSize());
+        return postDao.tabToShowPosts(data);
     }
 
     public PostDao getPostDao() {
