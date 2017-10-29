@@ -101,9 +101,12 @@
                         <li class="active"><a href="#hero_section" class="scroll-link">首页</a></li>
                         <li><a href="#service" class="scroll-link">寻找你的另一半</a></li>
                         <li><a href="#aboutUs" class="scroll-link">单身求带走</a></li>
-                        <li><a href="#Portfolio" class="scroll-link">成功案例</a></li>
+                        <%--<li><a href="#Portfolio" class="scroll-link">成功案例</a></li>--%>
                         <li><a href="#team" class="scroll-link">好友列表</a></li>
                         <li><a href="#contact" class="scroll-link">个人中心</a></li>
+                        <li id="operateTheCurrentUser">
+
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -138,7 +141,7 @@
                     <div class="service_block">
                         <h3 class="animated fadeInUp wow">
                             <button type="button" class="btn btn-lg btn-default" data-toggle="modal"  id="openImproveTheInformation"
-                                    data-target="#improveTheInformation" data-whatever="@mdo" title="完善信息，开启精彩之旅！">完善信息
+                                    data-target="#improveTheInformation" data-whatever="@mdo" title="完善信息，开启精彩之旅！">修改或完善信息
                             </button>
                         </h3>
                         <p class="animated fadeInDown wow">添加你的性格特点，上传你的个性图片。寻找更适合你的异性。 </p>
@@ -163,7 +166,7 @@
 
                         <h3 class="animated fadeInUp wow">
                             <button type="button" class="btn btn-lg btn-default" data-toggle="modal"
-                                    data-target="#demo1" data-whatever="@mdo" title="尽最大的努力，来解决你的问题！">搜索你的另一半
+                                    data-target="#searchYourOtherHalf" data-whatever="@mdo" title="尽最大的努力，来解决你的问题！">搜索你的另一半
                             </button>
                         </h3>
                         <p class="animated fadeInDown wow">点击此处搜索你心目中的另一半。</p>
@@ -178,7 +181,7 @@
 <section id="aboutUs"><!--Aboutus-->
     <div class="inner_wrapper about-us aboutUs-container fadeInLeft animated wow">
         <div class="container">
-            <h2>单身求带走</h2>
+            <h2 id="showPosts">单身求带走</h2>
             <h6>在这里来偶遇你的另一半</h6>
             <div class="inner_section" id="showPostForIndex">
                 <div class="row">
@@ -232,203 +235,6 @@
         </div>
     </div>
 </section>
-<!--Aboutus-->
-
-<!-- Portfolio -->
-<section id="Portfolio" class="content">
-
-    <!-- Container -->
-    <div class="container portfolio_title">
-
-        <!-- Title -->
-        <div class="section-title">
-            <h2>成功案例</h2>
-            <h6>Lorem ipsum dolor sit amet, consectetur Morbi sagittis, sem quisci ipsum</h6>
-
-        </div>
-        <!--/Title -->
-
-    </div>
-    <!-- Container -->
-
-    <div class="portfolio-top"></div>
-
-    <!-- Portfolio Filters -->
-    <div class="portfolio">
-
-        <div id="filters" class="sixteen columns" style="display:none">
-            <ul class="clearfix">
-                <li><a id="all" href="#" data-filter="*" class="active">
-                    <h5>All</h5>
-                </a></li>
-                <li><a class="" href="#" data-filter=".prototype">
-                    <h5>Prototype</h5>
-                </a></li>
-                <li><a class="" href="#" data-filter=".design">
-                    <h5>Design</h5>
-                </a></li>
-                <li><a class="" href="#" data-filter=".android">
-                    <h5>Android</h5>
-                </a></li>
-                <li><a class="" href="#" data-filter=".appleIOS">
-                    <h5>Apple IOS</h5>
-                </a></li>
-                <li><a class="" href="#" data-filter=".web">
-                    <h5>Web App</h5>
-                </a></li>
-            </ul>
-        </div>
-        <!--/Portfolio Filters -->
-
-        <!-- Portfolio Wrapper -->
-        <div class="isotope fadeInLeft animated wow grid" style="position: relative; overflow: hidden; height: 480px;"
-             id="portfolio_wrapper">
-            <!-- Portfolio Item -->
-            <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-                    class="portfolio-item one-four   appleIOS isotope-item effect-oscar">
-
-                <div class="portfolio_img">
-                    <img src="${baseurl}/resource/public/indexStyle/img/portfolio_pic1.jpg" alt="Portfolio 1"></div>
-                <figcaption>
-                    <div>
-                        <a href="${baseurl}/resource/public/indexStyle/img/portfolio_pic1.jpg" class="fancybox">
-                            <h2>Warm <span>Oscar</span></h2>
-                            <p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-                        </a>
-                    </div>
-                </figcaption>
-            </figure>
-            <!--/Portfolio Item -->
-
-            <!-- Portfolio Item-->
-            <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-                    class="portfolio-item one-four  design isotope-item effect-oscar">
-                <div class="portfolio_img"><img src="${baseurl}/resource/public/indexStyle/img/portfolio_pic2.jpg"
-                                                alt="Portfolio 1"></div>
-                <figcaption>
-                    <div>
-                        <a href="${baseurl}/resource/public/indexStyle/img/portfolio_pic2.jpg" class="fancybox">
-                            <h2>Warm <span>Oscar</span></h2>
-                            <p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-                        </a>
-                    </div>
-                </figcaption>
-            </figure>
-            <!--/Portfolio Item -->
-
-            <!-- Portfolio Item -->
-            <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-                    class="portfolio-item one-four  design  isotope-item effect-oscar">
-                <div class="portfolio_img"><img src="${baseurl}/resource/public/indexStyle/img/portfolio_pic3.jpg"
-                                                alt="Portfolio 1"></div>
-                <figcaption>
-                    <div>
-                        <a href="${baseurl}/resource/public/indexStyle/img/portfolio_pic3.jpg" class="fancybox">
-                            <h2>Warm <span>Oscar</span></h2>
-                            <p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-                        </a>
-                    </div>
-                </figcaption>
-            </figure>
-            <!--/Portfolio Item-->
-
-            <!-- Portfolio Item-->
-            <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-                    class="portfolio-item one-four  android  prototype web isotope-item effect-oscar">
-                <div class="portfolio_img"><img src="${baseurl}/resource/public/indexStyle/img/portfolio_pic4.jpg"
-                                                alt="Portfolio 1"></div>
-                <figcaption>
-                    <div>
-                        <a href="${baseurl}/resource/public/indexStyle/img/portfolio_pic4.jpg" class="fancybox">
-                            <h2>Warm <span>Oscar</span></h2>
-                            <p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-                        </a>
-                    </div>
-                </figcaption>
-            </figure>
-            <!-- Portfolio Item -->
-
-            <!-- Portfolio Item -->
-            <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-                    class="portfolio-item one-four  design isotope-item effect-oscar">
-                <div class="portfolio_img"><img src="${baseurl}/resource/public/indexStyle/img/portfolio_pic5.jpg"
-                                                alt="Portfolio 1"></div>
-                <figcaption>
-                    <div>
-                        <a href="${baseurl}/resource/public/indexStyle/img/portfolio_pic5.jpg" class="fancybox">
-                            <h2>Warm <span>Oscar</span></h2>
-                            <p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-                        </a>
-                    </div>
-                </figcaption>
-            </figure>
-            <!--/Portfolio Item -->
-
-            <!-- Portfolio Item -->
-            <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-                    class="portfolio-item one-four  web isotope-item effect-oscar">
-                <div class="portfolio_img"><img src="${baseurl}/resource/public/indexStyle/img/portfolio_pic6.jpg"
-                                                alt="Portfolio 1"></div>
-                <figcaption>
-                    <div>
-                        <a href="${baseurl}/resource/public/indexStyle/img/portfolio_pic6.jpg" class="fancybox">
-                            <h2>Warm <span>Oscar</span></h2>
-                            <p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-                        </a>
-                    </div>
-                </figcaption>
-            </figure>
-            <!--/Portfolio Item -->
-
-            <!-- Portfolio Item  -->
-            <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-                    class="portfolio-item one-four  design web isotope-item effect-oscar">
-                <div class="portfolio_img"><img src="${baseurl}/resource/public/indexStyle/img/portfolio_pic7.jpg"
-                                                alt="Portfolio 1"></div>
-                <figcaption>
-                    <div>
-                        <a href="${baseurl}/resource/public/indexStyle/img/portfolio_pic7.jpg" class="fancybox">
-                            <h2>Warm <span>Oscar</span></h2>
-                            <p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-                        </a>
-                    </div>
-                </figcaption>
-            </figure>
-            <!--/Portfolio Item -->
-
-            <!-- Portfolio Item -->
-            <figure style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 240px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;"
-                    class="portfolio-item one-four   android isotope-item effect-oscar">
-                <div class="portfolio_img"><img src="${baseurl}/resource/public/indexStyle/img/portfolio_pic8.jpg"
-                                                alt="Portfolio 1"></div>
-                <figcaption>
-                    <div>
-                        <a href="${baseurl}/resource/public/indexStyle/img/portfolio_pic8.jpg" class="fancybox">
-                            <h2>Warm <span>Oscar</span></h2>
-                            <p>Oscar is a decent man. He used to clean porches with pleasure.</p>
-                        </a>
-                    </div>
-                </figcaption>
-            </figure>
-            <!--/Portfolio Item -->
-
-        </div>
-        <!--/Portfolio Wrapper -->
-
-    </div>
-    <!--/Portfolio Filters -->
-
-    <div class="portfolio_btm"></div>
-
-
-    <div id="project_container">
-        <div class="clear"></div>
-        <div id="project_data"></div>
-    </div>
-
-
-</section>
-<!--/Portfolio -->
 
 <section class="page_section team" id="team"><!--main-section team-start-->
     <div class="container">
@@ -518,4 +324,34 @@
 </footer>
 
 </body>
+
+//获取当前用户
+<script>
+    let userInfoForOperateTheCurrentUser;
+    $(function () {
+
+        $.ajax({
+            url: "${baseurl}/information/loadInformation",
+            type: "post",
+            success: function (data) {
+                if(data.result) {
+                    console.log(data.data[0]);
+                    userInfoForOperateTheCurrentUser = data.data[0];
+                    $("#operateTheCurrentUser").html("").append(`
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="showCurrentUser">
+         <img style="border-radius:95px;width: 50px;" src="` + IMAGE_PREFIX + userInfoForOperateTheCurrentUser.userImg + `">
+                                当前用户：`+userInfoForOperateTheCurrentUser.user_name +`
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#contact">个人中心</a></li>
+                                <li><a href="#">退出登陆</a></li>
+                            </ul>
+        `)
+                }
+            }
+        })
+    })
+</script>
+
 </html>

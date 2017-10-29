@@ -5,6 +5,7 @@ import java.util.Map;
 import com.fb.entity.Post;
 import com.fb.common.Assist;
 import com.fb.util.PageUtil;
+import com.fb.util.SearchUtils;
 import org.omg.CORBA.Object;
 
 public interface PostService{
@@ -89,4 +90,6 @@ public interface PostService{
     List<Map<String,Object>> selectPostOfAll();
 
     List<Map<String,Object>> tabToShowPosts(PageUtil pageUtil);
+
+    List<Map<String,Object>> searchYouOtherHalf(SearchUtils searchUtils);
 }

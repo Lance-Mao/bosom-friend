@@ -8,6 +8,7 @@ import com.fb.service.PostService;
 import com.fb.util.Constant;
 import com.fb.util.ImgUtil;
 import com.fb.util.PageUtil;
+import com.fb.util.SearchUtils;
 import org.omg.CORBA.Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -90,6 +91,19 @@ public class PostController {
             //查询全部的用户所发布的帖子，在首页进行分页显示
 //            List<Map<String, Object>> postInfoByPage = postService.selectPostOfAll();
             return Result.success(postInfo,userName,Constant.UPLOAD_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.UPLOAD_FAILURE);
+    }
+
+    @RequestMapping("searchYouOtherHalf")
+    @ResponseBody
+    public Result searchYouOtherHalf(SearchUtils searchUtils) {
+        try {
+            List<Map<String, Object>> dataInfo = postService.searchYouOtherHalf(searchUtils);
+            System.out.println(dataInfo);
+            return Result.success(dataInfo,Constant.UPLOAD_SUCCESS);
         } catch (Exception e) {
             e.printStackTrace();
         }

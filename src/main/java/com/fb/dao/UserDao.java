@@ -4,6 +4,7 @@ package com.fb.dao;
 import com.fb.common.Assist;
 import com.fb.entity.User;
 import org.apache.ibatis.annotations.Param;
+import org.omg.CORBA.Object;
 
 import java.util.List;
 import java.util.Map;
@@ -87,4 +88,6 @@ public interface UserDao{
     List<Map<String,Object>> selectUserByUserName(@Param("userName") String userName);
 
 	void updateUserInfo(User user);
+
+    List<Map<String,Object>> selectUserInfo(String userName);
 }

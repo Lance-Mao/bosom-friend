@@ -68,6 +68,10 @@
             border-width: 0 0 1px 0;
             border-radius: 20px;
         }
+
+        .points {
+            margin-right: 20px;
+        }
     </style>
 </head>
 <body>
@@ -132,6 +136,35 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="searchYourOtherHalf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="searchYourFriend">搜索好友</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="form-group">
+                        <label for="userNameForSearch" class="control-label">昵称:</label>
+                        <input type="text" class="form-control" id="userNameForSearch">
+                    </div>
+                    <div class="form-group">
+                        <label for="postForSearch" class="control-label">帖子名称:</label>
+                        <input type="text" class="form-control" id="postForSearch">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="searchYouOtherHalf()" data-dismiss="modal" href="#showPosts">搜索</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <script type="text/javascript">
     let userImgName;
@@ -259,7 +292,7 @@
                             ` + showLabel(labels) + `
                         </ul>
                     </div>
-                    <div class="col-md-6"><img style="width: 600px;height: 400px;margin-top: 100px" class="img-responsive"
+                    <div class="col-md-6"><img style="width: 600px;height: 400px;margin-top: 120px" class="img-responsive"
                     src="` + IMAGE_PREFIX + item.img + `" align="">
                     <div>
                     <br><br>
@@ -410,6 +443,27 @@
                 })
             }
         });
+    }
+
+    function searchYouOtherHalf() {
+        let userName = $("#userNameForSearch").val();
+        let postTitleName = $("#postForSearch").val();
+
+        let searchInfo = {
+            userName: userName,
+            postTitleName: postTitleName
+        };
+
+        $.ajax({
+            url: "${baseurl}/post/searchYouOtherHalf",
+            type: "post",
+            data: searchInfo,
+            success: function (data) {
+                if (data.result) {
+                    showPostForIndex(data.data);
+                }
+            }
+        })
     }
 
     $(function () {

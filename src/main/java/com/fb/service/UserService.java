@@ -4,6 +4,7 @@ package com.fb.service;
 
 import com.fb.common.Assist;
 import com.fb.entity.User;
+import org.omg.CORBA.Object;
 
 import java.util.List;
 import java.util.Map;
@@ -84,7 +85,8 @@ public interface UserService{
 	 */
     int updateNonEmptyUser(User value, Assist assist)throws Exception;
 
-	List<Map<String,Object>> selectUserByUserName(String userName);
+	List<Map<String, Object>> selectUserByUserName(String userName);
 
 	void updateUserInfo(User user);
+
 }

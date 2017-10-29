@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.fb.common.Assist;
 import com.fb.util.PageUtil;
+import com.fb.util.SearchUtils;
 import org.apache.ibatis.annotations.Param;
 import org.omg.CORBA.Object;
 
@@ -89,4 +90,6 @@ public interface PostDao{
 	List<Map<String,Object>> selectPostOfAll();
 
     List<Map<String,Object>> tabToShowPosts(Map<String, Integer> pageUtil);
+
+    List<Map<String,Object>> searchYouOtherHalf(Map<String, String> searchUtils);
 }

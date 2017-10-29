@@ -4,6 +4,7 @@ import com.fb.service.UserService;
 import com.fb.common.Assist;
 import com.fb.dao.UserDao;
 import com.fb.entity.User;
+import org.omg.CORBA.Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

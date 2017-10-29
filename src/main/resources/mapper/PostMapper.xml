@@ -250,4 +250,16 @@
         limit #{start},#{pageSize}
     </select>
 
+    <!--添加搜索-->
+    <select id="searchYouOtherHalf" parameterType="map" resultType="map">
+        select * from bf_post
+        WHERE
+        <if test="userName != ''">
+            userName LIKE #{userName}
+        </if>
+        <if test="postTitleName != ''">
+            AND title LIKE #{postTitleName}
+        </if>
+    </select>
+
 </mapper>
