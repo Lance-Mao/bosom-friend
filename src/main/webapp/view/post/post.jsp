@@ -159,7 +159,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" onclick="searchYouOtherHalf()" data-dismiss="modal" href="#showPosts">搜索</button>
+                <button type="button" class="btn btn-primary" onclick="searchYouOtherHalf()" data-dismiss="modal"><a href="#showPosts"></a>搜索</button>
             </div>
         </div>
     </div>

@@ -35,10 +35,12 @@
     <link type="text/css" href="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/css/fileinput.css">
     <%--<link type="text/css" href="${baseurl}/resource/public/bootstrap-3.3.7-dist/css/bootstrap.min.css">--%>
     <%--fileinput.js 核心文件之一--%>
-    <script type="text/javascript" src="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/js/fileinput.js"></script>
+    <script type="text/javascript"
+            src="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/js/fileinput.js"></script>
     <%--<script type="text/javascript" src="${baseurl}/resource/public/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>--%>
-     <%--语言包，可选，但是中文情况下请引入--%>
-    <script src="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/js/locales/zh.js" type="text/javascript"></script>
+    <%--语言包，可选，但是中文情况下请引入--%>
+    <script src="${baseurl}/resource/public/bootstrap-3.3.7-dist/fileinput/js/locales/zh.js"
+            type="text/javascript"></script>
 
     <%--图标库--%>
     <link rel="stylesheet" href="${baseurl}/resource/public/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -54,7 +56,8 @@
     <%--<script src="${baseurl}/resource/public/layui/layui.js" type="text/javascript"></script>--%>
 
     <%--bootstrap复选框美化插件--%>
-    <link href="${baseurl}/resource/public/bootstrap-3.3.7-dist/css/awesome-bootstrap-checkbox.css" rel="stylesheet" type="text/css">
+    <link href="${baseurl}/resource/public/bootstrap-3.3.7-dist/css/awesome-bootstrap-checkbox.css" rel="stylesheet"
+          type="text/css">
 
     <%--引入分页插件--%>
     <link rel="stylesheet" href="${baseurl}/resource/public/pagePlugin/css/cypager.min.css">
@@ -140,8 +143,10 @@
                             class="fa fa-bank"></i></span></div>
                     <div class="service_block">
                         <h3 class="animated fadeInUp wow">
-                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal"  id="openImproveTheInformation"
-                                    data-target="#improveTheInformation" data-whatever="@mdo" title="完善信息，开启精彩之旅！">修改或完善信息
+                            <button type="button" class="btn btn-lg btn-default" data-toggle="modal"
+                                    id="openImproveTheInformation"
+                                    data-target="#improveTheInformation" data-whatever="@mdo" title="完善信息，开启精彩之旅！">
+                                修改或完善信息
                             </button>
                         </h3>
                         <p class="animated fadeInDown wow">添加你的性格特点，上传你的个性图片。寻找更适合你的异性。 </p>
@@ -166,7 +171,8 @@
 
                         <h3 class="animated fadeInUp wow">
                             <button type="button" class="btn btn-lg btn-default" data-toggle="modal"
-                                    data-target="#searchYourOtherHalf" data-whatever="@mdo" title="尽最大的努力，来解决你的问题！">搜索你的另一半
+                                    data-target="#searchYourOtherHalf" data-whatever="@mdo" title="尽最大的努力，来解决你的问题！">
+                                搜索你的另一半
                             </button>
                         </h3>
                         <p class="animated fadeInDown wow">点击此处搜索你心目中的另一半。</p>
@@ -185,7 +191,8 @@
             <h6>在这里来偶遇你的另一半</h6>
             <div class="inner_section" id="showPostForIndex">
                 <div class="row">
-                    <div class="col-md-6"><img class="img-responsive" src="/resource/public/indexStyle/img/about2.png"
+                    <div class="col-md-6"><img class="img-responsive"
+                                               src="${baseurl}/resource/public/indexStyle/img/about2.png"
                                                align=""></div>
                     <div class="col-md-6">
                         <h3>Bride’s story</h3>
@@ -315,7 +322,8 @@
                                onBlur="if(this.value=='')this.value=this.defaultValue;" readonly>
                         <textarea id="footerContent" class="input-text text-area" cols="0" rows="0"
                                   onFocus="if(this.value==this.defaultValue)this.value='';"
-                                  onBlur="if(this.value=='')this.value=this.defaultValue;" readonly>Your Message *</textarea>
+                                  onBlur="if(this.value=='')this.value=this.defaultValue;"
+                                  readonly>Your Message *</textarea>
                     </div>
                 </div>
             </div>
@@ -334,24 +342,28 @@
             url: "${baseurl}/information/loadInformation",
             type: "post",
             success: function (data) {
-                if(data.result) {
+                if (data.result) {
                     console.log(data.data[0]);
                     userInfoForOperateTheCurrentUser = data.data[0];
                     $("#operateTheCurrentUser").html("").append(`
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="showCurrentUser">
          <img style="border-radius:95px;width: 50px;" src="` + IMAGE_PREFIX + userInfoForOperateTheCurrentUser.userImg + `">
-                                当前用户：`+userInfoForOperateTheCurrentUser.user_name +`
+                                当前用户：` + userInfoForOperateTheCurrentUser.user_name + `
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="#contact">个人中心</a></li>
-                                <li><a href="#">退出登陆</a></li>
+                                <li><a onclick="logOut()">退出登陆</a></li>
                             </ul>
         `)
                 }
             }
         })
     })
+
+    function logOut() {
+        location.href = baseUrl + "/user/logOut";
+    }
 </script>
 
 </html>

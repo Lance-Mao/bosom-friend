@@ -10,7 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -59,6 +62,21 @@ public class UserController {
         }
 
         return Result.failure("null",Constant.ACCOUNT_IS_EXIST);
+    }
+
+//    退出登陆的servlet,注销当前用户
+    @RequestMapping("logOut")
+    public String logOut(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+        try {
+            HttpSession session = request.getSession(false);
+            if (session == null) {
+                return "login/index";
+            }
+            session.removeAttribute("userName");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "login/index";
     }
 
     @RequestMapping("/toIndex")
