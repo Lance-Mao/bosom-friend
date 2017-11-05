@@ -147,6 +147,7 @@
         })
     })
 
+    //点击提交之后执行的函数，作用：获取填写相关信息的值
     function submitInfoByUpdate() {
         let userName = $("#userName").val();
         let job = $("#job").val();
@@ -156,6 +157,7 @@
         let signature = $("#signature").val();
         let userImg = userImgNameByUserInfo;
 
+        //封装前端页面的值，用于提交到后台
         let userInfoByUpdate = {
             userName:userName,
             job:job,
@@ -166,6 +168,7 @@
             userImg:userImg,
         }
 
+        //用于提交到后台，成功之后显示回调的函数
         $.ajax({
             url: "${baseurl}/information/submitInfoByUpdate",
             type: "post",

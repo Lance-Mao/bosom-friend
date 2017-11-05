@@ -6,6 +6,8 @@
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 
+
+	<!--http://mvnrepository.com/  maven下载地址-->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
