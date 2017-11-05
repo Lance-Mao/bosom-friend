@@ -65,7 +65,6 @@
 
 </head>
 <body>
-
 <!--Hero_Section-->
 <section id="hero_section" class="top_cont_outer">
     <div class="hero_wrapper">

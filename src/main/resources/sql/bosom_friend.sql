@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: bosom_friend
+-- Host: localhost    Database: bosom_friend
 -- ------------------------------------------------------
--- Server version	5.7.20-0ubuntu0.17.04.1
+-- Server version	5.7.20-0ubuntu0.17.10.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,14 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `bosom_friend`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `bosom_friend` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `bosom_friend`;
 
 --
 -- Table structure for table `bf_details`
@@ -52,10 +60,10 @@ DROP TABLE IF EXISTS `bf_friend`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bf_friend` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `friend_id` int(11) NOT NULL,
+  `user_id` varchar(11) NOT NULL,
+  `friend_id` varchar(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='好友表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='好友表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,6 +72,7 @@ CREATE TABLE `bf_friend` (
 
 LOCK TABLES `bf_friend` WRITE;
 /*!40000 ALTER TABLE `bf_friend` DISABLE KEYS */;
+INSERT INTO `bf_friend` VALUES (1,'admin','root');
 /*!40000 ALTER TABLE `bf_friend` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,7 +124,7 @@ CREATE TABLE `bf_personality_traits` (
   `sport` varchar(2) DEFAULT NULL,
   `post_id` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='性格特点表';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='性格特点表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +133,7 @@ CREATE TABLE `bf_personality_traits` (
 
 LOCK TABLES `bf_personality_traits` WRITE;
 /*!40000 ALTER TABLE `bf_personality_traits` DISABLE KEYS */;
-INSERT INTO `bf_personality_traits` VALUES (1,'1','1',NULL,'0','1','0','1','0','1','0','0','facef859-ec26-4ca8-a3a0-ea2a98263a78'),(2,'1','0',NULL,'0','1','0','1','0','1','0','1','e3d76c8e-ca1c-469a-acc9-9f1edd22d1c0');
+INSERT INTO `bf_personality_traits` VALUES (3,'1','1',NULL,'0','0','0','1','1','0','0','1','764ef2e9-2f84-405a-a189-ddede49b2f72'),(4,'1','1',NULL,'0','0','0','1','1','0','0','1','9150cf1a-c1a3-499a-b9cc-a7cc372a488b'),(5,'1','1',NULL,'1','1','1','1','1','1','1','1','6bc3bd82-e457-478d-bdb9-abf82a28120b'),(6,'1','1',NULL,'0','1','1','0','1','0','0','1','d34fdb20-cb25-43fe-b324-089184014c24'),(7,'1','0',NULL,'0','0','1','1','0','1','0','0','2e5c6b74-21f9-4058-8c3b-932b5d6cd71f'),(8,'1','1',NULL,'1','1','1','1','1','1','1','1','348c9e40-954d-47b3-8dc1-b3294b0e610d'),(9,'1','1',NULL,'1','1','1','1','1','1','1','1','2741f3f1-19cd-4bea-a224-512ee95a66b3');
 /*!40000 ALTER TABLE `bf_personality_traits` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +153,7 @@ CREATE TABLE `bf_post` (
   `userName` varchar(100) DEFAULT NULL,
   `personalityTraits` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +162,7 @@ CREATE TABLE `bf_post` (
 
 LOCK TABLES `bf_post` WRITE;
 /*!40000 ALTER TABLE `bf_post` DISABLE KEYS */;
-INSERT INTO `bf_post` VALUES (1,'关于你，我有太多东西关于你','关于你，2012年的九月，那是我们认识的季节，在四十多平米的教室里，我认识了你。我们是同学，彼此都还不熟悉的同学。那一句个子还高嘛，是我关注你的开始，有意无意的从四组向一组瞟你，小心翼翼的眼神怕你发现，却又怕你不明白，一点点的喜欢不敢声张。后来的打过来骂过去，后来聊天的默契，互道的晚安，才明白原来就是喜欢，没有其他。确定是喜欢，可是还是不敢声张。只因当初在人群中你说了一句，从此，你便住在了心里。不敢轻易靠近打扰，是怕自己扰了你的生活步调；不敢轻易对你开口言爱，是怕那样做是一种冒犯，是一种伤害我们关系的因素。\n\n　　 关于你。就是因为我的害怕，我亲眼看你走向她。我喜欢你是事实，你有女朋友也是事实。我以为我不说出口就会保持这样的朋友关系，却还是她赶了个巧，那应该是个寒假，你有女朋友了，我还是听说，我那么爱，却还是无果。于是我和她之间就莫名其妙的就多少有了敌人的感觉，或许就是别人口中的那样，世界上完全不相干的两个女人，会因为一个男人要么很友好，要么是仇恨。关于她我做不到友好，但也不是仇恨，只是你选择了她，我就希望她好好爱你，照顾你，连我的份也一起爱了。自爱上你的那天起，思念便成了戒不掉的瘾。你的一言一笑，一颦一蹙，无不牵动我的心，百千尘思，唯念一缕；万千红颜，唯恋一人。我愿意一生漂泊浪迹在你的故事里，甘愿为你鞍前马后，马首是瞻，即使你从未给我一句承诺，即使你从未给我半分爱情，依然无悔无怨。','/0977889f-4294-426e-b079-b6a763050a72.jpg','2017-10-24','root','facef859-ec26-4ca8-a3a0-ea2a98263a78'),(2,'留一点专注的时间给孩子','每天早上五点半，我一般都会自动醒来，起床，洗漱，坐在阳台前，打开电脑，深吸一口早晨的空气，写文。\n\n　　几乎这已经成为我生活的一部分，所以我将早上这一点时间看的非常重要，不希望被打扰。\n\n　　前天早上还是一样，我准备好坐下，正在写文同时，听到房间里女儿在大声叫着爸爸。我心想有老婆和女儿在房间，就没有过多理睬，继续打字。\n\n　　过了一会，房间门打开，女儿一脸微笑几乎是小跑着从房间里出来。刚刚从睡梦里醒来的缘故，头发还没来得及梳，睡眼惺忪的双眼瞪着我，笑着向我跑来。\n\n　　女儿还不到两岁，表达心情最直观的就是面部的微笑以及不那么娴熟的小跑。尽管小跑起来有些歪歪扭扭，还是可以看出非常激动。\n\n　　这时候老婆也出来了，最近老婆在准备一项考试，所以应该是早上很早就起来在房间里看书。现在老婆看到女儿出来，自己拿着书到客厅里看。\n\n　　女儿跑到我跟前，好奇的看着电脑屏幕，双手在键盘上双管齐下，拍打键盘的声音噼里啪啦，非常清脆，也非常高兴。我写文刚好一半，被女儿打断了，就希望她先去客厅自己玩会，我写完再陪她玩。\n\n　　于是我没有过多和女儿互动，只是机械性的把女儿的小手从键盘上拿开，随便从角落里捡到一个小玩具递给她，把她抱到客厅，然后我就继续坐下来，写文。\n\n　　期间我发现她可能发现我的冷淡反应，就干脆拿着我刚才递给她的玩具，围到老婆身边，嘴里不那么连贯地说着：“妈妈，看”。时而又自己笑起来，时而把玩具在地上弄出声音，想引起老婆的注意。','/6026172c-5717-4a5f-a7fc-cd4c9a104312.jpg','2017-10-24','root','e3d76c8e-ca1c-469a-acc9-9f1edd22d1c0');
+INSERT INTO `bf_post` VALUES (7,'气质女生与世界先生','我把衣柜翻了个底朝天，花花绿绿地堆了满床。\n\n　　谢雨帆盘腿坐在电脑前打游戏，嗑着瓜子眼皮也不抬一下，半晌才悠悠地吐出一句，“人，贵有自知之明，”他说完，继续猛点鼠标，嘴里的瓜子壳儿还吐到了我裙子上。我从鼻孔里嗤了一声，谁要跟这种吃瓜子的琐碎男人计较。\n\n　　半个小时后，我选了一件刺绣小吊带，牛仔热裤，在镜子面前蹦蹦跳跳地摆着POSE。谢雨帆终于站了起来，他从衣柜里扯出一件大衣，砸在我身上，“有芙蓉姐姐露了，谁还看你？不如包个严实的，指不定就红了。”\n\n　　“你说我不如芙蓉姐姐?”我恼羞成怒了。\n\n　　“这可是你自己说的，”谢雨帆伸伸懒腰，“学生会有事，我先走了。”当然，走之前他是不会忘记把剩下的瓜子打包的。\n\n　　我看着谢雨帆的背影，有那么一点儿惆怅，这位比我还拽的人，便是我的追求者。这位追求者每个周末必定来看我，风雨无阻，当然，他来蹭免费网上，把我的零食搜到完后，连包泡面也要蹭。\n\n　　他还很会说甜言蜜语，比如，夸我像芙蓉姐姐。\n\n　　所以，他追了我半年，我们依然是——光棍两枝。\n\n　　气质女生与世界先生的晚餐\n\n　　学校的“气质女生选拔赛”，我过关斩将一路杀进了决赛。谢雨帆用一种难以置信的眼光打量着我，“李茹菲，我们学校的女生是不是都没报名?”\n\n　　埋着头啃比萨的我不得不抽空瞪了他一眼，接着用手比画了一下，谢雨帆就把布丁和小面包推到我面前。我一边吃一边斜瞄着菜单，谢雨帆铁公鸡拔毛，这样千年等一回的机会，我怎么可能错过。\n\n　　大脑飞快地转动着，我的电费，我的键盘磨损费，我的薯片我的巧克力我的乌克兰大樱桃，以及我的方便面。直到觉得差不多吃够本的时候，我直起腰，优雅地擦擦嘴，我说：“还可以再要份意大利面吗?”\n\n　　原本抹着汗准备埋单的谢雨帆像触电般抬起头，半晌才机械地点点头。我吃得眉飞色舞时，他担忧地看着我：“你是不是被什么附体了?你确定是你一个人在吃?”\n\n　　面条吃到一半，谢雨帆去上厕所，可直到我把面条吃光，最后把盘子刮得干干净净时，他也没有回来。完蛋了，他不是跑路了吧！','/afb26020-0766-4c6b-8d2f-8643318183dd.jpg','2017-11-05','root','348c9e40-954d-47b3-8dc1-b3294b0e610d'),(8,'爱若放手，祝福依旧','　　爱若放手，祝福依旧\n\n　　文／伊人轻舞\n\n　　春色远走，风情长留。爱若放手，祝福依旧。\n\n　　 ——题记\n\n　　人都说，爱上一座城，是因为城中住着你爱的人。爱屋及乌自是不言而喻，每个人的生命中都会出现这样一个人，纵使尘满面，鬓如霜，也想要和他相伴到岁末晚景。我深信此画面曾被无数人精心描摹过，因为它是人们心里憧憬的最美的爱相逢。这个浪漫的“版图”，也是温暖与真挚包裹的纯粹感情，所刻画的一幅朴素人生。\n\n　　世间最理想的爱情，当然是两颗同心，一生相濡以沫。擦肩而过，只能说彼此情深缘浅。放手成全，可能给人感觉言过凄美，听着有些颇为冷情，可谁也不能否认这不是因为爱情。\n\n　　爱情是什么？我只能说是一种忘我的感觉，一种怡然心扉的情愫，它体现着爱情的完美纯度。 “遇一人白首，择一城终老”，人人心期遇见这样的尘缘，从此守候这种温暖。可生活并非是你以为的那么顺然，爱情也有难违的宿命。\n\n　　虽然在爱着的岁月里，谁都想远离苦情的日子，谁都想告别痛彻心扉的分手领悟，谁都喜欢让爱情的阳光，洒满心空。\n\n　　但爱情有时就是那么不可思议，有些人相爱时海誓山盟、琴瑟和鸣，却逃不开生活的细节，导致情源枯竭，爱因此无疾而终。有些人即便爱得肝肠寸断，到最后还是一人向左，一人向右。也有一些人，一路磕磕绊绊，分分合合，几度被所谓的爱情来回折腾，于风风雨雨里磨合几十年，甚至把所有的离歌全唱过，依然不改初心。类似这种戒不掉的疼痛，谁又能说这不是因为爱情？\n\n　　不管今生遇见了怎样的情缘，也无论爱与被爱，彼此能够遇见，就是上天注定好的缘份。被一个人吸引，首先看得是眼缘。 一但爱情使得彼此之间变成小心翼翼的撕扯，关心变成了束缚和互相伤害的导火索，放手或许是最明智的选择。爱情，从来没有配不配，有的只是适不适合。\n\n　　爱一个人，首先应该让他（她）快乐。对于一段情，能够温暖彼此心灵最重要，可以让彼此记住曾经的美好最难得。早就有人说，爱不是索取，不是占有。爱是给予，是奉献，是成全。\n\n　　一直喜欢《有一种爱叫做放手》的老歌，阿木用他沙哑的音色唱着：有一种爱叫做放手，为爱结束天长地久，我的离去若让你拥有所有，让真爱带我走说分手……\n\n　　这一段令听者撕心裂肺的副歌，每每回味，心中总会涌出不能自己的颤抖和感动……\n\n','/de3ce372-e9cd-4d09-94a7-0a382ad1c8c0.jpg','2017-11-05','root','2741f3f1-19cd-4bea-a224-512ee95a66b3');
 /*!40000 ALTER TABLE `bf_post` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -198,8 +207,11 @@ CREATE TABLE `bf_user` (
   `sex` varchar(2) DEFAULT NULL,
   `birthday` varchar(50) DEFAULT NULL,
   `job` varchar(50) DEFAULT NULL,
+  `living` varchar(500) DEFAULT NULL,
+  `signature` varchar(500) DEFAULT NULL,
+  `userImg` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,7 +220,7 @@ CREATE TABLE `bf_user` (
 
 LOCK TABLES `bf_user` WRITE;
 /*!40000 ALTER TABLE `bf_user` DISABLE KEYS */;
-INSERT INTO `bf_user` VALUES (1,'977986310','张三','123456','15291194274','男','2017-10-18','it'),(2,'root','root','root','15291194274','男','2017-10-18','商务学'),(3,NULL,'李四','123456',NULL,NULL,NULL,NULL),(4,NULL,'李四','',NULL,NULL,NULL,NULL),(5,NULL,'李四','123456',NULL,NULL,NULL,NULL),(6,NULL,'','',NULL,NULL,NULL,NULL),(7,NULL,'','',NULL,NULL,NULL,NULL),(8,NULL,'admin','admin','15291192151','男','1999-12-26',NULL),(9,NULL,'123465','admin','15291194274','男','1999-12-26',NULL),(10,NULL,'shfudai','admin','15291194274','男','1999-12-26',NULL),(11,NULL,'asdbfjka','admin','15291194274','男','1999-12-26',NULL),(12,NULL,'ashfdauif','admin','15291194274','男','1999-12-26',NULL),(13,NULL,'123','123','123','','',NULL),(14,NULL,'','','','','',NULL),(15,NULL,'123465','','','','',NULL),(16,NULL,'','','','','',NULL),(17,NULL,'123465','','','','',NULL),(18,NULL,'简述','','15291194274','','',NULL),(19,NULL,'123123','123','15291194274','男','1999-12-26',NULL),(20,NULL,'administered','123456','15291194274','','1999-12-26',NULL),(21,NULL,'administered','123456','15291194274','','1999-12-26',NULL),(22,NULL,'jiasuh1','123456','15291194274','','2017-10-21',NULL),(23,NULL,'jianshu','admin','15291194274','','2017-10-19',NULL),(24,NULL,'张三李四','admin','15291194274','男','1999-12-26',NULL),(25,NULL,'loi','15291194274','1652123412','男','1999-12-26',NULL),(26,NULL,'loi','','1652123412','男','1999-12-26',NULL);
+INSERT INTO `bf_user` VALUES (2,'root','root','root','15291194274','男','2017-10-18','商务学','陕西西安',' 门前老树长新芽，院里枯木又开花，时间都去哪了，一不小心就流走了。','/272cb2be-0736-48fb-8204-23a917901a13.jpg'),(8,NULL,'admin','admin','15291192151','男','1999-12-26','java工程师','陕西西安','。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。','/dc53fe1a-5184-410b-83e6-1fae14a0f793.jpg'),(9,NULL,'张三','admin','15291192151','男','1999-12-26','java工程师','陕西西安','阿三的发送的发送','/023aec10-7609-4d6e-8868-3c37d18701c5.jpg');
 /*!40000 ALTER TABLE `bf_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -220,6 +232,5 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-SET SQL_AUTO_IS_NULL = @OLD_SQL_NOTES;
 
--- Dump completed on 2017-10-25  8:44:49
+-- Dump completed on 2017-11-05 17:13:20

@@ -27,7 +27,7 @@
     <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/fileUpload/js/fileUpload.js"></script>
 
-    //<%--${baseurl}--%> 获取页面相对路径
+   <%--${baseurl} 获取页面相对路径--%>
 
     <style>
         ul {
