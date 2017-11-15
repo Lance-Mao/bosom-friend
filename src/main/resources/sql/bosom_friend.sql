@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
 --
--- Host: localhost    Database: bosom_friend
+-- Host: 127.0.0.1    Database: bosom_friend
 -- ------------------------------------------------------
 -- Server version	5.7.20-0ubuntu0.17.10.1
 
@@ -14,14 +14,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Current Database: `bosom_friend`
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `bosom_friend` /*!40100 DEFAULT CHARACTER SET utf8 */;
-
-USE `bosom_friend`;
 
 --
 -- Table structure for table `bf_details`
@@ -233,4 +225,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-05 17:13:20
+-- Dump completed on 2017-11-15 16:51:26
