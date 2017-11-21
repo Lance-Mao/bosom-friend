@@ -21,7 +21,7 @@ public class BindingResultAop {
 
     private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
-    @Pointcut("execution(* com.fb.wqq.web.*.*(..))")
+    @Pointcut("execution(* com.fb.web.*.*(..))")
     public void aopMethod(){}
 
     @Around("aopMethod()")

@@ -84,7 +84,7 @@
 					<input type="password" name="Password" id="passWord" placeholder="密码" required="" />
 				<p id="passWordNull" style="display: none;color: red">密码不能为空！！！</p>
 				<p id="userNameAndPassWordErr" style="display: none;color: red">用户名或密码错误！！！</p>
-					<a href="#" class="forgot-w3layouts">忘记密码 ?</a>
+					<a href="${baseurl}/view/systemBackground/login/index.jsp" class="forgot-w3layouts">管理员登录</a>
 				<div class="submit-w3l">
 					<button id="inputBySubmit" onclick="toSubmit()">登录</button>
 				</div>
