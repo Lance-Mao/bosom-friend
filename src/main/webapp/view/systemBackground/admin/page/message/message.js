@@ -78,7 +78,7 @@ layui.config({
         var index = layui.layer.open({
             title : "与 "+userName+" 的聊天",
             type : 2,
-            content : "messageReply.html",
+            content : "messageReply.jsp",
             success : function(layero, index){
                 layui.layer.tips('点击此处返回消息列表', '.layui-layer-setwin .layui-layer-close', {
                     tips: 3

@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="/resource/public/tag.jsp" %>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -9,14 +11,14 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="../layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="../css/font_eolqem241z66flxr.css" media="all" />
-	<link rel="stylesheet" href="../css/main.css" media="all" />
+	<link rel="stylesheet" href="${baseurl}/view/systemBackground/admin/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="${baseurl}/view/systemBackground/admin/css/font_eolqem241z66flxr.css" media="all" />
+	<link rel="stylesheet" href="${baseurl}/view/systemBackground/admin/css/main.css" media="all" />
 </head>
 <body class="childrenBody">
 	<div class="panel_box row">
 		<div class="panel col">
-			<a href="javascript:;" data-url="page/message/message.html">
+			<a href="javascript:;" data-url="view/systemBackground/admin/page/message/message.jsp">
 				<div class="panel_icon">
 					<i class="layui-icon" data-icon="&#xe63a;">&#xe63a;</i>
 				</div>
@@ -27,7 +29,7 @@
 			</a>
 		</div>
 		<div class="panel col">
-			<a href="javascript:;" data-url="page/user/allUsers.html">
+			<a href="javascript:;" data-url="view/systemBackground/admin/page/user/allUsers.jsp">
 				<div class="panel_icon" style="background-color:#FF5722;">
 					<i class="iconfont icon-dongtaifensishu" data-icon="icon-dongtaifensishu"></i>
 				</div>
@@ -38,7 +40,7 @@
 			</a>
 		</div>
 		<div class="panel col">
-			<a href="javascript:;" data-url="page/user/allUsers.html">
+			<a href="javascript:;" data-url="view/systemBackground/admin/page/user/allUsers.jsp">
 				<div class="panel_icon" style="background-color:#009688;">
 					<i class="layui-icon" data-icon="&#xe613;">&#xe613;</i>
 				</div>
@@ -49,7 +51,7 @@
 			</a>
 		</div>
 		<div class="panel col">
-			<a href="javascript:;" data-url="page/img/images.html">
+			<a href="javascript:;" data-url="view/systemBackground/admin/page/img/images.jsp">
 				<div class="panel_icon" style="background-color:#5FB878;">
 					<i class="layui-icon" data-icon="&#xe64a;">&#xe64a;</i>
 				</div>
@@ -60,7 +62,7 @@
 			</a>
 		</div>
 		<div class="panel col">
-			<a href="javascript:;" data-url="page/news/newsList.html">
+			<a href="javascript:;" data-url="view/systemBackground/admin/page/news/newsList.jsp">
 				<div class="panel_icon" style="background-color:#F7B824;">
 					<i class="iconfont icon-wenben" data-icon="icon-wenben"></i>
 				</div>
@@ -71,7 +73,7 @@
 			</a>
 		</div>
 		<div class="panel col max_panel">
-			<a href="javascript:;" data-url="page/news/newsList.html">
+			<a href="javascript:;" data-url="view/systemBackground/admin/page/news/newsList.jsp">
 				<div class="panel_icon" style="background-color:#2F4056;">
 					<i class="iconfont icon-text" data-icon="icon-text"></i>
 				</div>
@@ -161,7 +163,8 @@
 		</div>
 	</div>
 
-	<script type="text/javascript" src="../layui/layui.js"></script>
-	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
+	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/js/main.js"></script>
+	<script type="text/javascript" src="${baseurl}/resource/public/js/jquery-3.2.1.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="/resource/public/tag.jsp" %>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -9,9 +10,9 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
-	<link rel="stylesheet" href="../../css/font_eolqem241z66flxr.css" media="all" />
-	<link rel="stylesheet" href="../../css/message.css" media="all" />
+	<link rel="stylesheet" href="${baseurl}/view/systemBackground/admin/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="${baseurl}/view/systemBackground/admin/css/font_eolqem241z66flxr.css" media="all" />
+	<link rel="stylesheet" href="${baseurl}/view/systemBackground/admin/css/message.css" media="all" />
 </head>
 <body class="childrenBody">
 	<form class="layui-form">
@@ -36,7 +37,7 @@
 			<tbody class="msgHtml"></tbody>
 		</table>
 	</form>
-	<script type="text/javascript" src="../../layui/layui.js"></script>
-	<script type="text/javascript" src="message.js"></script>
+	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
+	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/page/message/message.js"></script>
 </body>
 </html>

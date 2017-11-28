@@ -1,27 +1,27 @@
 var navs = [{
 	"title" : "后台首页",
 	"icon" : "icon-computer",
-	"href" : "page/main.html",
+	"href" : "view/systemBackground/admin/page/main.jsp",
 	"spread" : false
 },{
 	"title" : "文章列表",
 	"icon" : "icon-text",
-	"href" : "page/news/newsList.html",
+	"href" : "view/systemBackground/admin/page/news/newsList.jsp",
 	"spread" : false
 },{
 	"title" : "友情链接",
 	"icon" : "icon-text",
-	"href" : "page/links/linksList.html",
+	"href" : "view/systemBackground/admin/page/links/linksList.jsp",
 	"spread" : false
 },{
 	"title" : "404页面",
 	"icon" : "&#xe61c;",
-	"href" : "page/404.html",
+	"href" : "view/systemBackground/admin/page/404.jsp",
 	"spread" : false
 },{
 	"title" : "系统基本参数",
 	"icon" : "&#xe631;",
-	"href" : "page/systemParameter/systemParameter.html",
+	"href" : "view/systemBackground/admin/page/systemParameter/systemParameter.jsp",
 	"spread" : false
 },{
 	"title" : "二级菜单演示",
