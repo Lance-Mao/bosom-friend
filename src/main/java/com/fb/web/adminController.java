@@ -38,4 +38,10 @@ public class adminController {
     public String index(){
         return "systemBackground/admin/index";
     }
+
+    @RequestMapping("/newMassage")
+    public String newMassage() {
+        System.out.println("123456");
+        return "systemBackground/admin/page/message/message";
+    }
 }

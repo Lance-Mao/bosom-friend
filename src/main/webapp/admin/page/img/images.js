@@ -11,7 +11,7 @@ layui.config({
     flow.load({
         elem: '#Images', //流加载容器
         done: function(page, next){ //加载下一页
-            $.get("../../json/images.json",function(data){   //获取图片的数据
+            $.get("../../json/images.json",function(data){
                 //模拟插入
                 var imgList = [];
                 var maxPage = imgNums*page < data.length ? imgNums*page : data.length;

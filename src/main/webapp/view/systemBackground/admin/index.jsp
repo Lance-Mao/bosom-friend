@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>layui后台管理模板</title>
+	<title>知己网后台管理</title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta http-equiv="Access-Control-Allow-Origin" content="*">
@@ -17,7 +17,6 @@
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/js/nav.js"></script>
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/js/leftNav.js"></script>
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/js/index.js"></script>
-	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/js/bodyTab.js"></script>
 	<link rel="icon" href="${baseurl}/view/systemBackground/admin/favicon.ico">
 	<link rel="stylesheet" href="${baseurl}/view/systemBackground/admin/layui/css/layui.css" media="all" />
 	<link rel="stylesheet" href="${baseurl}/view/systemBackground/admin/css/font_eolqem241z66flxr.css" media="all" />
@@ -28,7 +27,7 @@
 		<!-- 顶部 -->
 		<div class="layui-header header">
 			<div class="layui-main">
-				<a href="#" class="logo">layui后台管理</a>
+				<a href="#" class="logo">知己网后台管理</a>
 				<!-- 搜索 -->
 				<div class="layui-form component">
 			        <select name="modules" lay-verify="required" lay-search="">
@@ -107,7 +106,7 @@
 		</div>
 		<!-- 底部 -->
 		<div class="layui-footer footer">
-			<p>copyright @2017 请叫我马哥 更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a>　　<a class="layui-btn layui-btn-danger l·ayui-btn-small">公益项目</a></p>
+			<p>基于ssm框架搭建的婚恋社交网站&nbsp;&nbsp;&nbsp;&nbsp;<a class="layui-btn layui-btn-danger l·ayui-btn-small">个人项目</a></p>
 		</div>
 	</div>
 
