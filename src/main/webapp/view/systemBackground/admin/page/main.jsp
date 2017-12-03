@@ -18,7 +18,7 @@
 <body class="childrenBody">
 	<div class="panel_box row">
 		<div class="panel col">
-			<a href="javascript:;" data-url="${baseurl}/view/systemBackground/admin/page/message/message.jsp">
+			<a href="javascript:;" data-url="${baseurl}/admin/page/message/message.jsp">
 				<div class="panel_icon">
 					<i class="layui-icon" data-icon="&#xe63a;">&#xe63a;</i>
 				</div>
@@ -28,19 +28,19 @@
 				</div>
 			</a>
 		</div>
+		<%--<div class="panel col">--%>
+			<%--<a href="javascript:;" data-url="${baseurl}/admin/page/user/allUsers.jsp">--%>
+				<%--<div class="panel_icon" style="background-color:#FF5722;">--%>
+					<%--<i class="iconfont icon-dongtaifensishu" data-icon="icon-dongtaifensishu"></i>--%>
+				<%--</div>--%>
+				<%--<div class="panel_word userAll">--%>
+					<%--<span></span>--%>
+					<%--<cite>新增人数</cite>--%>
+				<%--</div>--%>
+			<%--</a>--%>
+		<%--</div>--%>
 		<div class="panel col">
-			<a href="javascript:;" data-url="${baseurl}/view/systemBackground/admin/page/user/allUsers.jsp">
-				<div class="panel_icon" style="background-color:#FF5722;">
-					<i class="iconfont icon-dongtaifensishu" data-icon="icon-dongtaifensishu"></i>
-				</div>
-				<div class="panel_word userAll">
-					<span></span>
-					<cite>新增人数</cite>
-				</div>
-			</a>
-		</div>
-		<div class="panel col">
-			<a href="javascript:;" data-url="${baseurl}/view/systemBackground/admin/page/user/allUsers.jsp">
+			<a href="javascript:;" data-url="${baseurl}/admin/page/user/allUsers.jsp">
 				<div class="panel_icon" style="background-color:#009688;">
 					<i class="layui-icon" data-icon="&#xe613;">&#xe613;</i>
 				</div>
@@ -50,30 +50,30 @@
 				</div>
 			</a>
 		</div>
-		<div class="panel col">
-			<a href="javascript:;" data-url="${baseurl}/view/systemBackground/admin/page/img/images.jsp">
-				<div class="panel_icon" style="background-color:#5FB878;">
-					<i class="layui-icon" data-icon="&#xe64a;">&#xe64a;</i>
-				</div>
-				<div class="panel_word imgAll">
-					<span></span>
-					<cite>图片总数</cite>
-				</div>
-			</a>
-		</div>
-		<div class="panel col">
-			<a href="javascript:;" data-url="${baseurl}/view/systemBackground/admin/page/news/newsList.jsp">
-				<div class="panel_icon" style="background-color:#F7B824;">
-					<i class="iconfont icon-wenben" data-icon="icon-wenben"></i>
-				</div>
-				<div class="panel_word waitNews">
-					<span></span>
-					<cite>待审核文章</cite>
-				</div>
-			</a>
-		</div>
+		<%--<div class="panel col">--%>
+			<%--<a href="javascript:;" data-url="${baseurl}/admin/page/img/images.jsp">--%>
+				<%--<div class="panel_icon" style="background-color:#5FB878;">--%>
+					<%--<i class="layui-icon" data-icon="&#xe64a;">&#xe64a;</i>--%>
+				<%--</div>--%>
+				<%--<div class="panel_word imgAll">--%>
+					<%--<span></span>--%>
+					<%--<cite>图片总数</cite>--%>
+				<%--</div>--%>
+			<%--</a>--%>
+		<%--</div>--%>
+		<%--<div class="panel col">--%>
+			<%--<a href="javascript:;" data-url="${baseurl}/admin/page/news/newsList.jsp">--%>
+				<%--<div class="panel_icon" style="background-color:#F7B824;">--%>
+					<%--<i class="iconfont icon-wenben" data-icon="icon-wenben"></i>--%>
+				<%--</div>--%>
+				<%--<div class="panel_word waitNews">--%>
+					<%--<span></span>--%>
+					<%--<cite>待审核文章</cite>--%>
+				<%--</div>--%>
+			<%--</a>--%>
+		<%--</div>--%>
 		<div class="panel col max_panel">
-			<a href="javascript:;" data-url="${baseurl}/view/systemBackground/admin/page/news/newsList.jsp">
+			<a href="javascript:;" data-url="${baseurl}/admin/page/news/newsList.jsp">
 				<div class="panel_icon" style="background-color:#2F4056;">
 					<i class="iconfont icon-text" data-icon="icon-text"></i>
 				</div>

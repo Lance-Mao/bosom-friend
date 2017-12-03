@@ -91,4 +91,6 @@ public interface UserService{
 	void updateUserInfo(User user);
 
     void leaveMessage(Message message);
+
+    List<Map<String,java.lang.Object>> getLeaveMessage();
 }

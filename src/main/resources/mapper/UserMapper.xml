@@ -296,4 +296,9 @@
         insert into bf_message (user_id, content, date, email) values (#{userId},#{content},#{date},#{email});
     </insert>
 
+    <select id="getLeaveMessage" resultType="map">
+        SELECT message.*,users.userImg from bf_message message,bf_user users
+        WHERE message.user_id = users.user_name;
+    </select>
+
 </mapper>

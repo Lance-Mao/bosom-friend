@@ -71,8 +71,8 @@
 					</li>
 					<li class="layui-nav-item" pc>
 						<a href="javascript:;">
-							<img src="${baseurl}/view/systemBackground/admin/images/face.jpg" class="layui-circle" width="35" height="35">
-							<cite>请叫我马哥</cite>
+							<img src="${baseurl}/admin/images/head1.jpg" class="layui-circle" width="35" height="35">
+							<cite>管理员</cite>
 						</a>
 						<dl class="layui-nav-child">
 							<dd><a href="javascript:;" data-url="${baseurl}/view/systemBackground/admin/page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
@@ -86,8 +86,8 @@
 		<!-- 左侧导航 -->
 		<div class="layui-side layui-bg-black">
 			<div class="user-photo">
-				<a class="img" title="我的头像" ><img src="${baseurl}/view/systemBackground/admin/images/face.jpg"></a>
-				<p>你好！<span class="userName">请叫我马哥</span>, 欢迎登录</p>
+				<a class="img" title="我的头像" ><img src="${baseurl}/admin/images/head1.jpg"></a>
+				<p>你好！<span class="userName">管理员</span>, 欢迎登录</p>
 			</div>
 			<div class="navBar layui-side-scroll"></div>
 		</div>

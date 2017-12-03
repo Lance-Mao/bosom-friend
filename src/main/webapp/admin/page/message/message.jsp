@@ -24,7 +24,7 @@
 			    </select>
 			</div>
 			<div class="layui-inline">
-				<div class="layui-form-mid layui-word-aux">本页所有数据均为静态，刷新后所有操作无效</div>
+				<div class="layui-form-mid layui-word-aux">最新数据将会显示在最前面</div>
 			</div>
 		</blockquote>
 		<table class="layui-table msg_box" lay-skin="line">
@@ -38,6 +38,6 @@
 		</table>
 	</form>
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
-	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/page/message/message.js"></script>
+	<script type="text/javascript" src="${baseurl}/admin/page/message/message.js"></script>
 </body>
 </html>

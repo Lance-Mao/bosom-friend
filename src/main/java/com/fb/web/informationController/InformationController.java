@@ -81,4 +81,16 @@ public class InformationController {
         }
         return Result.failure(null,Constant.ADD_FAILURE);
     }
+
+    @RequestMapping("getLeaveMessage")
+    @ResponseBody
+    public Result getLeaveMessage() {
+        try {
+            List<Map<String, java.lang.Object>> leaveMessageInfo = userService.getLeaveMessage();
+            return Result.success(leaveMessageInfo, Constant.SEARCH_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.SEARCH_FAILURE);
+    }
 }

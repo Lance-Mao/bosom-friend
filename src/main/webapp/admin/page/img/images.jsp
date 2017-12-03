@@ -23,7 +23,7 @@
 				<a class="layui-btn layui-btn-danger batchDel">批量删除</a>
 			</div>
 			<div class="layui-inline">
-				<div class="layui-form-mid layui-word-aux">　本页所有数据均为静态，刷新后所有操作无效</div>
+				<div class="layui-form-mid layui-word-aux">　最新数据将会显示在最前面</div>
 			</div>
 		</blockquote>
 		<ul id="Images"></ul>

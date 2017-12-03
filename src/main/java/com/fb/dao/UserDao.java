@@ -93,4 +93,6 @@ public interface UserDao{
     List<Map<String,Object>> selectUserInfo(String userName);
 
     void leaveMessage(Message message);
+
+    List<Map<String,java.lang.Object>> getLeaveMessage();
 }

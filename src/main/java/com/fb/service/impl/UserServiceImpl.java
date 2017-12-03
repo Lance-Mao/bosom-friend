@@ -80,6 +80,11 @@ public class UserServiceImpl implements UserService {
         userDao.leaveMessage(message);
     }
 
+    @Override
+    public List<Map<String, java.lang.Object>> getLeaveMessage() {
+        return userDao.getLeaveMessage();
+    }
+
     public UserDao getUserDao() {
         return this.userDao;
     }

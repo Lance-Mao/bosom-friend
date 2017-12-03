@@ -23,7 +23,6 @@ public class adminController {
     public Result login(String userName, String passWord, HttpServletRequest request) {
         try {
             List<Map<String, Object>> data = adminService.selectAdmin(userName, passWord);
-            System.out.println(123456);
             if (data.size() != 0) {
                 return Result.success();
             }
