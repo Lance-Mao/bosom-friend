@@ -1,5 +1,6 @@
 package com.fb.service.impl;
 
+import com.fb.entity.Message;
 import com.fb.service.UserService;
 import com.fb.common.Assist;
 import com.fb.dao.UserDao;
@@ -72,6 +73,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public void updateUserInfo(User user) {
         userDao.updateUserInfo(user);
+    }
+
+    @Override
+    public void leaveMessage(Message message) {
+        userDao.leaveMessage(message);
     }
 
     public UserDao getUserDao() {

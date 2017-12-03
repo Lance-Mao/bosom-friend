@@ -292,4 +292,8 @@
         WHERE user_name = #{userName}
     </update>
 
+    <insert id="leaveMessage" parameterType="com.fb.entity.Message">
+        insert into bf_message (user_id, content, date, email) values (#{userId},#{content},#{date},#{email});
+    </insert>
+
 </mapper>

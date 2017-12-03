@@ -1,59 +1,74 @@
 package com.fb.entity;
+
 public class Message {
     private Integer id;
-    private Integer userId;
-    private Integer friendId;
-    private Integer content;
-    private java.util.Date date;
+    private String userId;
+    private String friendId;
+    private String content;
+    private String email;
+    private String date;
+
     public Message() {
         super();
     }
-    public Message(Integer id,Integer userId,Integer friendId,Integer content,java.util.Date date) {
-        super();
-        this.id = id;
-        this.userId = userId;
-        this.friendId = friendId;
-        this.content = content;
-        this.date = date;
-    }
+
     public Integer getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public Integer getUserId() {
-        return this.userId;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public Integer getFriendId() {
-        return this.friendId;
+    public String getFriendId() {
+        return friendId;
     }
 
-    public void setFriendId(Integer friendId) {
+    public void setFriendId(String friendId) {
         this.friendId = friendId;
     }
 
-    public Integer getContent() {
-        return this.content;
+    public String getContent() {
+        return content;
     }
 
-    public void setContent(Integer content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
-    public java.util.Date getDate() {
-        return this.date;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDate(java.util.Date date) {
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
         this.date = date;
     }
 
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", friendId='" + friendId + '\'' +
+                ", content='" + content + '\'' +
+                ", email='" + email + '\'' +
+                ", date='" + date + '\'' +
+                '}';
+    }
 }

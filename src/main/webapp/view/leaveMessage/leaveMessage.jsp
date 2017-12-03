@@ -23,22 +23,38 @@
             <div class="modal-body">
                 <div>
                     <div class="form-group">
-                        <label for="recipient-name" class="control-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="recipient-email" class="control-label">联系邮箱:</label>
+                        <input type="text" class="form-control" id="recipient-email">
                     </div>
                     <div class="form-group">
-                        <label for="message-text" class="control-label">Message:</label>
+                        <label for="message-text" class="control-label">遇到的问题:</label>
                         <textarea class="form-control" id="message-text"></textarea>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="sendMessage()">提交留言</button>
             </div>
         </div>
     </div>
 </div>
 
 </body>
+
+<script>
+    function sendMessage() {
+        let email = $("#recipient-email").val();
+        let content = $("#message-text").val();
+        if (email != null && content != null) {
+            $.post(baseUrl + "information/leaveMessage",{email:email,content:content},function (data){
+                if (data.result === true) {
+                    alert("留言添加成功！！！");
+                    setTimeout("location.reload()", 1000);
+                }
+            })
+        }
+    }
+</script>
+
 </html>

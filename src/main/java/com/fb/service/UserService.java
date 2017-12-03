@@ -3,6 +3,7 @@ package com.fb.service;
 
 
 import com.fb.common.Assist;
+import com.fb.entity.Message;
 import com.fb.entity.User;
 import org.omg.CORBA.Object;
 
@@ -89,4 +90,5 @@ public interface UserService{
 
 	void updateUserInfo(User user);
 
+    void leaveMessage(Message message);
 }

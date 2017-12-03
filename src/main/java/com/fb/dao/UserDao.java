@@ -2,6 +2,7 @@ package com.fb.dao;
 
 
 import com.fb.common.Assist;
+import com.fb.entity.Message;
 import com.fb.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.omg.CORBA.Object;
@@ -90,4 +91,6 @@ public interface UserDao{
 	void updateUserInfo(User user);
 
     List<Map<String,Object>> selectUserInfo(String userName);
+
+    void leaveMessage(Message message);
 }

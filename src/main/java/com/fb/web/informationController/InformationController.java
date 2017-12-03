@@ -1,6 +1,7 @@
 package com.fb.web.informationController;
 
 import com.fb.dto.Result;
+import com.fb.entity.Message;
 import com.fb.entity.User;
 import com.fb.service.UserService;
 import com.fb.util.Constant;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -62,5 +65,20 @@ public class InformationController {
             e.printStackTrace();
         }
         return Result.failure(null, Constant.UPLOAD_FAILURE);
+    }
+
+    @RequestMapping("leaveMessage")
+    @ResponseBody
+    public Result leaveMessage(Message message,HttpServletRequest request) {
+        try{
+            message.setUserId((String) request.getSession().getAttribute("userName"));
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+            message.setDate(df.format(new Date()));
+            userService.leaveMessage(message);
+            return Result.success(null, Constant.ADD_SUCCESS);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return Result.failure(null,Constant.ADD_FAILURE);
     }
 }

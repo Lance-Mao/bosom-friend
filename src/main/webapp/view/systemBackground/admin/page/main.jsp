@@ -24,7 +24,7 @@
 				</div>
 				<div class="panel_word newMessage">
 					<span></span>
-					<cite>新消息</cite>
+					<cite>用户留言消息</cite>
 				</div>
 			</a>
 		</div>
