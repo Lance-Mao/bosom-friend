@@ -25,12 +25,10 @@
 		<div class="layui-inline">
 			<a class="layui-btn layui-btn-normal usersAdd_btn">添加用户</a>
 		</div>
-		<div class="layui-inline">
-			<a class="layui-btn layui-btn-danger batchDel">批量删除</a>
-		</div>
-		<div class="layui-inline">
-			<div class="layui-form-mid layui-word-aux">　本页面刷新后除新添加的文章外所有操作无效，关闭页面所有数据重置</div>
-		</div>
+		<%--<div class="layui-inline">--%>
+			<%--<a class="layui-btn layui-btn-danger batchDel">批量删除</a>--%>
+		<%--</div>--%>
+
 	</blockquote>
 	<div class="layui-form news_list">
 	  	<table class="layui-table">
@@ -52,7 +50,6 @@
 					<th>性别</th>
 					<th>会员等级</th>
 					<th>会员状态</th>
-					<th>最后登录时间</th>
 					<th>操作</th>
 				</tr> 
 		    </thead>
@@ -61,6 +58,6 @@
 	</div>
 	<div id="page"></div>
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
-	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/page/user/allUsers.js"></script>
+	<script type="text/javascript" src="${baseurl}/admin/page/user/allUsers.js"></script>
 </body>
 </html>

@@ -36,7 +36,7 @@ layui.config({
     //从数据库中获取数据
     $.get(baseUrl + "/information/getLeaveMessage", function (data) {
         if (data.result) {
-            console.log("数据："+JSON.stringify(data.data));
+            // console.log("数据："+JSON.stringify(data.data));
             loadPage(data.data);
         }
     })
@@ -97,9 +97,9 @@ layui.config({
                                     for (var j = 0; j < data[i].msgReply.length; j++) {
                                         msgReplyHtml += '<tr>';
                                         msgReplyHtml += '  <td class="msg_info">';
-                                        msgReplyHtml += '    <img src="' + data[i].msgReply[j].userface + '" width="50" height="50">';
+                                        msgReplyHtml += '    <img src="'+baseUrl+"/admin/images/head1.jpg"+'" width="50" height="50">';
                                         msgReplyHtml += '    <div class="user_info">';
-                                        msgReplyHtml += '        <h2>' + data[i].msgReply[j].userName + '</h2>';
+                                        msgReplyHtml += '        <h2>' + "管理员" + '</h2>';
                                         msgReplyHtml += '        <p>' + data[i].msgReply[j].userAsk + '</p>';
                                         msgReplyHtml += '    </div>';
                                         msgReplyHtml += '  </td>';

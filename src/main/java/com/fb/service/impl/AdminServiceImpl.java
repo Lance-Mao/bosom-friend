@@ -1,6 +1,7 @@
 package com.fb.service.impl;
 
 import com.fb.dao.AdminDao;
+import com.fb.entity.User;
 import com.fb.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,25 @@ public class AdminServiceImpl implements AdminService {
         data.put("passWord", passWord);
 
         return adminDao.selectAdmin(data);
+    }
+
+    @Override
+    public void addUser(User user) {
+        adminDao.addUser(user);
+    }
+
+    @Override
+    public List<Map<String, Object>> showUserInfo() {
+        return adminDao.showUserInfo();
+    }
+
+    @Override
+    public void delUser(String id) {
+        adminDao.delUser(id);
+    }
+
+    @Override
+    public List<Map<String, Object>> showUserInfoById(String id) {
+        return adminDao.showUserInfoById(id);
     }
 }

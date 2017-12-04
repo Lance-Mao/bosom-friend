@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>会员添加--layui后台管理模板</title>
+	<title>会员添加--知己网后台管理</title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,6 +18,7 @@
 		}
 	</style>
 </head>
+
 <body class="childrenBody">
 	<form class="layui-form" style="width:80%;">
 		<div class="layui-form-item">
@@ -27,9 +28,9 @@
 			</div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">邮箱</label>
+			<label class="layui-form-label">电话</label>
 			<div class="layui-input-block">
-				<input type="text" class="layui-input userEmail" lay-verify="email" placeholder="请输入邮箱">
+				<input type="text" class="layui-input phone" lay-verify="phone" placeholder="请输入电话">
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -63,19 +64,14 @@
 		    </div>
 		</div>
 		<div class="layui-form-item">
-			<label class="layui-form-label">站点描述</label>
-			<div class="layui-input-block">
-				<textarea placeholder="请输入站点描述" class="layui-textarea linksDesc"></textarea>
-			</div>
-		</div>
-		<div class="layui-form-item">
 			<div class="layui-input-block">
 				<button class="layui-btn" lay-submit="" lay-filter="addUser">立即提交</button>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 		    </div>
 		</div>
 	</form>
+
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
-	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/page/user/addUser.js"></script>
+	<script type="text/javascript" src="${baseurl}/admin/page/user/addUser.js"></script>
 </body>
 </html>

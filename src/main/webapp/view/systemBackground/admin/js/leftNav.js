@@ -45,6 +45,6 @@ function navBar(data) {
         ulHtml += '</li>'
     }
     ulHtml += '</ul>';
-    console.log("打印的页面："+ulHtml);
+    // console.log("打印的页面："+ulHtml);
     return ulHtml;
 }

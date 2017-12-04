@@ -1,7 +1,9 @@
 package com.fb.web;
 
 import com.fb.dto.Result;
+import com.fb.entity.User;
 import com.fb.service.AdminService;
+import com.fb.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,5 +44,53 @@ public class adminController {
     public String newMassage() {
         System.out.println("123456");
         return "systemBackground/admin/page/message/message";
+    }
+
+    @RequestMapping("addUser")
+    @ResponseBody
+    public Result addUser(User user){
+        try {
+            adminService.addUser(user);
+            return Result.success(null, Constant.ADD_SUCCESS);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.ADD_FAILURE);
+    }
+
+    @RequestMapping("showUserInfo")
+    @ResponseBody
+    public Result showUserInfo(){
+        try {
+            List<Map<String, Object>> userInfo = adminService.showUserInfo();
+            return Result.success(userInfo, Constant.SEARCH_SUCCESS);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.SEARCH_FAILURE);
+    }
+
+    @RequestMapping("delUser")
+    @ResponseBody
+    public Result delUser(String id){
+        try {
+            adminService.delUser(id);
+            return Result.success(null, Constant.SEARCH_SUCCESS);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.SEARCH_FAILURE);
+    }
+
+    @RequestMapping("showUserInfoById")
+    @ResponseBody
+    public Result showUserInfoById(String id){
+        try {
+            List<Map<String,Object>> userInfo = adminService.showUserInfoById(id);
+            return Result.success(userInfo, Constant.SEARCH_SUCCESS);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.SEARCH_FAILURE);
     }
 }

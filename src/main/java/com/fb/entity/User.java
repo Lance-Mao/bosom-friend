@@ -11,11 +11,30 @@ public class User {
     private String living;
     private String signature;
     private String userImg;
+    private String userStatus;
+    private String userGrade;
+
+    public String getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(String userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    public String getUserGrade() {
+        return userGrade;
+    }
+
+    public void setUserGrade(String userGrade) {
+        this.userGrade = userGrade;
+    }
+
     public User() {
         super();
     }
 
-    public User(Integer id, String userCount, String userName, String userPass, String phone, String sex, String birthday, String job, String living, String signature, String userImg) {
+    public User(Integer id, String userCount, String userName, String userPass, String phone, String sex, String birthday, String job, String living, String signature, String userImg, String userStatus, String userGrade) {
         this.id = id;
         this.userCount = userCount;
         this.userName = userName;
@@ -27,6 +46,8 @@ public class User {
         this.living = living;
         this.signature = signature;
         this.userImg = userImg;
+        this.userStatus = userStatus;
+        this.userGrade = userGrade;
     }
 
     public String getLiving() {
@@ -131,6 +152,8 @@ public class User {
                 ", living='" + living + '\'' +
                 ", signature='" + signature + '\'' +
                 ", userImg='" + userImg + '\'' +
+                ", userStatus='" + userStatus + '\'' +
+                ", userGrade='" + userGrade + '\'' +
                 '}';
     }
 }

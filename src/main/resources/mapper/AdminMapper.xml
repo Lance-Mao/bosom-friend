@@ -4,4 +4,20 @@
     <select id="selectAdmin" parameterType="map" resultType="map">
         select * from bf_user WHERE user_name = #{data.userName} AND  user_pass = #{data.passWord};
     </select>
+
+    <insert id="addUser" parameterType="com.fb.entity.User">
+        insert into bf_user (user_name, phone, sex, userStatus, userGrade) values (#{userName},#{phone},#{sex},#{userStatus},#{userGrade});
+    </insert>
+
+    <select id="showUserInfo" resultType="map">
+        SELECT * from bf_user;
+    </select>
+
+    <delete id="delUser" parameterType="String">
+        DELETE FROM bf_user WHERE id = #{id};
+    </delete>
+
+    <select id="showUserInfoById" parameterType="String" resultType="map">
+        select * from bf_user WHERE id = #{id};
+    </select>
 </mapper>
