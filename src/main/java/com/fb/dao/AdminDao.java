@@ -16,4 +16,6 @@ public interface AdminDao {
     void delUser(@Param("id") String id);
 
     List<Map<String,Object>> showUserInfoById(@Param("id") String id);
+
+    void updateUser(User user);
 }

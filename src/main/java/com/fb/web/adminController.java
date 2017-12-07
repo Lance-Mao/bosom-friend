@@ -82,15 +82,15 @@ public class adminController {
         return Result.failure(null, Constant.SEARCH_FAILURE);
     }
 
-    @RequestMapping("showUserInfoById")
+    @RequestMapping("updateUser")
     @ResponseBody
-    public Result showUserInfoById(String id){
+    public Result updateUser(User user){
         try {
-            List<Map<String,Object>> userInfo = adminService.showUserInfoById(id);
-            return Result.success(userInfo, Constant.SEARCH_SUCCESS);
+            adminService.updateUser(user);
+            return Result.success(null, Constant.OPERATION_SUCCESS);
         }catch (Exception e){
             e.printStackTrace();
         }
-        return Result.failure(null, Constant.SEARCH_FAILURE);
+        return Result.failure(null, Constant.OPERATION_FAILURE);
     }
 }

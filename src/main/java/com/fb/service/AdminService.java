@@ -15,4 +15,6 @@ public interface AdminService {
     void delUser(String id);
 
     List<Map<String,Object>> showUserInfoById(String id);
+
+    void updateUser(User user);
 }

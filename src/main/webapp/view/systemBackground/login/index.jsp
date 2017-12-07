@@ -65,7 +65,6 @@
         let userName = $(".name").val();
         let passWord = $(".password").val();
 
-        alert(123);
         if (userName !== "" && passWord !== "") {
             $.post(baseUrl + "/admin/login", {
                 userName: userName,

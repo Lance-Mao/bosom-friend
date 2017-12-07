@@ -20,4 +20,26 @@
     <select id="showUserInfoById" parameterType="String" resultType="map">
         select * from bf_user WHERE id = #{id};
     </select>
+
+    <update id="updateUser" parameterType="com.fb.entity.User">
+        UPDATE bf_user
+        <set>
+            <if test="userName != null">
+                bf_user.user_name = #{userName},
+            </if>
+            <if test="phone != null">
+                bf_user.phone = #{phone},
+            </if>
+            <if test="sex != null">
+                bf_user.sex = #{sex},
+            </if>
+            <if test="userStatus != null">
+                bf_user.userStatus = #{userStatus},
+            </if>
+            <if test="userGrade != null">
+                bf_user.userGrade = #{userGrade}
+            </if>
+        </set>
+        WHERE bf_user.id = #{id}
+    </update>
 </mapper>

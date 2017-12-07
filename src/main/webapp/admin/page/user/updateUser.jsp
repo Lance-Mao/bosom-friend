@@ -24,7 +24,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">登录名</label>
 			<div class="layui-input-block">
-				<input type="text" class="layui-input userName" placeholder="请输入登录名">
+				<input type="text" class="layui-input userName"  placeholder="请输入登录名">
 			</div>
 		</div>
 		<div class="layui-form-item">
@@ -65,13 +65,13 @@
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-input-block">
-				<button class="layui-btn" lay-submit="" lay-filter="addUser">立即提交</button>
+				<button class="layui-btn submitEditInfo" lay-filter="updateUser" value="456">立即提交</button>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 		    </div>
 		</div>
 	</form>
 
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
-	<script type="text/javascript" src="${baseurl}/admin/page/user/addUser.js"></script>
+	<script type="text/javascript" src="${baseurl}/admin/page/user/allUsers.js"></script>
 </body>
 </html>

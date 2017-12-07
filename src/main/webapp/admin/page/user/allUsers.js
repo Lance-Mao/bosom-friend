@@ -1,3 +1,7 @@
+let currentlyEditingUser;
+let currentEditPopup;
+let userNameEdit;
+let phoneEdit;
 layui.config({
     base: "js/"
 }).use(['form', 'layer', 'jquery', 'laypage'], function () {
@@ -128,22 +132,76 @@ layui.config({
     })
 
     //操作
+    // $(".users_edit").click(function () {
+    //     alert(123);
+    // })
     $("body").on("click", ".users_edit", function () {  //编辑
-        var _this = $(this);
-        $.post(baseUrl + "admin/showUserInfoById",{id:_this},function (data) {
-            if (data.result) {
-                alert(JSON.stringify(data));
-            }
-        })
-        var index = layui.layer.open({
+        currentlyEditingUser = $(this).attr("data-id");
+        // userNameEdit = $(this).parent().find(".userName").val();
+        // phoneEdit = $(this).parent.find(".phone").val();
+        currentEditPopup = layui.layer.open({
             type: 2,
             title: "会员信息",
             area: ["100%", "100%"],
-            content: "addUser.jsp"
+            content: "updateUser.jsp",
+            success: function (layero, index) {
+                window.sessionStorage.setItem("userId", currentlyEditingUser);
+                // window.sessionStorage.setItem("userName", userNameEdit);
+                // window.sessionStorage.setItem("phone", phoneEdit);
+            }
         });
-
-        // layer.alert('您点击了会员编辑按钮，由于是纯静态页面，所以暂时不存在编辑内容，后期会添加，敬请谅解。。。', {icon: 6, title: '文章编辑'});
     })
+
+    //提交编辑信息
+    $("body").on("click", ".submitEditInfo", function () {
+        var _this = $(this);
+        var userStatus, userGrade, userEndTime;
+        //会员等级
+        if ($(".userGrade").val() == '0') {
+            userGrade = "注册会员";
+        } else if ($(".userGrade").val() == '1') {
+            userGrade = "中级会员";
+        } else if ($(".userGrade").val() == '2') {
+            userGrade = "高级会员";
+        } else if ($(".userGrade").val() == '3') {
+            userGrade = "超级会员";
+        }
+        //会员状态
+        if ($(".userStatus").val() == '0') {
+            userStatus = "正常使用";
+        } else if ($(".userStatus").val() == '1') {
+            userStatus = "限制用户";
+        }
+
+        // var usersId = new Date().getTime();//id
+        var userName = $(".userName").val();  //登录名
+        var phone = $(".phone").val();	 //邮箱
+        var userSex = $(".sex").val(); //性别
+
+        let id = window.sessionStorage.getItem("userId");
+        $.post(baseUrl + "admin/updateUser",
+            {
+                id: id,
+                userName: userName,
+                phone: phone,
+                sex: userSex,
+                userStatus: userStatus,
+                userGrade: userGrade
+            }, function (data) {
+                let index = layer.msg('修改成功！')
+                setTimeout("layer.close(index)", 2000);
+                //刷新父页面
+                parent.location.reload();
+            })
+    })
+
+    function TT(index) {
+        top.layer.close(index);
+        top.layer.msg("用户添加成功！");
+        layer.closeAll("iframe");
+        //刷新父页面d
+        parent.location.reload();
+    }
 
     $("body").on("click", ".users_del", function () {  //删除
         var _this = $(this);
@@ -165,7 +223,7 @@ layui.config({
             //     }
             // }
         });
-    });
+    })
 
     function usersList() {
         //渲染数据
@@ -183,7 +241,7 @@ layui.config({
                         + '<td>' + data[i].userStatus + '</td>'
                         + '<td>'
                         + '<a class="layui-btn layui-btn-mini users_edit" data-id="' + data[i].id + '"><i class="iconfont icon-edit"></i> 编辑</a>'
-                        + '<a class="layui-btn layui-btn-danger layui-btn-mini users_del"="' + data[i].id + '"><i class="layui-icon">&#xe640;</i> 删除</a>'
+                        + '<a class="layui-btn layui-btn-danger layui-btn-mini users_del" data-id="' + data[i].id + '"><i class="layui-icon">&#xe640;</i> 删除</a>'
                         + '</td>'
                         + '</tr>';
                 }

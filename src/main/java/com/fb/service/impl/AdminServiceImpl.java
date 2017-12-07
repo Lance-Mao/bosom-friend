@@ -44,4 +44,9 @@ public class AdminServiceImpl implements AdminService {
     public List<Map<String, Object>> showUserInfoById(String id) {
         return adminDao.showUserInfoById(id);
     }
+
+    @Override
+    public void updateUser(User user) {
+        adminDao.updateUser(user);
+    }
 }

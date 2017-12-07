@@ -30,6 +30,6 @@
 		</table>
 	</form>
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
-	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/page/message/message.js"></script>
+	<script type="text/javascript" src="${baseurl}/admin/page/message/message.js"></script>
 </body>
 </html>
