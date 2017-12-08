@@ -42,4 +42,18 @@
         </set>
         WHERE bf_user.id = #{id}
     </update>
+
+    <select id="showNewsList" resultType="map">
+        select * from bf_post;
+    </select>
+
+    <update id="updateNewsStatus" parameterType="map">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE bf_post
+            <set>
+                newsStatus = "审核通过"
+            </set>
+            WHERE id = #{item}
+        </foreach>
+    </update>
 </mapper>

@@ -78,6 +78,6 @@
 		</div>
 	</form>
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
-	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/page/news/newsAdd.js"></script>
+	<script type="text/javascript" src="${baseurl}/admin/page/news/newsAdd.js"></script>
 </body>
 </html>

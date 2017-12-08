@@ -65,6 +65,6 @@
 	</div>
 	<div id="page"></div>
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
-	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/page/news/newsList.js"></script>
+	<script type="text/javascript" src="${baseurl}/admin/page/news/newsList.js"></script>
 </body>
 </html>

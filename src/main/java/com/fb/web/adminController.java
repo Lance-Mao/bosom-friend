@@ -4,9 +4,11 @@ import com.fb.dto.Result;
 import com.fb.entity.User;
 import com.fb.service.AdminService;
 import com.fb.util.Constant;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +38,7 @@ public class adminController {
     }
 
     @RequestMapping("/index")
-    public String index(){
+    public String index() {
         return "systemBackground/admin/index";
     }
 
@@ -48,11 +50,11 @@ public class adminController {
 
     @RequestMapping("addUser")
     @ResponseBody
-    public Result addUser(User user){
+    public Result addUser(User user) {
         try {
             adminService.addUser(user);
             return Result.success(null, Constant.ADD_SUCCESS);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return Result.failure(null, Constant.ADD_FAILURE);
@@ -60,11 +62,11 @@ public class adminController {
 
     @RequestMapping("showUserInfo")
     @ResponseBody
-    public Result showUserInfo(){
+    public Result showUserInfo() {
         try {
             List<Map<String, Object>> userInfo = adminService.showUserInfo();
             return Result.success(userInfo, Constant.SEARCH_SUCCESS);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return Result.failure(null, Constant.SEARCH_FAILURE);
@@ -72,11 +74,11 @@ public class adminController {
 
     @RequestMapping("delUser")
     @ResponseBody
-    public Result delUser(String id){
+    public Result delUser(String id) {
         try {
             adminService.delUser(id);
             return Result.success(null, Constant.SEARCH_SUCCESS);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return Result.failure(null, Constant.SEARCH_FAILURE);
@@ -84,11 +86,36 @@ public class adminController {
 
     @RequestMapping("updateUser")
     @ResponseBody
-    public Result updateUser(User user){
+    public Result updateUser(User user) {
         try {
             adminService.updateUser(user);
             return Result.success(null, Constant.OPERATION_SUCCESS);
-        }catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.OPERATION_FAILURE);
+    }
+
+    //文章操作
+    @RequestMapping("/showNewsList")
+    @ResponseBody
+    public Result showNewsList() {
+        try {
+            List<Map<String, Object>> newsInfo = adminService.showNewsList();
+            return Result.success(newsInfo, Constant.OPERATION_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.OPERATION_FAILURE);
+    }
+
+    @RequestMapping("/updateNewsStatus")
+    @ResponseBody
+    public Result updateNewsStatus(@RequestParam(value = "idList[]") String[] idList) {
+        try {
+            adminService.updateNewsStatus(idList);
+            return Result.success(null, Constant.OPERATION_SUCCESS);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return Result.failure(null, Constant.OPERATION_FAILURE);

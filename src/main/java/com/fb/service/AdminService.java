@@ -17,4 +17,8 @@ public interface AdminService {
     List<Map<String,Object>> showUserInfoById(String id);
 
     void updateUser(User user);
+
+    List<Map<String,Object>> showNewsList();
+
+    void updateNewsStatus(String[] idList);
 }

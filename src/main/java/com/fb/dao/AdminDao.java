@@ -18,4 +18,8 @@ public interface AdminDao {
     List<Map<String,Object>> showUserInfoById(@Param("id") String id);
 
     void updateUser(User user);
+
+    List<Map<String,Object>> showNewsList();
+
+    void updateNewsStatus(@Param("list") String[] idList);
 }

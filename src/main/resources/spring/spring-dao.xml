@@ -27,7 +27,7 @@
 	    <property name="maxActive" value="${druid.pool.size.max}" />  
 	    
 	    <!-- 配置监控统计拦截的filters，wall用于防止sql注入，stat用于统计分析 -->
-	    <property name="filters" value="wall,stat" /> 
+	    <property name="filters" value="stat" />
 	</bean>
     
 
