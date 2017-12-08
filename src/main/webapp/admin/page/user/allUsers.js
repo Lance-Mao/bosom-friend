@@ -231,7 +231,7 @@ layui.config({
         //渲染数据
         function renderDate(data, curr) {
             var dataHtml = '';
-            // currData = usersData.concat().splice(curr*nums-nums, nums);
+            data = data.concat().splice(curr*nums-nums, nums);
             if (data.length != 0) {
                 for (var i = 0; i < data.length; i++) {
                     dataHtml += '<tr>'
@@ -254,7 +254,7 @@ layui.config({
         }
 
         //分页
-        var nums = 13; //每页出现的数据量
+        var nums = 10; //每页出现的数据量
         laypage({
             cont: "page",
             pages: Math.ceil(usersData.length / nums),

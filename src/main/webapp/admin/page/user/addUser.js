@@ -45,9 +45,12 @@ layui.config({
             userGrade: userGrade
         }, function (data) {
             if (data.result) {
-                console.log(data);
-                let index = top.layer.msg('数据提交中，请稍候', {icon: 16, time: false, shade: 0.8});
-                setTimeout(TT(index), 2000);
+                // let index = top.layer.msg('数据提交中，请稍候', {icon: 16, time: false, shade: 0.8});
+                // setTimeout(TT(index), 2000);
+                let index = layer.msg('修改成功！')
+                setTimeout("layer.close(index)", 2000);
+                //刷新父页面
+                parent.location.reload();
             }
         })
         // userStatus = userStatus ; //会员等级
