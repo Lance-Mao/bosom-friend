@@ -188,10 +188,12 @@ layui.config({
                 userStatus: userStatus,
                 userGrade: userGrade
             }, function (data) {
-                let index = layer.msg('修改成功！')
-                setTimeout("layer.close(index)", 2000);
-                //刷新父页面
-                parent.location.reload();
+                if (data.result) {
+                    let index = layer.msg('修改成功！')
+                    setTimeout("layer.close(index)", 2000);
+                    //刷新父页面
+                    parent.location.reload();
+                }
             })
     })
 
