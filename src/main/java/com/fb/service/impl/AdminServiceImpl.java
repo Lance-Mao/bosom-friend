@@ -59,4 +59,9 @@ public class AdminServiceImpl implements AdminService {
     public void updateNewsStatus(String[] idList) {
         adminDao.updateNewsStatus(idList);
     }
+
+    @Override
+    public List<Map<String, Object>> searchNewsOnUpdate(String id) {
+        return adminDao.searchNewsOnUpdate(id);
+    }
 }

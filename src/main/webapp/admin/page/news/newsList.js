@@ -115,24 +115,24 @@ layui.config({
     })
 
     //添加文章
-    $(".newsAdd_btn").click(function () {
-        var index = layui.layer.open({
-            title: "添加文章",
-            type: 2,
-            scrollbar: true,
-            content: "newsAdd.jsp",
-            success: function (layero, index) {
-                layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
-                    tips: 3
-                });
-            }
-        })
-        //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
-        $(window).resize(function () {
-            layui.layer.full(index);
-        })
-        layui.layer.full(index);
-    })
+    // $(".newsAdd_btn").click(function () {
+    //     var index = layui.layer.open({
+    //         title: "添加文章",
+    //         type: 2,
+    //         scrollbar: true,
+    //         content: "newsUpdate.jsp",
+    //         success: function (layero, index) {
+    //             layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
+    //                 tips: 3
+    //             });
+    //         }
+    //     })
+    //     //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+    //     $(window).resize(function () {
+    //         layui.layer.full(index);
+    //     })
+    //     layui.layer.full(index);
+    // })
 
     //推荐文章
     $(".recommend").click(function () {
@@ -241,7 +241,38 @@ layui.config({
 
     //操作
     $("body").on("click", ".news_edit", function () {  //编辑
-        layer.alert('您点击了文章编辑按钮，由于是纯静态页面，所以暂时不存在编辑内容，后期会添加，敬请谅解。。。', {icon: 6, title: '文章编辑'});
+        var _this = $(this);
+        let id = _this.parent("td").find(".news_del").attr("data-id");
+
+        var index = layui.layer.open({
+            title: "添加文章",
+            type: 1,
+            scrollbar: true,
+            content: $("#showUpdateInfo"),
+            success: function (layero, index) {
+                layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
+                    tips: 3
+                });
+                $.post(baseUrl+"admin/searchNewsOnUpdate",{id:id},function (data) {
+                    if (data.result) {
+                        console.log(data.data);
+                        let dataInfo = data.data;
+                        $(".newsName").attr("value",dataInfo[0].title);
+                        $(".isShow").attr("checked",dataInfo[0].isShow);
+                        $(".newsStatus").attr("checked",dataInfo[0].newsStatus == "审核通过"　? "checked" : "");
+                        $(".newsAuthor").attr("value",dataInfo[0].userName);
+                        $(".newsTime").attr("value",dataInfo[0].date);
+                        form.render();
+                    }
+                })
+
+            }
+        })
+        //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+        $(window).resize(function () {
+            layui.layer.full(index);
+        })
+        layui.layer.full(index);
     })
 
     $("body").on("click", ".news_collect", function () {  //收藏.
@@ -288,11 +319,12 @@ layui.config({
                     } else {
                         dataHtml += '<td>' + currData[i].newsStatus + '</td>';
                     }
+
                     dataHtml += '<td>' + currData[i].newsLook + '</td>'
                         + '<td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow"' + currData[i].isShow + '></td>'
                         + '<td>' + currData[i].date + '</td>'
-                        + '<td>'
-                        + '<a class="layui-btn layui-btn-mini news_edit"><i class="iconfont icon-edit"></i> 编辑</a>'
+                        + '<td class="btn">'
+                        + '<a class="layui-btn layui-btn-mini news_edit" value="123"><i class="iconfont icon-edit"></i> 编辑</a>'
                         + '<a class="layui-btn layui-btn-normal layui-btn-mini news_collect"><i class="layui-icon">&#xe600;</i> 收藏</a>'
                         + '<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="' + data[i].id + '"><i class="layui-icon">&#xe640;</i> 删除</a>'
                         + '</td>'

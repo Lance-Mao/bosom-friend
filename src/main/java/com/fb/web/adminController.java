@@ -120,4 +120,16 @@ public class adminController {
         }
         return Result.failure(null, Constant.OPERATION_FAILURE);
     }
+
+    @RequestMapping("/searchNewsOnUpdate")
+    @ResponseBody
+    public Result searchNewsOnUpdate(String id) {
+        try {
+            List<Map<String,Object>> newsInfo = adminService.searchNewsOnUpdate(id);
+            return Result.success(newsInfo, Constant.OPERATION_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.OPERATION_FAILURE);
+    }
 }

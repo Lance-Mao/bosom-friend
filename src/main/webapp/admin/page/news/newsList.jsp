@@ -22,9 +22,9 @@
 		    </div>
 		    <a class="layui-btn search_btn">查询</a>
 		</div>
-		<div class="layui-inline">
-			<a class="layui-btn layui-btn-normal newsAdd_btn">添加文章</a>
-		</div>
+		<%--<div class="layui-inline">--%>
+			<%--<a class="layui-btn layui-btn-normal newsAdd_btn">添加文章</a>--%>
+		<%--</div>--%>
 		<div class="layui-inline">
 			<a class="layui-btn recommend" style="background-color:#5FB878">推荐文章</a>
 		</div>
@@ -64,7 +64,51 @@
 		</table>
 	</div>
 	<div id="page"></div>
+
+	<form class="layui-form" style="display: none" id="showUpdateInfo">
+		<div class="layui-form-item">
+			<label class="layui-form-label">文章标题</label>
+			<div class="layui-input-inline">
+				<input type="text" class="layui-input newsName"  lay-verify="required" placeholder="请输入文章标题">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">自定义属性</label>
+			<div class="layui-input-block">
+				<input type="checkbox" name="shenhe" class="newsStatus" title="审核">
+				<input type="checkbox" name="show" class="isShow" title="展示">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">文章作者</label>
+			<div class="layui-input-inline">
+				<input type="text" class="layui-input newsAuthor" lay-verify="required" placeholder="请输入文章作者">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">浏览权限</label>
+			<div class="layui-input-inline">
+				<select name="browseLook" class="newsLook" lay-filter="browseLook">
+					<option value="0">开放浏览</option>
+					<option value="1">会员浏览</option>
+				</select>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">发布时间</label>
+			<div class="layui-input-inline">
+				<input type="text" class="layui-input newsTime" placeholder="发布日期" lay-verify="date" onclick="layui.laydate({elem:this})">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn" lay-submit="" lay-filter="addNews">立即提交</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			</div>
+		</div>
+	</form>
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
 	<script type="text/javascript" src="${baseurl}/admin/page/news/newsList.js"></script>
+	<script type="text/javascript" src="${baseurl}/admin/page/news/newsUpdate.js"></script>
 </body>
 </html>

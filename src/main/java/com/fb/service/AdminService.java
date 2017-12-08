@@ -21,4 +21,6 @@ public interface AdminService {
     List<Map<String,Object>> showNewsList();
 
     void updateNewsStatus(String[] idList);
+
+    List<Map<String,Object>> searchNewsOnUpdate(String id);
 }

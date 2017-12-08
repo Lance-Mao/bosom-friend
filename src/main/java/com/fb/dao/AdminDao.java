@@ -22,4 +22,6 @@ public interface AdminDao {
     List<Map<String,Object>> showNewsList();
 
     void updateNewsStatus(@Param("list") String[] idList);
+
+    List<Map<String,Object>> searchNewsOnUpdate(@Param("id") String id);
 }
