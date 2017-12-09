@@ -11,12 +11,14 @@ layui.config({
 	})
 
 	//动态获取文章总数和待审核文章数量,最新文章
-	$.get("../json/newsList.json",
+	$.get(baseUrl+"admin/getAllNews",
 		function(data){
+		// console.log("文章列表："+JSON.stringify(data))
+            let dataInfo = data.data;
 			var waitNews = [];
-			$(".allNews span").text(data.length);  //文章总数
-			for(var i=0;i<data.length;i++){
-				var newsStr = data[i];
+			$(".allNews span").text(dataInfo.length);  //文章总数
+			for(var i=0;i<dataInfo.length;i++){
+				var newsStr = dataInfo[i];
 				if(newsStr["newsStatus"] == "待审核"){
 					waitNews.push(newsStr);
 				}
@@ -26,10 +28,13 @@ layui.config({
 			var hotNewsHtml = '';
 			for(var i=0;i<5;i++){
 				hotNewsHtml += '<tr>'
-		    	+'<td align="left">'+data[i].newsName+'</td>'
-		    	+'<td>'+data[i].newsTime+'</td>'
+		    	+'<td align="left">'+dataInfo[i].userName+'发布了《'+dataInfo[i].title+'》'+'</td>'
+		    	+'<td>'+'发布时间：'+dataInfo[i].date+'</td>'
 		    	+'</tr>';
 			}
+            $(".userNameByNew").text(dataInfo[0].userName);
+            $(".newTitleByNew").text(dataInfo[0].title);
+            $(".newsCountByNew").text(dataInfo[0].content);
 			$(".hot_news").html(hotNewsHtml);
 		}
 	)
@@ -42,16 +47,16 @@ layui.config({
 	)
 
 	//用户数
-	$.get("../json/usersList.json",
+	$.get(baseUrl+"admin/amountOfUsers",
 		function(data){
-			$(".userAll span").text(data.length);
+			$(".userAll span").text(data.data);
 		}
 	)
 
-	//新消息
-	$.get("../json/message.json",
+	//用户留言数量
+	$.get(baseUrl+"admin/getUserMessageNumber",
 		function(data){
-			$(".newMessage span").text(data.length);
+			$(".newMessage span").text(data.data);
 		}
 	)
 
@@ -78,6 +83,7 @@ layui.config({
 
 	//填充数据方法
  	function fillParameter(data){
+		console.log("系统参数："+JSON.stringify(data))
  		//判断字段数据是否存在
  		function nullData(data){
  			if(data == '' || data == "undefined"){
@@ -90,7 +96,7 @@ layui.config({
 		$(".author").text(nullData(data.author));        //开发作者
 		$(".homePage").text(nullData(data.homePage));    //网站首页
 		$(".server").text(nullData(data.server));        //服务器环境
-		$(".dataBase").text(nullData(data.dataBase));    //数据库版本
+		$(".dataBase").text(nullData(data.dataBase));    //数据库
 		$(".maxUpload").text(nullData(data.maxUpload));    //最大上传限制
 		$(".userRights").text(nullData(data.userRights));//当前用户权限
  	}

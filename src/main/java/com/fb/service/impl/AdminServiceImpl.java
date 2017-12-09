@@ -1,6 +1,7 @@
 package com.fb.service.impl;
 
 import com.fb.dao.AdminDao;
+import com.fb.entity.Post;
 import com.fb.entity.User;
 import com.fb.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,5 +64,35 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<Map<String, Object>> searchNewsOnUpdate(String id) {
         return adminDao.searchNewsOnUpdate(id);
+    }
+
+    @Override
+    public void subUpdateInfo(Post post) {
+        adminDao.subUpdateInfo(post);
+    }
+
+    @Override
+    public void delNews(String id) {
+        adminDao.delNews(id);
+    }
+
+    @Override
+    public List<Map<String, Object>> getAllNews() {
+        return adminDao.getAllNews();
+    }
+
+    @Override
+    public Integer amountOfUsers() {
+        return adminDao.amountOfUsers();
+    }
+
+    @Override
+    public Integer getUserMessageNumber() {
+        return adminDao.getUserMessageNumber();
+    }
+
+    @Override
+    public void editUser(User user) {
+        adminDao.editUser(user);
     }
 }

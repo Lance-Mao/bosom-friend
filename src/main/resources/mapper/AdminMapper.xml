@@ -60,4 +60,43 @@
     <select id="searchNewsOnUpdate" parameterType="String" resultType="map">
         select * from bf_post WHERE id = #{id};
     </select>
+
+    <update id="subUpdateInfo" parameterType="com.fb.entity.Post">
+        UPDATE bf_post
+        <set>
+            title = #{title},
+            userName = #{userName},
+            newsStatus = #{newsStatus},
+            newsLook = #{newsLook},
+            isShow = #{isShow}
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delNews" parameterType="String">
+        DELETE FROM bf_post WHERE id = #{id};
+    </delete>
+
+    <select id="getAllNews" resultType="map">
+        SELECT * from bf_post ORDER by id DESC;
+    </select>
+
+    <select id="amountOfUsers" resultType="int">
+        select COUNT(*) from bf_user;
+    </select>
+
+    <select id="getUserMessageNumber" resultType="int">
+        select COUNT(*) from bf_message;
+    </select>
+
+    <update id="editUser" parameterType="com.fb.entity.User">
+        UPDATE bf_user
+        <set>
+            sex = #{sex},
+            phone = #{phone},
+            birthday = #{birthday},
+            living = #{living}
+        </set>
+        WHERE user_name = #{userName}
+    </update>
 </mapper>

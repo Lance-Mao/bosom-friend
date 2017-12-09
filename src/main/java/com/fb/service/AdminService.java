@@ -1,5 +1,6 @@
 package com.fb.service;
 
+import com.fb.entity.Post;
 import com.fb.entity.User;
 
 import java.util.List;
@@ -23,4 +24,16 @@ public interface AdminService {
     void updateNewsStatus(String[] idList);
 
     List<Map<String,Object>> searchNewsOnUpdate(String id);
+
+    void subUpdateInfo(Post post);
+
+    void delNews(String id);
+
+    List<Map<String,Object>> getAllNews();
+
+    Integer amountOfUsers();
+
+    Integer getUserMessageNumber();
+
+    void editUser(User user);
 }

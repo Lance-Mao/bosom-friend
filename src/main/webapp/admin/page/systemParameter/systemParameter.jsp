@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>系统基本参数--layui后台管理模板</title>
+	<title></title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -59,8 +59,8 @@
 		    		<td>server</td>
 		    	</tr>
 		    	<tr>
-		    		<td>数据库版本</td>
-		    		<td><input type="text" class="layui-input dataBase" placeholder="请输入数据库版本"></td>
+		    		<td>数据库</td>
+		    		<td><input type="text" class="layui-input dataBase" placeholder="请输入数据库名称"></td>
 		    		<td>dataBase</td>
 		    	</tr>
 		    	<tr>
@@ -103,6 +103,6 @@
 		</div>
 	</form>
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
-	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/page/systemParameter/systemParameter.js"></script>
+	<script type="text/javascript" src="${baseurl}/admin/page/systemParameter/systemParameter.js"></script>
 </body>
 </html>

@@ -115,24 +115,49 @@ layui.config({
     })
 
     //添加文章
-    // $(".newsAdd_btn").click(function () {
-    //     var index = layui.layer.open({
-    //         title: "添加文章",
-    //         type: 2,
-    //         scrollbar: true,
-    //         content: "newsUpdate.jsp",
-    //         success: function (layero, index) {
-    //             layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
-    //                 tips: 3
-    //             });
-    //         }
-    //     })
-    //     //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
-    //     $(window).resize(function () {
-    //         layui.layer.full(index);
-    //     })
-    //     layui.layer.full(index);
-    // })
+    form.on("submit(addNews)", function (data) {
+        //是否添加过信息
+        // if(window.sessionStorage.getItem("addNews")){
+        // 	addNewsArray = JSON.parse(window.sessionStorage.getItem("addNews"));
+        // }
+        //显示、审核状态
+        var isShow = data.field.show == "on" ? "checked" : "";
+        var newsStatus = data.field.shenhe == "on" ? "审核通过" : "待审核";
+
+        console.log(data);
+
+        var newsName = $(".newsName").val();  //文章名称
+        var newsId = $(this).attr("data-id");	 //文章id
+        var newsLook = $(".newsLook option").eq($(".newsLook").val()).text(); //开放浏览
+        var newsTime = $(".newsTime").val(); //发布时间
+        var newsAuthor = $(".newsAuthor").val(); //文章作者
+
+        $.post(baseUrl + "/admin/subUpdateInfo", {
+            isShow: isShow,
+            id: newsId,
+            newsStatus: newsStatus,
+            title: newsName,
+            newsLook: newsLook,
+            newsTime: newsTime,
+            userName: newsAuthor
+        }, function (data) {
+            if (data.result) {
+                var index = top.layer.msg('数据提交中，请稍候', {icon: 16, time: false, shade: 0.8});
+                setTimeout(function () {
+                    top.layer.close(index);
+                    top.layer.msg("文章添加成功！");
+                    layer.closeAll("iframe");
+                    //刷新父页面
+                    parent.location.reload();
+                }, 2000);
+            }
+        })
+
+        // addNewsArray.unshift(JSON.parse(addNews));
+        // window.sessionStorage.setItem("addNews",JSON.stringify(addNewsArray));
+        //弹出loading
+        return false;
+    })
 
     //推荐文章
     $(".recommend").click(function () {
@@ -168,9 +193,9 @@ layui.config({
                         }
                     }
                 }
-                console.log("获取的id"+idList);
+                console.log("获取的id" + idList);
                 JSON.stringify(idList);
-                $.post(baseUrl+"/admin/updateNewsStatus",{idList:idList},function (data) {
+                $.post(baseUrl + "/admin/updateNewsStatus", {idList: idList}, function (data) {
 
                 })
                 layer.close(index);
@@ -253,15 +278,16 @@ layui.config({
                 layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {
                     tips: 3
                 });
-                $.post(baseUrl+"admin/searchNewsOnUpdate",{id:id},function (data) {
+                $.post(baseUrl + "admin/searchNewsOnUpdate", {id: id}, function (data) {
                     if (data.result) {
-                        console.log(data.data);
                         let dataInfo = data.data;
-                        $(".newsName").attr("value",dataInfo[0].title);
-                        $(".isShow").attr("checked",dataInfo[0].isShow);
-                        $(".newsStatus").attr("checked",dataInfo[0].newsStatus == "审核通过"　? "checked" : "");
-                        $(".newsAuthor").attr("value",dataInfo[0].userName);
-                        $(".newsTime").attr("value",dataInfo[0].date);
+                        $(".newsName").attr("value", dataInfo[0].title);
+                        $(".isShow").attr("checked", dataInfo[0].isShow);
+                        $(".newsStatus").attr("checked", dataInfo[0].newsStatus == "审核通过" ? "checked" : "");
+                        $(".newsAuthor").attr("value", dataInfo[0].userName);
+                        $(".newsTime").attr("value", dataInfo[0].date);
+
+                        $(".subInfoByUpdate").attr("data-id", dataInfo[0].id);
                         form.render();
                     }
                 })
@@ -288,14 +314,23 @@ layui.config({
     $("body").on("click", ".news_del", function () {  //删除
         var _this = $(this);
         layer.confirm('确定删除此信息？', {icon: 3, title: '提示信息'}, function (index) {
+            var id = _this.attr("data-id")
             //_this.parents("tr").remove();
-            for (var i = 0; i < newsData.length; i++) {
-                if (newsData[i].newsId == _this.attr("data-id")) {
-                    newsData.splice(i, 1);
-                    newsList(newsData);
+            // for (var i = 0; i < newsData.length; i++) {
+            //     if (newsData[i].newsId == _this.attr("data-id")) {
+            //         newsData.splice(i, 1);
+            //         newsList(newsData);
+            //     }
+            // }
+            $.post(baseUrl + "/admin/delNews", {id: id}, function (data) {
+                if (data.result) {
+                    setTimeout("layer.close(index)", 1000);
+                    layer.msg("删除成功！！！");
                 }
-            }
-            layer.close(index);
+                //刷新父页面
+                setTimeout("parent.location.reload()", 1000);
+
+            })
         });
     })
 

@@ -1,6 +1,7 @@
 package com.fb.web;
 
 import com.fb.dto.Result;
+import com.fb.entity.Post;
 import com.fb.entity.User;
 import com.fb.service.AdminService;
 import com.fb.util.Constant;
@@ -44,7 +45,6 @@ public class adminController {
 
     @RequestMapping("/newMassage")
     public String newMassage() {
-        System.out.println("123456");
         return "systemBackground/admin/page/message/message";
     }
 
@@ -131,5 +131,76 @@ public class adminController {
             e.printStackTrace();
         }
         return Result.failure(null, Constant.OPERATION_FAILURE);
+    }
+    @RequestMapping("/subUpdateInfo")
+    @ResponseBody
+    public Result subUpdateInfo(Post post) {
+        try {
+            adminService.subUpdateInfo(post);
+            return Result.success(null, Constant.OPERATION_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.OPERATION_FAILURE);
+    }
+
+    @RequestMapping("/delNews")
+    @ResponseBody
+    public Result delNews(String id) {
+        try {
+            adminService.delNews(id);
+            return Result.success(null, Constant.OPERATION_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.OPERATION_FAILURE);
+    }
+
+    @RequestMapping("/getAllNews")
+    @ResponseBody
+    public Result getAllNews() {
+        try {
+            List<Map<String,Object>> newsInfo = adminService.getAllNews();
+            return Result.success(newsInfo, Constant.OPERATION_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.OPERATION_FAILURE);
+    }
+
+    @RequestMapping("/amountOfUsers")
+    @ResponseBody
+    public Result amountOfUsers() {
+        try {
+            Integer numbers = adminService.amountOfUsers();
+            return Result.success(numbers, Constant.OPERATION_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.OPERATION_FAILURE);
+    }
+
+    @RequestMapping("/getUserMessageNumber")
+    @ResponseBody
+    public Result getUserMessageNumber() {
+        try {
+            Integer numbers = adminService.getUserMessageNumber();
+            return Result.success(numbers, Constant.OPERATION_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure(null, Constant.OPERATION_FAILURE);
+    }
+
+    @RequestMapping("/editUser")
+    @ResponseBody
+    public Result editUser(User user) {
+        try {
+            adminService.editUser(user);
+            return Result.success(null, Constant.OPERATION_SUCCESS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Result.failure("", Constant.OPERATION_FAILURE);
     }
 }

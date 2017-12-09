@@ -75,8 +75,8 @@
 							<cite>管理员</cite>
 						</a>
 						<dl class="layui-nav-child">
-							<dd><a href="javascript:;" data-url="${baseurl}/view/systemBackground/admin/page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
-							<dd><a href="javascript:;" data-url="${baseurl}/view/systemBackground/admin/page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
+							<dd><a href="javascript:;" data-url="${baseurl}/admin/page/user/userInfo.jsp"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
+							<dd><a href="javascript:;" data-url="${baseurl}/admin/page/user/changePwd.jsp"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
 							<dd><a href="javascript:;"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
 						</dl>
 					</li>

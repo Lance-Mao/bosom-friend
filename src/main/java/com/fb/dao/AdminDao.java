@@ -1,5 +1,6 @@
 package com.fb.dao;
 
+import com.fb.entity.Post;
 import com.fb.entity.User;
 import org.apache.ibatis.annotations.Param;
 
@@ -24,4 +25,16 @@ public interface AdminDao {
     void updateNewsStatus(@Param("list") String[] idList);
 
     List<Map<String,Object>> searchNewsOnUpdate(@Param("id") String id);
+
+    void subUpdateInfo(Post post);
+
+    void delNews(@Param("id") String id);
+
+    List<Map<String,Object>> getAllNews();
+
+    Integer amountOfUsers();
+
+    Integer getUserMessageNumber();
+
+    void editUser(User user);
 }

@@ -15,11 +15,11 @@
 </head>
 <body class="childrenBody">
 	<form class="layui-form changePwd">
-		<div style="margin:0 0 15px 110px;color:#f00;">旧密码请输入“123456”，新密码必须两次输入一致才能提交</div>
+		<div style="margin:0 0 15px 110px;color:#f00;">新密码必须两次输入一致才能提交</div>
 		<div class="layui-form-item">
 		    <label class="layui-form-label">用户名</label>
 		    <div class="layui-input-block">
-		    	<input type="text" value="请叫我马哥" disabled class="layui-input layui-disabled">
+		    	<input type="text" value="admin" disabled class="layui-input layui-disabled">
 		    </div>
 		</div>
 		<div class="layui-form-item">

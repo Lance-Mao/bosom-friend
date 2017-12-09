@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>个人资料--layui后台管理模板</title>
+	<title>个人资料</title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -19,7 +19,7 @@
 			<div class="layui-form-item">
 			    <label class="layui-form-label">用户名</label>
 			    <div class="layui-input-block">
-			    	<input type="text" value="请叫我马哥" disabled class="layui-input layui-disabled">
+			    	<input type="text" value="admin" disabled class="layui-input layui-disabled userNameByEdit">
 			    </div>
 			</div>
 			<div class="layui-form-item">
@@ -28,12 +28,12 @@
 			    	<input type="text" value="超级管理员" disabled class="layui-input layui-disabled">
 			    </div>
 			</div>
-			<div class="layui-form-item">
-			    <label class="layui-form-label">真实姓名</label>
-			    <div class="layui-input-block">
-			    	<input type="text" value="" placeholder="请输入真实姓名" lay-verify="required" class="layui-input">
-			    </div>
-			</div>
+			<%--<div class="layui-form-item">--%>
+			    <%--<label class="layui-form-label">真实姓名</label>--%>
+			    <%--<div class="layui-input-block">--%>
+			    	<%--<input type="text" value="" placeholder="请输入真实姓名" lay-verify="required" class="layui-input">--%>
+			    <%--</div>--%>
+			<%--</div>--%>
 			<div class="layui-form-item" pane="">
 			    <label class="layui-form-label">性别</label>
 			    <div class="layui-input-block">
@@ -45,13 +45,13 @@
 			<div class="layui-form-item">
 			    <label class="layui-form-label">手机号码</label>
 			    <div class="layui-input-block">
-			    	<input type="tel" value="" placeholder="请输入手机号码" lay-verify="required|phone" class="layui-input">
+			    	<input type="tel" value="" placeholder="请输入手机号码" id="phoneByEdit" lay-verify="required|phone" class="layui-input">
 			    </div>
 			</div>
 			<div class="layui-form-item">
 			    <label class="layui-form-label">出生年月</label>
 			    <div class="layui-input-block">
-			    	<input type="text" value="" placeholder="请输入出生年月" lay-verify="required|date" onclick="layui.laydate({elem: this,max: laydate.now()})" class="layui-input">
+			    	<input type="text" value="" id="birthdayByEdit" placeholder="请输入出生年月" lay-verify="required|date" onclick="layui.laydate({elem: this,max: laydate.now()})" class="layui-input">
 			    </div>
 			</div>
 			<div class="layui-form-item">
@@ -72,39 +72,39 @@
 	                </select>
 	            </div>
 			</div>
-			<div class="layui-form-item">
-			    <label class="layui-form-label">兴趣爱好</label>
-			    <div class="layui-input-block">
-			    	<input type="checkbox" name="like1[javascript]" title="Javascript">
-				    <input type="checkbox" name="like1[html]" title="HTML(5)">
-				    <input type="checkbox" name="like1[css]" title="CSS(3)">
-				    <input type="checkbox" name="like1[php]" title="PHP">
-				    <input type="checkbox" name="like1[.net]" title=".net">
-				    <input type="checkbox" name="like1[ASP]" title="ASP">
-				    <input type="checkbox" name="like1[C#]" title="C#">
-				    <input type="checkbox" name="like1[Angular]" title="Angular">
-				    <input type="checkbox" name="like1[VUE]" title="VUE">
-				    <input type="checkbox" name="like1[XML]" title="XML">
-			    </div>
-			</div>
-			<div class="layui-form-item">
-			    <label class="layui-form-label">邮箱</label>
-			    <div class="layui-input-block">
-			    	<input type="text" value="" placeholder="请输入邮箱" lay-verify="required|email" class="layui-input">
-			    </div>
-			</div>
-			<div class="layui-form-item">
-			    <label class="layui-form-label">自我评价</label>
-			    <div class="layui-input-block">
-			    	<textarea placeholder="请输入内容" class="layui-textarea"></textarea>
-			    </div>
-			</div>
+			<%--<div class="layui-form-item">--%>
+			    <%--<label class="layui-form-label">兴趣爱好</label>--%>
+			    <%--<div class="layui-input-block">--%>
+			    	<%--<input type="checkbox" name="like1[javascript]" title="Javascript">--%>
+				    <%--<input type="checkbox" name="like1[html]" title="HTML(5)">--%>
+				    <%--<input type="checkbox" name="like1[css]" title="CSS(3)">--%>
+				    <%--<input type="checkbox" name="like1[php]" title="PHP">--%>
+				    <%--<input type="checkbox" name="like1[.net]" title=".net">--%>
+				    <%--<input type="checkbox" name="like1[ASP]" title="ASP">--%>
+				    <%--<input type="checkbox" name="like1[C#]" title="C#">--%>
+				    <%--<input type="checkbox" name="like1[Angular]" title="Angular">--%>
+				    <%--<input type="checkbox" name="like1[VUE]" title="VUE">--%>
+				    <%--<input type="checkbox" name="like1[XML]" title="XML">--%>
+			    <%--</div>--%>
+			<%--</div>--%>
+			<%--<div class="layui-form-item">--%>
+			    <%--<label class="layui-form-label">邮箱</label>--%>
+			    <%--<div class="layui-input-block">--%>
+			    	<%--<input type="text" value="" placeholder="请输入邮箱" lay-verify="required|email" class="layui-input">--%>
+			    <%--</div>--%>
+			<%--</div>--%>
+			<%--<div class="layui-form-item">--%>
+			    <%--<label class="layui-form-label">自我评价</label>--%>
+			    <%--<div class="layui-input-block">--%>
+			    	<%--<textarea placeholder="请输入内容" class="layui-textarea"></textarea>--%>
+			    <%--</div>--%>
+			<%--</div>--%>
 		</div>
-		<div class="user_right">
-			<input type="file" name="dddd" class="layui-upload-file" lay-title="掐指一算，我要换一个头像了">
-			<p>由于是纯静态页面，所以只能显示一张随机的图片</p>
-			<img src="" class="layui-circle" id="userFace">
-		</div>
+		<%--<div class="user_right">--%>
+			<%--<input type="file" name="dddd" class="layui-upload-file" lay-title="掐指一算，我要换一个头像了">--%>
+			<%--<p>由于是纯静态页面，所以只能显示一张随机的图片</p>--%>
+			<%--<img src="" class="layui-circle" id="userFace">--%>
+		<%--</div>--%>
 		<div class="layui-form-item" style="margin-left: 5%;">
 		    <div class="layui-input-block">
 		    	<button class="layui-btn" lay-submit="" lay-filter="changeUser">立即提交</button>
@@ -113,7 +113,7 @@
 		</div>
 	</form>
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
-	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/page/user/address.js"></script>
-	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/page/user/user.js"></script>
+	<script type="text/javascript" src="${baseurl}/admin/page/user/address.js"></script>
+	<script type="text/javascript" src="${baseurl}/admin/page/user/user.js"></script>
 </body>
 </html>

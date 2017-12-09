@@ -139,7 +139,7 @@
 						<td class="server"></td>
 					</tr>
 					<tr>
-						<td>数据库版本</td>
+						<td>数据库</td>
 						<td class="dataBase"></td>
 					</tr>
 					<tr>

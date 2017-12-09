@@ -13,7 +13,7 @@ layui.config({
  		systemParameter += '"author":"'+$(".author").val()+'",'; //开发作者
  		systemParameter += '"homePage":"'+$(".homePage").val()+'",'; //网站首页
  		systemParameter += '"server":"'+$(".server").val()+'",'; //服务器环境
- 		systemParameter += '"dataBase":"'+$(".dataBase").val()+'",'; //数据库版本
+ 		systemParameter += '"dataBase":"'+$(".dataBase").val()+'",'; //数据库
  		systemParameter += '"maxUpload":"'+$(".maxUpload").val()+'",'; //最大上传限制
  		systemParameter += '"userRights":"'+$(".userRights").val()+'",'; //用户权限
  		systemParameter += '"description":"'+$(".description").val()+'",'; //站点描述
@@ -52,7 +52,7 @@ layui.config({
 		$(".author").val(data.author);        //开发作者
 		$(".homePage").val(data.homePage);    //网站首页
 		$(".server").val(data.server);        //服务器环境
-		$(".dataBase").val(data.dataBase);    //数据库版本
+		$(".dataBase").val(data.dataBase);    //数据库
 		$(".maxUpload").val(data.maxUpload);  //最大上传限制
 		$(".userRights").val(data.userRights);//当前用户权限
 		$(".cmsName").val(data.cmsName);      //模版名称

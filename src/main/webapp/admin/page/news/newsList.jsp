@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>文章列表--layui后台管理模板</title>
+	<title>文章列表</title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -102,13 +102,12 @@
 		</div>
 		<div class="layui-form-item">
 			<div class="layui-input-block">
-				<button class="layui-btn" lay-submit="" lay-filter="addNews">立即提交</button>
+				<button class="layui-btn subInfoByUpdate" lay-submit="" lay-filter="addNews">立即提交</button>
 				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 			</div>
 		</div>
 	</form>
 	<script type="text/javascript" src="${baseurl}/view/systemBackground/admin/layui/layui.js"></script>
 	<script type="text/javascript" src="${baseurl}/admin/page/news/newsList.js"></script>
-	<script type="text/javascript" src="${baseurl}/admin/page/news/newsUpdate.js"></script>
 </body>
 </html>

@@ -7,17 +7,24 @@ public class Post {
     private String date;
     private String personalitytraits;
     private String userName;
+    private String newsStatus;
+    private String newsLook;
+    private String isShow;
     public Post() {
         super();
     }
-    public Post(Integer id,String title,String content,String img,String date,String personalitytraits) {
-        super();
+
+    public Post(Integer id, String title, String content, String img, String date, String personalitytraits, String userName, String newsStatus, String newsLook, String isShow) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.img = img;
         this.date = date;
         this.personalitytraits = personalitytraits;
+        this.userName = userName;
+        this.newsStatus = newsStatus;
+        this.newsLook = newsLook;
+        this.isShow = isShow;
     }
 
     public Post(Integer id, String title, String content, String img, String date, String personalitytraits, String userName) {
@@ -86,6 +93,30 @@ public class Post {
         this.userName = userName;
     }
 
+    public String getNewsStatus() {
+        return newsStatus;
+    }
+
+    public void setNewsStatus(String newsStatus) {
+        this.newsStatus = newsStatus;
+    }
+
+    public String getNewsLook() {
+        return newsLook;
+    }
+
+    public void setNewsLook(String newsLook) {
+        this.newsLook = newsLook;
+    }
+
+    public String getIsShow() {
+        return isShow;
+    }
+
+    public void setIsShow(String isShow) {
+        this.isShow = isShow;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
@@ -96,6 +127,9 @@ public class Post {
                 ", date='" + date + '\'' +
                 ", personalitytraits='" + personalitytraits + '\'' +
                 ", userName='" + userName + '\'' +
+                ", newsStatus='" + newsStatus + '\'' +
+                ", newsLook='" + newsLook + '\'' +
+                ", isShow='" + isShow + '\'' +
                 '}';
     }
 }
