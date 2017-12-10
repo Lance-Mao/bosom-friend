@@ -27,7 +27,7 @@
     <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="${baseurl}/resource/public/fileUpload/js/fileUpload.js"></script>
 
-   <%--${baseurl} 获取页面相对路径--%>
+    <%--${baseurl} 获取页面相对路径--%>
 
     <style>
         ul {
@@ -161,7 +161,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" onclick="searchYouOtherHalf()" data-dismiss="modal"><a href="#showPosts"></a>搜索</button>
+                <button type="button" class="btn btn-primary" onclick="searchYouOtherHalf()" data-dismiss="modal"><a
+                        href="#showPosts"></a>搜索
+                </button>
             </div>
         </div>
     </div>
@@ -405,10 +407,9 @@
             url: "${baseurl}/addFriend/showMyFriend",
             type: "post",
             success: function (data) {
-                console.log(data);
                 if (data.result) {
                     $("#showMyFriend").html("");
-                    for (let item of data.data) {
+                    for (let item of new Set(data.data)) {
                         $("#showMyFriend").append(`
                     <div class="col-md-3 centered"><img class="img img-circle"
                                                         src="${baseurl}/images/user/` + item.userImg + `"
@@ -423,6 +424,17 @@
                 }
             }
         })
+    }
+
+    function unique1(array) {
+        var n = []; //一个新的临时数组
+        //遍历当前数组
+        for (var i = 0; i < array.length; i++) {
+            //如果当前数组的第i已经保存进了临时数组，那么跳过，
+            //否则把当前项push到临时数组里面
+            if (n.indexOf(array[i]) == -1) n.push(array[i]);
+        }
+        return n;
     }
 
     function tabToShowPosts() {

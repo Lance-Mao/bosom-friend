@@ -186,8 +186,9 @@
 
     <select id="selectMyFriendAll" parameterType="String" resultType="map">
         select
-        friend.*,
-        users.*
+        DISTINCT
+        users.*,
+        friend.*
         from bf_friend friend
         LEFT JOIN (SELECT * FROM bf_user) users ON users.user_name = friend.friend_id
         WHERE friend.user_id = #{userName}
