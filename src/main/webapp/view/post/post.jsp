@@ -405,6 +405,7 @@
             url: "${baseurl}/addFriend/showMyFriend",
             type: "post",
             success: function (data) {
+                console.log(data);
                 if (data.result) {
                     $("#showMyFriend").html("");
                     for (let item of data.data) {
