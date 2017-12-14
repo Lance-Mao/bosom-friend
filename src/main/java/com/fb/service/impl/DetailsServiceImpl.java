@@ -1,7 +1,6 @@
 package com.fb.service.impl;
 
 import com.fb.service.DetailsService;
-import com.fb.common.Assist;
 import com.fb.dao.DetailsDao;
 import com.fb.entity.Details;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +12,6 @@ import java.util.List;
 public class DetailsServiceImpl implements DetailsService {
     @Autowired
     private DetailsDao detailsDao;
-    @Override
-    public long getDetailsRowCount(Assist assist){
-        return detailsDao.getDetailsRowCount(assist);
-    }
-    @Override
-    public List<Details> selectDetails(Assist assist){
-        return detailsDao.selectDetails(assist);
-    }
     @Override
     public Details selectDetailsByObj(Details obj){
         return detailsDao.selectDetailsByObj(obj);
@@ -42,25 +33,14 @@ public class DetailsServiceImpl implements DetailsService {
         return detailsDao.deleteDetailsById(id);
     }
     @Override
-    public int deleteDetails(Assist assist){
-        return detailsDao.deleteDetails(assist);
-    }
-    @Override
     public int updateDetailsById(Details enti){
         return detailsDao.updateDetailsById(enti);
-    }
-    @Override
-    public int updateDetails(Details value, Assist assist){
-        return detailsDao.updateDetails(value,assist);
     }
     @Override
     public int updateNonEmptyDetailsById(Details enti){
         return detailsDao.updateNonEmptyDetailsById(enti);
     }
-    @Override
-    public int updateNonEmptyDetails(Details value, Assist assist){
-        return detailsDao.updateNonEmptyDetails(value,assist);
-    }
+
 
     public DetailsDao getDetailsDao() {
         return this.detailsDao;

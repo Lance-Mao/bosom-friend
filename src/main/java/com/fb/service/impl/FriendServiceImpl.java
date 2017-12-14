@@ -1,7 +1,6 @@
 package com.fb.service.impl;
 
 
-import com.fb.common.Assist;
 import com.fb.dao.FriendDao;
 import com.fb.entity.Friend;
 import com.fb.service.FriendService;
@@ -16,14 +15,6 @@ import java.util.Objects;
 public class FriendServiceImpl implements FriendService {
     @Autowired
     private FriendDao friendDao;
-    @Override
-    public long getFriendRowCount(Assist assist){
-        return friendDao.getFriendRowCount(assist);
-    }
-    @Override
-    public List<Friend> selectFriend(Assist assist){
-        return friendDao.selectFriend(assist);
-    }
     @Override
     public Friend selectFriendByObj(Friend obj){
         return friendDao.selectFriendByObj(obj);
@@ -45,25 +36,14 @@ public class FriendServiceImpl implements FriendService {
         return friendDao.deleteFriendById(id);
     }
     @Override
-    public int deleteFriend(Assist assist){
-        return friendDao.deleteFriend(assist);
-    }
-    @Override
     public int updateFriendById(Friend enti){
         return friendDao.updateFriendById(enti);
-    }
-    @Override
-    public int updateFriend(Friend value, Assist assist){
-        return friendDao.updateFriend(value,assist);
     }
     @Override
     public int updateNonEmptyFriendById(Friend enti){
         return friendDao.updateNonEmptyFriendById(enti);
     }
-    @Override
-    public int updateNonEmptyFriend(Friend value, Assist assist){
-        return friendDao.updateNonEmptyFriend(value,assist);
-    }
+
 
     @Override
     public List<Map<String, Objects>> selectFriendOfIsFriend(Friend friend) {

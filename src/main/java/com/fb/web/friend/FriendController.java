@@ -52,6 +52,8 @@ public class FriendController {
         try {
             String userName = (String) request.getSession().getAttribute("userName");
             List<Map<String,Object>> myFriendInfo = friendService.selectMyFriendAll(userName);
+            System.out.println("传进来的数据：" + userName);
+            System.out.println("查询出来的数据：" + myFriendInfo);
 
             return Result.success(myFriendInfo, Constant.ADD_SUCCESS);
         } catch (Exception e) {

@@ -53,46 +53,6 @@
         ,bf_personality_traits.post_id as post_id
     </sql>
 
-    <!--获得类名为:PersonalityTraits对应的数据库表的数据总行数 -->
-    <select id="getPersonalityTraitsRowCount" parameterType="com.fb.common.Assist" resultType="java.lang.Long">
-        select count(id) from bf_personality_traits
-        <if test="require!=null"><include refid="Assist" /></if>
-    </select>
-    <!-- 获得类名为:PersonalityTraits对应数据库中表的数据集合 -->
-    <select id="selectPersonalityTraits" parameterType="com.fb.common.Assist"  resultMap="result_PersonalityTraits_Map">
-        select  <if test="distinct !=null">${distinct}</if>
-        <choose>
-            <when test="resultColumn!=null">${resultColumn}</when>
-            <otherwise>
-        <include refid="bf_personality_traits_Column" /> 
-            </otherwise>
-        </choose>
-        from bf_personality_traits
-        <choose>
-            <when test="rowSize ==null">
-                <if test="require!=null">
-                    <include refid="Assist" />
-                </if>
-                <if test="order !=null">${order}</if>
-            </when>
-            <otherwise>
-                inner join
-                (
-                SELECT id as primary_key FROM bf_personality_traits
-                <if test="require!=null">
-                    <include refid="Assist" />
-                </if>
-                <if test="order !=null">${order}</if>
-                <choose>
-                    <when test="startRow !=null and rowSize !=null">LIMIT #{startRow},#{rowSize} </when>
-                    <when test="rowSize !=null">LIMIT #{rowSize}</when>
-                 </choose>
-                 ) as tmp
-                 on tmp.primary_key=bf_personality_traits.id
-            </otherwise>
-        </choose>
-    </select> 
-
     <!-- 获得一个PersonalityTraits对象,以参数PersonalityTraits对象中不为空的属性作为条件进行查询-->
     <select id="selectPersonalityTraitsByObj" parameterType="com.fb.entity.PersonalityTraits" resultMap="result_PersonalityTraits_Map">
         select 
@@ -171,11 +131,7 @@
         where id = #{id}
     </delete>
 
-    <!-- 通过辅助工具Assist中的条件将PersonalityTraits对应的数据库表的数据删除-->
-    <delete id="deletePersonalityTraits" parameterType="com.fb.common.Assist">
-        delete from bf_personality_traits
-        <if test="require!=null"><include refid="Assist" /></if>
-    </delete>
+
 
     <!-- 通过PersonalityTraits的id将PersonalityTraits的数据更新到数据库中对应的表,包括值null的数据-->
     <update id="updatePersonalityTraitsById" parameterType="com.fb.entity.PersonalityTraits">

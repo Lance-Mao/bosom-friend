@@ -35,45 +35,6 @@
         ,bf_suggest.date as date
     </sql>
 
-    <!--获得类名为:Suggest对应的数据库表的数据总行数 -->
-    <select id="getSuggestRowCount" parameterType="com.fb.common.Assist" resultType="java.lang.Long">
-        select count(id) from bf_suggest
-        <if test="require!=null"><include refid="Assist" /></if>
-    </select>
-    <!-- 获得类名为:Suggest对应数据库中表的数据集合 -->
-    <select id="selectSuggest" parameterType="com.fb.common.Assist" resultMap="result_Suggest_Map">
-        select  <if test="distinct !=null">${distinct}</if>
-        <choose>
-            <when test="resultColumn!=null">${resultColumn}</when>
-            <otherwise>
-        <include refid="bf_suggest_Column" /> 
-            </otherwise>
-        </choose>
-        from bf_suggest
-        <choose>
-            <when test="rowSize ==null">
-                <if test="require!=null">
-                    <include refid="Assist" />
-                </if>
-                <if test="order !=null">${order}</if>
-            </when>
-            <otherwise>
-                inner join
-                (
-                SELECT id as primary_key FROM bf_suggest
-                <if test="require!=null">
-                    <include refid="Assist" />
-                </if>
-                <if test="order !=null">${order}</if>
-                <choose>
-                    <when test="startRow !=null and rowSize !=null">LIMIT #{startRow},#{rowSize} </when>
-                    <when test="rowSize !=null">LIMIT #{rowSize}</when>
-                 </choose>
-                 ) as tmp
-                 on tmp.primary_key=bf_suggest.id
-            </otherwise>
-        </choose>
-    </select> 
 
     <!-- 获得一个Suggest对象,以参数Suggest对象中不为空的属性作为条件进行查询-->
     <select id="selectSuggestByObj" parameterType="com.fb.entity.Suggest" resultMap="result_Suggest_Map">
@@ -126,11 +87,7 @@
         where id = #{id}
     </delete>
 
-    <!-- 通过辅助工具Assist中的条件将Suggest对应的数据库表的数据删除-->
-    <delete id="deleteSuggest" parameterType="com.fb.common.Assist">
-        delete from bf_suggest
-        <if test="require!=null"><include refid="Assist" /></if>
-    </delete>
+
 
     <!-- 通过Suggest的id将Suggest的数据更新到数据库中对应的表,包括值null的数据-->
     <update id="updateSuggestById" parameterType="com.fb.entity.Suggest">
